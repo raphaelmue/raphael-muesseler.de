@@ -1,0 +1,22 @@
+{
+	"home": "Home",
+	"aboutMe": "About Me",
+	"projects": "Projects",
+	"contactMe": "Contact Me",
+	"softwareDeveloper": "Software Developer",
+	"musician": "Musician",
+	"magician": "Magician",
+	"coding": "Coding",
+	"music": "Music",
+	"magic": "Magic",
+	"video": "Video",
+	"show": "Show",
+	"email": "Email",
+	"message": "Message",
+	"codingDescription": "I started programming at the age of 12 - first in a working group, later in class. I am currently studying dual computer science at SAP. I was able to gain a lot of experience in programming. I am proficient in Java, JavaScript, Python, PHP, SQL and web development. I have also worked with various frameworks such as Spring Boot, Android, NodeJS, Bootstrap and many more. I am also interested in configuring servers under Linux and work with Docker and Nginx.",
+	"musicDescription": "I started playing the piano at the age of 6. A friend of mine inspired me to play the guitar at the age of 12. At school I joined the school orchestra and played the electric bass. Since my father studied music, I could learn a lot from him concerning harmony. I also played in a band called FineTune until shortly before I started my studies. At the moment I'm very much involved with jazz, neo-jazz, funk etc. and also accompany weddings more often.",
+	"magicDescription": "Magic is a rather new hobby for me. I started it only a few years ago when another friend inspired me. I mainly deal with close-up magic, especially card magic. However, I could convince my friends with a few coin tricks, I am mainly interested in Card Magic.",
+	"dashupDescription": "The dashup platform provides a quick overview over multiple widgets that can be used for productivity purposes. Its intention is to standardize the usage of different widgets by defining a global design and functionality policy.",
+	"financerDescription": "Financer is an application that helps to manage your personal expenses and revenues. It helps you to analyze how much you have spend on living, eating etc. Besides you can take a look at the temporal progression of your expenses as well as on your revenues.",
+	"bandExclusiveDescription": "Exclusive, the cover band from Mönchengladbach, Germany, makes a successful good mood evening with a colourful mixture of the hits of the 80s, 90s and current titles, medleys of well-known bands and artists."
+}

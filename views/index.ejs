@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <title>Raphael Müßeler</title>
+        <%- include components/html-head.ejs %>
+    </head>
+    <body>
+        <header>
+            <nav id="navbar" class="navbar fixed-top navbar-expand-lg">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-toggler"
+                        aria-controls="navbar-toggler" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon fa fa-bars"></span>
+                </button>
+                <div class="container">
+                    <div class="row" style="width: 100%">
+                        <div class="col-1">
+                            <a class="navbar-brand mx-2" href="/">
+                                <div class="logo"></div>
+                            </a>
+                        </div>
+                        <div class="col-11">
+                            <div class="collapse navbar-collapse float-right" id="navbar-toggler">
+                                <ul class="nav nav-pills navbar-nav mx-5">
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="#home"><%= __("home") %></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#aboutMe"><%= __("aboutMe") %></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#projects"><%= __("projects") %></a>
+                                    </li>
+                                    <li class="nav-item my-2 my-lg-0">
+                                        <a class="nav-link" href="#contactMe"><%= __("contactMe") %></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </nav>
+
+            <div class="banner" id="home">
+                <h1 class="banner-heading" data-aos="fade-up">Raphael Müßeler</h1>
+                <h3 class="banner-sub-heading" data-aos="fade-in" data-aos-delay="500"><%= __("softwareDeveloper") %>
+                    | <%= __("musician") %> | <%= __("magician") %></h3>
+            </div>
+            <div class="profile-image" data-aos="zoom-out"></div>
+        </header>
+
+        <main>
+            <section class="container">
+                <h6 class="sub-heading" id="aboutMe"><%= __("aboutMe") %></h6>
+                <section class="row">
+                    <article class="col-md-4 col-12 icon-box" data-aos="fade-up">
+                        <span class="fa fa-code fa-lg icon"></span>
+                        <h1><%= __("coding") %></h1>
+                        <p><%= __("codingDescription") %></p>
+                    </article>
+                    <article class="col-md-4 col-12 icon-box" data-aos="fade-up" data-aos-delay="100">
+                        <span class="fa fa-music fa-lg icon"></span>
+                        <h1>Music</h1>
+                        <p><%= __("musicDescription") %></p>
+                    </article>
+                    <article class="col-md-4 col-12 icon-box" data-aos="fade-up" data-aos-delay="200">
+                        <span class="fa fa-magic icon"></span>
+                        <h1>Magic</h1>
+                        <p><%= __("magicDescription") %></p>
+                    </article>
+                </section>
+
+                <h6 class="sub-heading" id="projects"><%= __("projects") %></h6>
+                <section class="row">
+                    <div class="col-md-4 col-12 px-3" data-aos="fade-up">
+                        <div class="card shadow">
+                            <img class="card-img-top" src="/images/financer.png"/>
+                            <div class="card-body">
+                                <h3 class="card-title">Financer</h3>
+                                <p class="card-text text-justify"><%= __("financerDescription") %></p>
+                                <a href="https://github.com/raphaelmue/financer" class="card-link" target="_blank">
+                                    <%= __("show") %>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-12 px-3" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card shadow">
+                            <img class="card-img-top" src="/images/dashup.png"/>
+                            <div class="card-body">
+                                <h3 class="card-title">Dashup</h3>
+                                <p class="card-text text-justify"><%= __("dashupDescription") %></p>
+                                <a href="https://github.com/raphaelmue/dashup" class="card-link" target="_blank">
+                                    <%= __("show") %>
+                                </a>
+                                <a href="https://www.youtube.com/watch?v=_YpFxw6nj_A&feature=youtu.be"
+                                   class="card-link" target="_blank">
+                                    <%= __("video") %>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-12 px-3" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card shadow">
+                            <img class="card-img-top" src="/images/band-exclusive.png"/>
+                            <div class="card-body">
+                                <h3 class="card-title">Band Exclusive</h3>
+                                <p class="card-text text-justify"><%= __("bandExclusiveDescription") %></p>
+                                <a href="http://band-exclusive.de/" class="card-link" target="_blank">
+                                    <%= __("show") %>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <h6 class="sub-heading" id="contactMe"><%= __("contactMe") %></h6>
+                <section class="row">
+                    <div class="col-md-6 offset-md-3 col-12">
+                        <form target="/message" method="post">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1"><%= __("email") %></label>
+                                <input type="email" class="form-control" id="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1"><%= __("message") %></label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" disabled>Submit</button>
+                        </form>
+                    </div>
+                </section>
+            </section>
+        </main>
+
+        <footer>
+            <div class="copyright">
+                <p>© Raphael Müßeler 2019</p>
+            </div>
+        </footer>
+    </body>
+
+    <script>
+        $(document).ready(function () {
+            AOS.init({
+                duration: 1200
+            });
+
+            let offset = 120;
+            $('body').scrollspy({offset: offset});
+
+            $('#navbar li a').click(function (event) {
+                event.preventDefault();
+                $($(this).attr('href'))[0].scrollIntoView();
+                scrollBy(0, -offset);
+            });
+        });
+
+        $(window).scroll(function () {
+            if ($(document).scrollTop() > 0) {
+                $('#navbar').addClass("bg-primary shadow");
+            } else {
+                $('#navbar').removeClass("bg-primary shadow");
+            }
+        });
+    </script>
+</html>
