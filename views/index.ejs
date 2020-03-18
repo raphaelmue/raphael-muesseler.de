@@ -15,9 +15,11 @@
                             </a>
                         </div>
                         <div class="col-10">
-                            <button class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#navbar-toggler"
+                            <button class="navbar-toggler float-right" type="button" data-toggle="collapse"
+                                    data-target="#navbar-toggler"
                                     aria-controls="navbar-toggler" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon fa fa-bars" style="color: white; margin: 20px 0; font-size: 25px"></span>
+                                <span class="navbar-toggler-icon fa fa-bars"
+                                      style="color: white; margin: 20px 0; font-size: 25px"></span>
                             </button>
                             <div class="collapse navbar-collapse float-right" id="navbar-toggler">
                                 <ul class="nav nav-pills navbar-nav mx-5">
@@ -71,24 +73,37 @@
 
                 <h6 class="sub-heading" id="projects"><%= __("projects") %></h6>
                 <section class="row">
-                    <div class="col-md-4 col-12 px-3" data-aos="fade-up">
+                    <div class="col-md-4 col-12 p-3" data-aos="fade-up">
                         <div class="card shadow">
                             <img class="card-img-top" src="/images/financer.png"/>
                             <div class="card-body">
                                 <h3 class="card-title">Financer</h3>
-                                <p class="card-text text-justify"><%= __("financerDescription") %></p>
+                                <p class="card-text"><%= __("financerDescription") %></p>
                                 <a href="https://github.com/raphaelmue/financer" class="card-link" target="_blank">
                                     <%= __("show") %>
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-12 px-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="col-md-4 col-12 p-3" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card shadow">
+                            <img class="card-img-top py-4 px-1"
+                                 src="https://raw.githubusercontent.com/raphaelmue/travlyn/master/docs/logo/travlyn_lettering.png"/>
+                            <div class="card-body">
+                                <h3 class="card-title">Travlyn</h3>
+                                <p class="card-text"><%= __("travlynDescription") %></p>
+                                <a href="https://github.com/raphaelmue/travlyn" class="card-link" target="_blank">
+                                    <%= __("show") %>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-12 p-3" data-aos="fade-up" data-aos-delay="200">
                         <div class="card shadow">
                             <img class="card-img-top" src="/images/dashup.png"/>
                             <div class="card-body">
                                 <h3 class="card-title">Dashup</h3>
-                                <p class="card-text text-justify"><%= __("dashupDescription") %></p>
+                                <p class="card-text"><%= __("dashupDescription") %></p>
                                 <a href="https://github.com/raphaelmue/dashup" class="card-link" target="_blank">
                                     <%= __("show") %>
                                 </a>
@@ -99,12 +114,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-12 px-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="col-md-4 col-12 px-3" data-aos="fade-up" data-aos-delay="300">
                         <div class="card shadow">
                             <img class="card-img-top" src="/images/band-exclusive.png"/>
                             <div class="card-body">
                                 <h3 class="card-title">Band Exclusive</h3>
-                                <p class="card-text text-justify"><%= __("bandExclusiveDescription") %></p>
+                                <p class="card-text"><%= __("bandExclusiveDescription") %></p>
                                 <a href="http://band-exclusive.de/" class="card-link" target="_blank">
                                     <%= __("show") %>
                                 </a>
