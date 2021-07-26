@@ -1,13 +1,32 @@
 pipeline {
-    agent {
-        dockerfile {
-            filename 'Dockerfile'
-        }
-    }
     stages {
         stage('Build') {
-            steps {
-                sh 'yarn install'
+            parallel {
+                stage('Backend') {
+                    steps {
+                        dir('backend') {
+                            sh 'yarn install'
+                        }
+                    }
+                }
+                stage('Frontend') {
+                    steps {
+                        dir('frontend') {
+                            sh 'yarn install'
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            dir('backend') {
+                sh 'yarn run clean:modules'
+            }
+            dir('frontend') {
+                sh 'yarn run clean:modules'
             }
         }
     }

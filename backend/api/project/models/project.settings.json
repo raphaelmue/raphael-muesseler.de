@@ -1,0 +1,76 @@
+{
+	"kind": "collectionType",
+	"collectionName": "project",
+	"info": {
+		"name": "Project",
+		"description": "My personal Projects"
+	},
+	"options": {
+		"increments": true,
+		"timestamps": true,
+		"draftAndPublish": true
+	},
+	"pluginOptions": {
+		"i18n": {
+			"localized": true
+		}
+	},
+	"attributes": {
+		"name": {
+			"type": "string",
+			"unique": false,
+			"pluginOptions": {
+				"i18n": {
+					"localized": false
+				}
+			}
+		},
+		"short_text": {
+			"type": "text",
+			"pluginOptions": {
+				"i18n": {
+					"localized": true
+				}
+			}
+		},
+		"content": {
+			"type": "richtext",
+			"pluginOptions": {
+				"i18n": {
+					"localized": true
+				}
+			}
+		},
+		"creation_date": {
+			"type": "date",
+			"pluginOptions": {
+				"i18n": {
+					"localized": false
+				}
+			}
+		},
+		"website": {
+			"type": "string",
+			"regex": "https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)",
+			"pluginOptions": {
+				"i18n": {
+					"localized": false
+				}
+			}
+		},
+		"banner_image": {
+			"model": "file",
+			"via": "related",
+			"allowedTypes": [
+				"images"
+			],
+			"plugin": "upload",
+			"required": false,
+			"pluginOptions": {
+				"i18n": {
+					"localized": false
+				}
+			}
+		}
+	}
+}

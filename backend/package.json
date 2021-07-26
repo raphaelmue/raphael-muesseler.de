@@ -1,0 +1,44 @@
+{
+	"name": "backend",
+	"private": true,
+	"version": "1.0.0",
+	"description": "Backend",
+	"scripts": {
+		"clean": "rimraf node_modules/ build/ .cache/",
+		"clean:modules": "rimraf node_modules/",
+		"develop": "strapi develop",
+		"start": "strapi start",
+		"build": "strapi build",
+		"strapi": "strapi"
+	},
+	"devDependencies": {
+		"rimraf": "^3.0.2"
+	},
+	"dependencies": {
+		"knex": "0.21.18",
+		"sqlite3": "5.0.0",
+		"strapi": "3.6.1",
+		"strapi-admin": "3.6.1",
+		"strapi-connector-bookshelf": "3.6.1",
+		"strapi-plugin-content-manager": "3.6.1",
+		"strapi-plugin-content-type-builder": "3.6.1",
+		"strapi-plugin-documentation": "3.6.1",
+		"strapi-plugin-email": "3.6.1",
+		"strapi-plugin-i18n": "3.6.1",
+		"strapi-plugin-upload": "3.6.1",
+		"strapi-plugin-users-permissions": "3.6.1",
+		"strapi-utils": "3.6.1"
+	},
+	"author": {
+		"name": "Raphael Müßeler",
+		"email": "info@raphael-muesseler.de",
+		"url": "https://raphael-muesseler.de"
+	},
+	"strapi": {
+		"uuid": "5c864164-29bf-4c1f-abb7-874359eb76a0"
+	},
+	"engines": {
+		"node": ">=10.16.0 <=14.x.x",
+		"npm": "^6.0.0"
+	}
+}
