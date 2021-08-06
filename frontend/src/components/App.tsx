@@ -1,10 +1,14 @@
-import React from 'react';
-import Home  from './home/Home';
+import React           from 'react';
+import {BrowserRouter} from 'react-router-dom';
+import Home            from './home/Home';
+import '../style/main.scss'
 
 function App() {
     return (
         <div>
-            <Home/>
+            <BrowserRouter>
+                <Home/>
+            </BrowserRouter>
         </div>
     );
 }

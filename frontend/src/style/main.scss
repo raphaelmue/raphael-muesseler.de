@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans&display=swap');
+@import '~bootstrap/scss/functions';
+@import '~argon-design-system-react/src/assets/scss/argon-design-system/variables';
+@import '~@fortawesome/fontawesome-svg-core/styles.css';
+@import '~bootstrap/scss/bootstrap';
+
+$default: #388697;
+$light: #58d8f1;
+$dark: #21565e;
+
+@import 'navbar';
+@import '~argon-design-system-react/src/assets/scss/argon-design-system/theme';
+
+$breakpoint-s: 576px;
+$breakpoint-m: 768px;
+$breakpoint-l: 992px;
+$breakpoint-xl: 1200px;
+
+.animate {
+    transition: 0.3s ease-in-out all;
+}
+
+h1, h2, h3, h4, h5, h6, .display-1, .display-2, .display-3, .display-4 {
+    font-family: "Montserrat", sans-serif;
+    color: $default;
+}
+
+.lead {
+    font-family: "Montserrat", sans-serif;
+}
+
+.secondary {
+    //text-transform: uppercase;
+    font-family: "Montserrat", sans-serif;
+    color: $dark;
+    margin: 0;
+    letter-spacing: 2px;
+    font-weight: 700;
+    font-size: $font-size-lg;
+}
+
+.banner {
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+
+}
+
+.banner-heading {
+    position: absolute;
+    width: 50%;
+    padding: 24px;
+    top: 15%;
+
+    @media (min-width: $breakpoint-m) {
+        position: absolute;
+        width: 33%;
+        top: 33%;
+        left: 66%;
+    }
+
+    .banner-heading-iam {
+        @extend .secondary
+    }
+
+    .banner-heading-name {
+        @extend .display-2;
+
+        &:after {
+            content: ' ';
+            display: block;
+            margin: 20px 0;
+            height: 6px;
+            width: 64px;
+            background: $default;
+        }
+    }
+
+    .banner-heading-subtitle {
+        @extend .lead;
+        margin: 0 0 15px 0;
+    }
+
+    .banner-description {
+        text-align: justify;
+        display: none;
+
+        @media (min-width: $breakpoint-m) {
+            display: inherit;
+        }
+    }
+}
+
+.content-section {
+    padding: 50px 0;
+}
+
+.banner-scroll-button {
+    font-size: $font-size-xl;
+    color: $default;
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+}
+
+.icon-card {
+    @extend .col-sm, .shadow, .animate;
+    padding: 24px;
+    border: 0;
+    background: $white;
+
+    h5 {
+        margin-bottom: 32px;
+
+        i {
+            position: relative;
+            font-size: 20px;
+            border-radius: 100%;
+            padding: 15px;
+            margin: 0 15px 0 0;
+            width: 55px;
+            background: rgba($default, 0.2);
+        }
+    }
+
+    &:hover {
+        @extend .shadow-lg--hover
+
+    }
+}
+
+.card-link {
+    width: auto;
+    text-align: right;
+    i {
+        margin: 0 10px;
+    }
+}
