@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_components_copyrights",
+  "info": {
+    "name": "Copyright",
+    "icon": "trademark",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "creationYear": {
+      "type": "integer"
+    },
+    "fontawesomeInfo": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+footer {
+    background: $gray-900;
+    color: $gray-400;
+
+    .content-section {
+        padding: 5%;
+    }
+
+    .col {
+        flex-basis: initial;
+        width: 90%;
+        margin: 15px auto !important;
+        @media (min-width: $breakpoint-m) {
+            margin: 0;
+            flex-basis: 0;
+        }
+    }
+
+    h4 {
+        @extend .heading-line;
+
+        color: $gray-400;
+    }
+
+    p {
+        line-height: 35px;
+    }
+
+    a {
+        color: $gray-400;
+        display: block;
+
+        &:hover {
+            color: $gray-600;
+        }
+    }
+
+    .social-media-link {
+        font-size: 24px;
+        display: inline-block !important;
+        padding: 0 24px 0 0;
+    }
+}

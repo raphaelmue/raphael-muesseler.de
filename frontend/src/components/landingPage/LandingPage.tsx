@@ -51,6 +51,7 @@ class LandingPage extends React.Component<HomeComponentProps, HomeComponentState
         if (!this.state.landingPageData || !this.state.headerData) {
             return (<Spinner className={'page-spinner'}/>);
         } else {
+
             return (
                 <main>
                     {this.state.landingPageData.header && this.state.headerData?.navbar ?
@@ -58,45 +59,25 @@ class LandingPage extends React.Component<HomeComponentProps, HomeComponentState
                             navbarData={this.state.headerData.navbar}
                             headerData={this.state.landingPageData.header}/> :
                         <div/>}
-                    <Content>
-                        <Row>
-                            <Col>
-                                <Card className={'icon-card'}>
-                                    <h5><i className="fa fa-code"/>Software Engineer</h5>
-                                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                                        tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-                                        vero
-                                        eos et accusam et justo duo dolores et ea rebum.</p>
-                                    <CardLink text={'Test'}
-                                              href={'#'}/>
-                                </Card>
-                            </Col>
-                            <Col>
-                                <Card className={'icon-card'}>
-                                    <h5><i className="fa fa-music"/>Musician</h5>
-                                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                                        tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-                                        vero
-                                        eos et accusam et justo duo dolores et ea rebum.</p>
-                                    <CardLink text={'Test'}
-                                              href={'#'}/>
-                                </Card>
-                            </Col>
-                            <Col>
-                                <Card className={'icon-card'}>
-                                    <h5><i className="fa fa-headphones"/>Producer</h5>
-                                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                                        tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-                                        vero
-                                        eos et accusam et justo duo dolores et ea rebum.</p>
-                                    <CardLink text={'Test'}
-                                              href={'#'}/>
-                                </Card>
-                            </Col>
-                        </Row>
-                    </Content>
-                    {this.state.headerData?.footer?
-                        <FooterComponent footerData={this.state.headerData.footer}/> : <div/>}
+                    {this.state.landingPageData.containers?.map(container => (
+                        <Content title={container.title}>
+                            <Row>
+                                {container.content?.map(content => (
+                                    <Col md={4}>
+                                        <Card className={'icon-card'}>
+                                            <i className={'heading-icon fa fa-' + content.icon + ' ' + content.color}/>
+                                            <h5 className={content.color}>{content.title}</h5>
+                                            <p>{content.content}</p>
+                                            <CardLink text={'Test'}
+                                                      href={content.learn_more_url || ''}/>
+                                        </Card>
+                                    </Col>
+                                ))}
+                            </Row>
+                        </Content>
+                    ))}
+                    {this.state.headerData ?
+                        <FooterComponent headerData={this.state.headerData}/> : <div/>}
                 </main>
             );
         }

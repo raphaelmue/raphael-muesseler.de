@@ -332,8 +332,82 @@
               "id": {
                 "type": "string"
               },
+              "links": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "copyright": {
+                "type": "object",
+                "required": [
+                  "id"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "creationYear": {
+                    "type": "integer"
+                  },
+                  "fontawesomeInfo": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "contact": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
               "email": {
                 "type": "string"
+              },
+              "socialMedia": {
+                "type": "object",
+                "required": [
+                  "id"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "instagram": {
+                    "type": "string"
+                  },
+                  "youtube": {
+                    "type": "string"
+                  },
+                  "spotify": {
+                    "type": "string"
+                  },
+                  "github": {
+                    "type": "string"
+                  }
+                }
               }
             }
           },
@@ -351,6 +425,9 @@
                   "type": "component"
                 },
                 "footer": {
+                  "type": "component"
+                },
+                "contact": {
                   "type": "component"
                 },
                 "localizations": {
@@ -495,8 +572,82 @@
               "id": {
                 "type": "string"
               },
+              "links": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "copyright": {
+                "type": "object",
+                "required": [
+                  "id"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "creationYear": {
+                    "type": "integer"
+                  },
+                  "fontawesomeInfo": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "contact": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
               "email": {
                 "type": "string"
+              },
+              "socialMedia": {
+                "type": "object",
+                "required": [
+                  "id"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "instagram": {
+                    "type": "string"
+                  },
+                  "youtube": {
+                    "type": "string"
+                  },
+                  "spotify": {
+                    "type": "string"
+                  },
+                  "github": {
+                    "type": "string"
+                  }
+                }
               }
             }
           },

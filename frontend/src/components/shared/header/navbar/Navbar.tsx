@@ -28,7 +28,7 @@ class Navbar extends React.Component<NavbarComponentProps, NavbarComponentState>
                     expand="lg">
                     <Container>
                         <NavbarBrand onClick={e => e.preventDefault()}>
-                            Raphael Müßeler
+                            {this.props.navbarData.title}
                         </NavbarBrand>
                         <button
                             aria-controls="navbar-primary"

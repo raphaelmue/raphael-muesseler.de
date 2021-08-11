@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_components_social_medias",
+  "info": {
+    "name": "SocialMedia",
+    "icon": "bullhorn",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "instagram": {
+      "type": "string"
+    },
+    "youtube": {
+      "type": "string"
+    },
+    "spotify": {
+      "type": "string"
+    },
+    "github": {
+      "type": "string"
+    }
+  }
+}

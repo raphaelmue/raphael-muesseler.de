@@ -1,0 +1,71 @@
+.headroom {
+}
+
+.headroom--pinned {
+    @extend .navbar-dark
+}
+.headroom--unpinned {
+
+}
+
+.banner {
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    //clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
+
+    @media (min-width: $breakpoint-m) {
+        background-position-x: 35%;
+    }
+}
+
+.banner-heading {
+    position: absolute;
+    width: 50%;
+    padding: 24px;
+    top: 15%;
+
+    @media (min-width: $breakpoint-m) {
+        position: absolute;
+        width: 33%;
+        top: 33%;
+        right: 5%;
+    }
+
+    .banner-heading-iam {
+        @extend .secondary
+    }
+
+    .banner-heading-name {
+        @extend .display-2, .heading-line;
+    }
+
+    .banner-heading-subtitle {
+        @extend .lead;
+        margin: 0 0 15px 0;
+    }
+
+    .banner-description {
+        text-align: justify;
+        display: none;
+
+        @media (min-width: $breakpoint-m) {
+            display: inherit;
+        }
+    }
+}
+
+.banner-scroll-button {
+    @extend .animate;
+    font-size: $font-size-xl;
+    color: $default;
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    cursor: pointer;
+
+    &:hover {
+        bottom: 20px;
+        color: lighten($default, 30%);
+    }
+}

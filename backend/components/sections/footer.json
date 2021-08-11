@@ -2,12 +2,20 @@
   "collectionName": "components_sections_footers",
   "info": {
     "name": "Footer",
-    "icon": "map-signs"
+    "icon": "map-signs",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "email": {
-      "type": "string"
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.link"
+    },
+    "copyright": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.copyright"
     }
   }
 }

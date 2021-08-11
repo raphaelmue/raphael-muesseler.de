@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_components_contacts",
+  "info": {
+    "name": "Contact",
+    "icon": "book-reader"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "socialMedia": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.social-media"
+    }
+  }
+}

@@ -309,56 +309,50 @@
               }
             }
           },
-          "body": {
+          "containers": {
             "type": "array",
             "items": {
-              "oneOf": [
-                {
-                  "properties": {
-                    "__component": {
-                      "type": "string",
-                      "enum": [
-                        "sections.content"
-                      ]
-                    },
-                    "id": {
-                      "type": "string"
-                    },
-                    "title": {
-                      "type": "string"
-                    },
-                    "content": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "required": [
-                          "id"
-                        ],
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          },
-                          "icon": {
-                            "type": "string"
-                          },
-                          "content": {
-                            "type": "string"
-                          },
-                          "learn_more_url": {
-                            "type": "string"
-                          }
-                        }
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "content": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "id"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "icon": {
+                        "type": "string"
+                      },
+                      "content": {
+                        "type": "string"
+                      },
+                      "learn_more_url": {
+                        "type": "string"
+                      },
+                      "color": {
+                        "type": "string"
                       }
                     }
-                  },
-                  "required": [
-                    "id"
-                  ]
+                  }
                 }
-              ]
+              }
             }
           },
           "localizations": {
@@ -374,8 +368,8 @@
                 "header": {
                   "type": "component"
                 },
-                "body": {
-                  "type": "dynamiczone"
+                "containers": {
+                  "type": "component"
                 },
                 "localizations": {
                   "type": "array",
@@ -496,56 +490,50 @@
               }
             }
           },
-          "body": {
+          "containers": {
             "type": "array",
             "items": {
-              "oneOf": [
-                {
-                  "properties": {
-                    "__component": {
-                      "type": "string",
-                      "enum": [
-                        "sections.content"
-                      ]
-                    },
-                    "id": {
-                      "type": "string"
-                    },
-                    "title": {
-                      "type": "string"
-                    },
-                    "content": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "required": [
-                          "id"
-                        ],
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "title": {
-                            "type": "string"
-                          },
-                          "icon": {
-                            "type": "string"
-                          },
-                          "content": {
-                            "type": "string"
-                          },
-                          "learn_more_url": {
-                            "type": "string"
-                          }
-                        }
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "content": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "id"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "icon": {
+                        "type": "string"
+                      },
+                      "content": {
+                        "type": "string"
+                      },
+                      "learn_more_url": {
+                        "type": "string"
+                      },
+                      "color": {
+                        "type": "string"
                       }
                     }
-                  },
-                  "required": [
-                    "id"
-                  ]
+                  }
                 }
-              ]
+              }
             }
           },
           "localizations": {

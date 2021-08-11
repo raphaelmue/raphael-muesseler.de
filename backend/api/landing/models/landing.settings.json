@@ -26,16 +26,15 @@
       },
       "component": "sections.header"
     },
-    "body": {
+    "containers": {
+      "type": "component",
+      "repeatable": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "dynamiczone",
-      "components": [
-        "sections.content"
-      ]
+      "component": "sections.content"
     }
   }
 }

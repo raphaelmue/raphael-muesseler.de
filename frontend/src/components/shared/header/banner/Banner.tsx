@@ -24,9 +24,9 @@ class Banner extends React.Component<BannerComponentProps, BannerComponentState>
                     <p className={'banner-heading-subtitle'}>Software Engineer | Musician | Producer</p>
                     <p className={'banner-description'}>{this.props.headerData?.description}</p>
                 </article>
-                <article>
-                    <span className={'banner-scroll-button'}><i className="fas fa-chevron-down"/></span>
-                </article>
+                {/*<article>*/}
+                {/*    <span className={'banner-scroll-button'}><i className="fas fa-chevron-down"/></span>*/}
+                {/*</article>*/}
             </section>
         );
     }
