@@ -1,0 +1,22 @@
+{
+	"paths": {
+		"/landing": {
+			"get": {
+				"deprecated": false,
+				"description": "Find all the landing's records",
+				"responses": {
+					"200": {
+						"description": "Retrieve landing document(s)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Landing"
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans&display=swap');
 @import '~bootstrap/scss/functions';
 @import '~argon-design-system-react/src/assets/scss/argon-design-system/variables';
-@import '~@fortawesome/fontawesome-svg-core/styles.css';
 @import '~bootstrap/scss/bootstrap';
 
 $default: #388697;
@@ -25,6 +24,13 @@ h1, h2, h3, h4, h5, h6, .display-1, .display-2, .display-3, .display-4 {
     color: $default;
 }
 
+.page-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: $default;
+}
+
 .lead {
     font-family: "Montserrat", sans-serif;
 }
@@ -44,6 +50,9 @@ h1, h2, h3, h4, h5, h6, .display-1, .display-2, .display-3, .display-4 {
     background-size: cover;
     height: 100vh;
 
+    @media (min-width: $breakpoint-m) {
+        background-position-x: 35%;
+    }
 }
 
 .banner-heading {
@@ -56,7 +65,7 @@ h1, h2, h3, h4, h5, h6, .display-1, .display-2, .display-3, .display-4 {
         position: absolute;
         width: 33%;
         top: 33%;
-        left: 66%;
+        right: 5%;
     }
 
     .banner-heading-iam {
@@ -96,11 +105,18 @@ h1, h2, h3, h4, h5, h6, .display-1, .display-2, .display-3, .display-4 {
 }
 
 .banner-scroll-button {
+    @extend .animate;
     font-size: $font-size-xl;
     color: $default;
     position: absolute;
     left: 50%;
     bottom: 10px;
+    cursor: pointer;
+
+    &:hover {
+        bottom: 20px;
+        color: lighten($default, 30%);
+    }
 }
 
 .icon-card {
@@ -135,4 +151,8 @@ h1, h2, h3, h4, h5, h6, .display-1, .display-2, .display-3, .display-4 {
     i {
         margin: 0 10px;
     }
+}
+
+footer {
+    background: $darker;
 }

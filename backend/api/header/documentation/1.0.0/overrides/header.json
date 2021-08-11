@@ -1,0 +1,22 @@
+{
+	"paths": {
+		"/header": {
+			"get": {
+				"deprecated": false,
+				"description": "Find the header record",
+				"responses": {
+					"200": {
+						"description": "Retrieve header document(s)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Header"
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

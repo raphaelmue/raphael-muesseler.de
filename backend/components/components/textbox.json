@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_components_textboxes",
+  "info": {
+    "name": "textbox",
+    "icon": "address-card"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "learn_more_url": {
+      "type": "string"
+    }
+  }
+}

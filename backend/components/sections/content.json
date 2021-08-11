@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_sections_contents",
+  "info": {
+    "name": "Box Container",
+    "icon": "file-invoice",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.textbox"
+    }
+  }
+}

@@ -1,9 +1,11 @@
 import React                                                                                        from 'react';
 import {Container, Nav, Navbar as NavBarReact, NavbarBrand, NavItem, NavLink, UncontrolledCollapse} from 'reactstrap';
 import {Link}                                                                                       from 'react-router-dom';
-import Headroom                                                                                     from 'headroom.js';
+import Headroom       from 'headroom.js';
+import {HeaderNavbar} from '../../../../.openapi';
 
 interface NavbarComponentProps {
+    navbarData: HeaderNavbar;
 }
 
 interface NavbarComponentState {
@@ -41,15 +43,11 @@ class Navbar extends React.Component<NavbarComponentProps, NavbarComponentState>
                         </button>
                         <UncontrolledCollapse toggler="#navbar-primary" navbar>
                             <Nav className="ml-lg-auto" navbar>
-                                <NavItem>
-                                    <Link to={''}><NavLink href={''}>About Me</NavLink></Link>
-                                </NavItem>
-                                <NavItem>
-                                    <Link to={''}><NavLink href={''}>Projects</NavLink></Link>
-                                </NavItem>
-                                <NavItem>
-                                    <Link to={''}><NavLink href={''}>Contact Me</NavLink></Link>
-                                </NavItem>
+                                {this.props.navbarData.items?.map(navbar => (
+                                    <NavItem>
+                                        <Link to={''}><NavLink href={''}>{navbar.title}</NavLink></Link>
+                                    </NavItem>
+                                ))}
                             </Nav>
                         </UncontrolledCollapse>
                     </Container>
