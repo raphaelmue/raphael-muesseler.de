@@ -1,11 +1,41 @@
 .headroom {
+    @extend .animate;
+    width: 100%;
+    display: block;
+    z-index: 999;
+    padding: 0;
+
+    position: fixed;
+}
+
+.headroom--top, .headroom--top nav {
+    background: transparent;
 }
 
 .headroom--pinned {
-    @extend .navbar-dark
-}
-.headroom--unpinned {
+    transform: initial;
 
+
+    nav {
+        padding: 8px;
+    }
+}
+
+// scroll down
+.headroom--unpinned {
+    transform: initial;
+
+    nav {
+        padding: 12px;
+    }
+}
+
+.headroom--not-top {
+    @extend .shadow, .navbar-dark;
+}
+
+nav {
+    @extend .animate;
 }
 
 .banner {

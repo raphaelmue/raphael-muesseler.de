@@ -23,7 +23,6 @@ class Navbar extends React.Component<NavbarComponentProps, NavbarComponentState>
         return (
             <header id={'header'} className={'headroom'}>
                 <NavBarReact
-                    fixed={'top'}
                     className="navbar-horizontal"
                     expand="lg">
                     <Container>

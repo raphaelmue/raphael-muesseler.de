@@ -12,9 +12,9 @@ $breakpoint-m: 768px;
 $breakpoint-l: 992px;
 $breakpoint-xl: 1200px;
 
+@import '~argon-design-system-react/src/assets/scss/argon-design-system/theme';
 @import 'header';
 @import 'footer';
-@import '~argon-design-system-react/src/assets/scss/argon-design-system/theme';
 
 .animate {
     transition: 0.3s ease-in-out all;
