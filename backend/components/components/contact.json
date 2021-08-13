@@ -1,21 +1,28 @@
 {
-  "collectionName": "components_components_contacts",
-  "info": {
-    "name": "Contact",
-    "icon": "book-reader"
-  },
-  "options": {},
-  "attributes": {
-    "name": {
-      "type": "string"
-    },
-    "email": {
-      "type": "string"
-    },
-    "socialMedia": {
-      "type": "component",
-      "repeatable": false,
-      "component": "components.social-media"
-    }
-  }
+	"collectionName": "components_components_contacts",
+	"info": {
+		"name": "Contact",
+		"icon": "book-reader",
+		"description": ""
+	},
+	"options": {},
+	"attributes": {
+		"name": {
+			"type": "string",
+			"required": true
+		},
+		"email": {
+			"type": "string",
+			"required": true
+		},
+		"emailDisclaimer": {
+			"type": "text"
+		},
+		"socialMedia": {
+			"type": "component",
+			"repeatable": false,
+			"component": "components.social-media",
+			"required": true
+		}
+	}
 }

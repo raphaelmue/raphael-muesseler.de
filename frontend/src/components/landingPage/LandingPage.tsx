@@ -6,6 +6,7 @@ import {Header, Landing}         from '../../.openapi';
 import HeaderComponent           from '../shared/header/HeaderComponent';
 import ApiFactory                from '../../api/ApiFactory';
 import FooterComponent           from '../shared/footer/FooterComponent';
+import ContactForm               from '../shared/contactForm/ContactForm';
 
 interface HomeComponentProps {
 }
@@ -54,15 +55,13 @@ class LandingPage extends React.Component<HomeComponentProps, HomeComponentState
 
             return (
                 <main>
-                    {this.state.landingPageData.header && this.state.headerData?.navbar ?
-                        <HeaderComponent
-                            navbarData={this.state.headerData.navbar}
-                            headerData={this.state.landingPageData.header}/> :
-                        <div/>}
+                    <HeaderComponent
+                        navbarData={this.state.headerData.navbar}
+                        headerData={this.state.landingPageData.header}/>
                     {this.state.landingPageData.containers?.map(container => (
                         <Content title={container.title}>
                             <Row>
-                                {container.content?.map(content => (
+                                {container.content.map(content => (
                                     <Col md={4}>
                                         <Card className={'icon-card'}>
                                             <i className={'heading-icon fa fa-' + content.icon + ' ' + content.color}/>
@@ -76,8 +75,8 @@ class LandingPage extends React.Component<HomeComponentProps, HomeComponentState
                             </Row>
                         </Content>
                     ))}
-                    {this.state.headerData ?
-                        <FooterComponent headerData={this.state.headerData}/> : <div/>}
+                    <ContactForm />
+                    <FooterComponent headerData={this.state.headerData}/>
                 </main>
             );
         }

@@ -14,13 +14,11 @@ class Banner extends React.Component<BannerComponentProps, BannerComponentState>
         return (
             <section className={'banner'}
                      style={{
-                         backgroundImage: `url(${this.props.headerData.backgroundImage ?
-                             ApiFactory.getInstance().getImageURL(this.props.headerData.backgroundImage) :
-                             ''})`
+                         backgroundImage: `url(${ApiFactory.getInstance().getImageURL(this.props.headerData.backgroundImage)})`
                      }}>
                 <article className={'banner-heading'}>
                     <p className={'banner-heading-iam'}>{this.props.headerData?.pretitle}</p>
-                    <h1 className="banner-heading-name">{this.props.headerData?.title}</h1>
+                    <h1 className="banner-heading-name">{this.props.headerData.title}</h1>
                     <p className={'banner-heading-subtitle'}>Software Engineer | Musician | Producer</p>
                     <p className={'banner-description'}>{this.props.headerData?.description}</p>
                 </article>

@@ -8,10 +8,12 @@
   "options": {},
   "attributes": {
     "creationYear": {
-      "type": "integer"
+      "type": "integer",
+      "required": true
     },
     "fontawesomeInfo": {
-      "type": "string"
+      "type": "string",
+      "required": true
     }
   }
 }

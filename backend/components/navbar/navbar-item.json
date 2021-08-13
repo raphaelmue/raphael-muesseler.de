@@ -2,14 +2,20 @@
   "collectionName": "components_navbar_navbar_items",
   "info": {
     "name": "Navbar Item",
-    "icon": "stream"
+    "icon": "stream",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "url": {
+      "type": "string",
+      "required": true
+    },
+    "icon": {
       "type": "string"
     }
   }

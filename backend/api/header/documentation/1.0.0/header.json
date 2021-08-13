@@ -216,7 +216,10 @@
     "schemas": {
       "Header": {
         "required": [
-          "id"
+          "id",
+          "navbar",
+          "footer",
+          "contact"
         ],
         "properties": {
           "id": {
@@ -225,7 +228,9 @@
           "navbar": {
             "type": "object",
             "required": [
-              "id"
+              "id",
+              "title",
+              "items"
             ],
             "properties": {
               "id": {
@@ -306,7 +311,9 @@
                 "items": {
                   "type": "object",
                   "required": [
-                    "id"
+                    "id",
+                    "title",
+                    "url"
                   ],
                   "properties": {
                     "id": {
@@ -317,6 +324,9 @@
                     },
                     "url": {
                       "type": "string"
+                    },
+                    "icon": {
+                      "type": "string"
                     }
                   }
                 }
@@ -326,7 +336,9 @@
           "footer": {
             "type": "object",
             "required": [
-              "id"
+              "id",
+              "links",
+              "copyright"
             ],
             "properties": {
               "id": {
@@ -355,7 +367,9 @@
               "copyright": {
                 "type": "object",
                 "required": [
-                  "id"
+                  "id",
+                  "creationYear",
+                  "fontawesomeInfo"
                 ],
                 "properties": {
                   "id": {
@@ -374,7 +388,10 @@
           "contact": {
             "type": "object",
             "required": [
-              "id"
+              "id",
+              "name",
+              "email",
+              "socialMedia"
             ],
             "properties": {
               "id": {
@@ -389,7 +406,12 @@
               "socialMedia": {
                 "type": "object",
                 "required": [
-                  "id"
+                  "id",
+                  "instagram",
+                  "youtube",
+                  "spotify",
+                  "github",
+                  "website"
                 ],
                 "properties": {
                   "id": {
@@ -406,8 +428,14 @@
                   },
                   "github": {
                     "type": "string"
+                  },
+                  "website": {
+                    "type": "string"
                   }
                 }
+              },
+              "emailDisclaimer": {
+                "type": "string"
               }
             }
           },
@@ -415,7 +443,10 @@
             "type": "array",
             "items": {
               "required": [
-                "id"
+                "id",
+                "navbar",
+                "footer",
+                "contact"
               ],
               "properties": {
                 "id": {
@@ -461,11 +492,18 @@
         }
       },
       "NewHeader": {
+        "required": [
+          "navbar",
+          "footer",
+          "contact"
+        ],
         "properties": {
           "navbar": {
             "type": "object",
             "required": [
-              "id"
+              "id",
+              "title",
+              "items"
             ],
             "properties": {
               "id": {
@@ -546,7 +584,9 @@
                 "items": {
                   "type": "object",
                   "required": [
-                    "id"
+                    "id",
+                    "title",
+                    "url"
                   ],
                   "properties": {
                     "id": {
@@ -557,6 +597,9 @@
                     },
                     "url": {
                       "type": "string"
+                    },
+                    "icon": {
+                      "type": "string"
                     }
                   }
                 }
@@ -566,7 +609,9 @@
           "footer": {
             "type": "object",
             "required": [
-              "id"
+              "id",
+              "links",
+              "copyright"
             ],
             "properties": {
               "id": {
@@ -595,7 +640,9 @@
               "copyright": {
                 "type": "object",
                 "required": [
-                  "id"
+                  "id",
+                  "creationYear",
+                  "fontawesomeInfo"
                 ],
                 "properties": {
                   "id": {
@@ -614,7 +661,10 @@
           "contact": {
             "type": "object",
             "required": [
-              "id"
+              "id",
+              "name",
+              "email",
+              "socialMedia"
             ],
             "properties": {
               "id": {
@@ -629,7 +679,12 @@
               "socialMedia": {
                 "type": "object",
                 "required": [
-                  "id"
+                  "id",
+                  "instagram",
+                  "youtube",
+                  "spotify",
+                  "github",
+                  "website"
                 ],
                 "properties": {
                   "id": {
@@ -646,8 +701,14 @@
                   },
                   "github": {
                     "type": "string"
+                  },
+                  "website": {
+                    "type": "string"
                   }
                 }
+              },
+              "emailDisclaimer": {
+                "type": "string"
               }
             }
           },

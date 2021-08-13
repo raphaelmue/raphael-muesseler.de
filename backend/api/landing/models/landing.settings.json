@@ -24,7 +24,8 @@
           "localized": true
         }
       },
-      "component": "sections.header"
+      "component": "sections.header",
+      "required": true
     },
     "containers": {
       "type": "component",

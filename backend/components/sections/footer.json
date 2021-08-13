@@ -10,12 +10,14 @@
     "links": {
       "type": "component",
       "repeatable": true,
-      "component": "components.link"
+      "component": "components.link",
+      "required": true
     },
     "copyright": {
       "type": "component",
       "repeatable": false,
-      "component": "components.copyright"
+      "component": "components.copyright",
+      "required": true
     }
   }
 }

@@ -90,6 +90,9 @@ h1, h2, h3, h4, h5, h6, .display-1, .display-2, .display-3, .display-4 {
             background: $default;
         }
     }
+    &:nth-child(odd) {
+        background: $secondary;
+    }
 }
 
 .icon-card {
@@ -142,4 +145,10 @@ h1, h2, h3, h4, h5, h6, .display-1, .display-2, .display-3, .display-4 {
     i {
         margin: 0 10px;
     }
+}
+
+.btn .spinner-border {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
 }

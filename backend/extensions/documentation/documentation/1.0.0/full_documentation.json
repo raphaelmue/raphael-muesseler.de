@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "08/11/2021 10:52:38 PM"
+    "x-generation-date": "08/13/2021 11:30:27 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -47,6 +47,862 @@
     }
   ],
   "paths": {
+    "/contact-requests": {
+      "get": {
+        "deprecated": false,
+        "description": "Find all the contact-requests's records",
+        "responses": {
+          "200": {
+            "description": "Retrieve contact-requests document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Contact-requests"
+        ],
+        "parameters": [
+          {
+            "name": "_limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results possible",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_sort",
+            "in": "query",
+            "required": false,
+            "description": "Sort according to a specific field.",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_start",
+            "in": "query",
+            "required": false,
+            "description": "Skip a specific number of entries (especially useful for pagination)",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_locale",
+            "in": "query",
+            "required": false,
+            "description": "Locale",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          }
+        ]
+      },
+      "post": {
+        "deprecated": false,
+        "description": "Create a new contact-requests record",
+        "responses": {
+          "200": {
+            "description": "Retrieve contact-requests document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Contact-requests"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewContact-requests"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/contact-requests/count": {
+      "get": {
+        "deprecated": false,
+        "description": "Retrieve the number of contact-requests documents",
+        "responses": {
+          "200": {
+            "description": "Retrieve contact-requests document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Contact-requests"
+        ],
+        "parameters": []
+      }
+    },
+    "/contact-requests/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "Find one contact-requests record",
+        "responses": {
+          "200": {
+            "description": "Retrieve contact-requests document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Contact-requests"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "put": {
+        "deprecated": false,
+        "description": "Update a single contact-requests record",
+        "responses": {
+          "200": {
+            "description": "Retrieve contact-requests document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Contact-requests"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewContact-requests"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "delete": {
+        "deprecated": false,
+        "description": "Delete a single contact-requests record",
+        "responses": {
+          "200": {
+            "description": "deletes a single contact-requests based on the ID supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Contact-requests"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/email-templates": {
+      "get": {
+        "deprecated": false,
+        "description": "Find all the email-templates's records",
+        "responses": {
+          "200": {
+            "description": "Retrieve email-templates document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Email-templates"
+        ],
+        "parameters": [
+          {
+            "name": "_limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results possible",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_sort",
+            "in": "query",
+            "required": false,
+            "description": "Sort according to a specific field.",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_start",
+            "in": "query",
+            "required": false,
+            "description": "Skip a specific number of entries (especially useful for pagination)",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_locale",
+            "in": "query",
+            "required": false,
+            "description": "Locale",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          }
+        ]
+      },
+      "post": {
+        "deprecated": false,
+        "description": "Create a new email-templates record",
+        "responses": {
+          "200": {
+            "description": "Retrieve email-templates document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Email-templates"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewEmail-templates"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/email-templates/count": {
+      "get": {
+        "deprecated": false,
+        "description": "Retrieve the number of email-templates documents",
+        "responses": {
+          "200": {
+            "description": "Retrieve email-templates document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Email-templates"
+        ],
+        "parameters": []
+      }
+    },
+    "/email-templates/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "Find one email-templates record",
+        "responses": {
+          "200": {
+            "description": "Retrieve email-templates document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Email-templates"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "put": {
+        "deprecated": false,
+        "description": "Update a single email-templates record",
+        "responses": {
+          "200": {
+            "description": "Retrieve email-templates document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Email-templates"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewEmail-templates"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "delete": {
+        "deprecated": false,
+        "description": "Delete a single email-templates record",
+        "responses": {
+          "200": {
+            "description": "deletes a single email-templates based on the ID supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Email-templates"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
     "/header": {
       "get": {
         "deprecated": false,
@@ -881,9 +1737,213 @@
   },
   "components": {
     "schemas": {
+      "Contact-requests": {
+        "required": [
+          "id",
+          "firstName",
+          "lastName",
+          "email",
+          "message"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "NewContact-requests": {
+        "required": [
+          "firstName",
+          "lastName",
+          "email",
+          "message"
+        ],
+        "properties": {
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
+      "Email-templates": {
+        "required": [
+          "id",
+          "templateName",
+          "subject",
+          "title",
+          "subtitle",
+          "message",
+          "icon"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "templateName": {
+            "type": "string"
+          },
+          "subject": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "subtitle": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "icon": {
+            "type": "string",
+            "default": "check-circle-regular"
+          },
+          "localizations": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "templateName",
+                "subject",
+                "title",
+                "subtitle",
+                "message",
+                "icon"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "templateName": {
+                  "type": "string"
+                },
+                "subject": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "subtitle": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "icon": {
+                  "type": "string"
+                },
+                "localizations": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "locale": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "locale": {
+            "type": "string"
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "NewEmail-templates": {
+        "required": [
+          "templateName",
+          "subject",
+          "title",
+          "subtitle",
+          "message",
+          "icon"
+        ],
+        "properties": {
+          "templateName": {
+            "type": "string"
+          },
+          "subject": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "subtitle": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "icon": {
+            "type": "string",
+            "default": "check-circle-regular"
+          },
+          "localizations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "locale": {
+            "type": "string"
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
       "Header": {
         "required": [
-          "id"
+          "id",
+          "navbar",
+          "footer",
+          "contact"
         ],
         "properties": {
           "id": {
@@ -892,7 +1952,9 @@
           "navbar": {
             "type": "object",
             "required": [
-              "id"
+              "id",
+              "title",
+              "items"
             ],
             "properties": {
               "id": {
@@ -973,7 +2035,9 @@
                 "items": {
                   "type": "object",
                   "required": [
-                    "id"
+                    "id",
+                    "title",
+                    "url"
                   ],
                   "properties": {
                     "id": {
@@ -984,6 +2048,9 @@
                     },
                     "url": {
                       "type": "string"
+                    },
+                    "icon": {
+                      "type": "string"
                     }
                   }
                 }
@@ -993,7 +2060,9 @@
           "footer": {
             "type": "object",
             "required": [
-              "id"
+              "id",
+              "links",
+              "copyright"
             ],
             "properties": {
               "id": {
@@ -1022,7 +2091,9 @@
               "copyright": {
                 "type": "object",
                 "required": [
-                  "id"
+                  "id",
+                  "creationYear",
+                  "fontawesomeInfo"
                 ],
                 "properties": {
                   "id": {
@@ -1041,7 +2112,10 @@
           "contact": {
             "type": "object",
             "required": [
-              "id"
+              "id",
+              "name",
+              "email",
+              "socialMedia"
             ],
             "properties": {
               "id": {
@@ -1056,7 +2130,12 @@
               "socialMedia": {
                 "type": "object",
                 "required": [
-                  "id"
+                  "id",
+                  "instagram",
+                  "youtube",
+                  "spotify",
+                  "github",
+                  "website"
                 ],
                 "properties": {
                   "id": {
@@ -1073,8 +2152,14 @@
                   },
                   "github": {
                     "type": "string"
+                  },
+                  "website": {
+                    "type": "string"
                   }
                 }
+              },
+              "emailDisclaimer": {
+                "type": "string"
               }
             }
           },
@@ -1082,7 +2167,10 @@
             "type": "array",
             "items": {
               "required": [
-                "id"
+                "id",
+                "navbar",
+                "footer",
+                "contact"
               ],
               "properties": {
                 "id": {
@@ -1128,11 +2216,18 @@
         }
       },
       "NewHeader": {
+        "required": [
+          "navbar",
+          "footer",
+          "contact"
+        ],
         "properties": {
           "navbar": {
             "type": "object",
             "required": [
-              "id"
+              "id",
+              "title",
+              "items"
             ],
             "properties": {
               "id": {
@@ -1213,7 +2308,9 @@
                 "items": {
                   "type": "object",
                   "required": [
-                    "id"
+                    "id",
+                    "title",
+                    "url"
                   ],
                   "properties": {
                     "id": {
@@ -1224,6 +2321,9 @@
                     },
                     "url": {
                       "type": "string"
+                    },
+                    "icon": {
+                      "type": "string"
                     }
                   }
                 }
@@ -1233,7 +2333,9 @@
           "footer": {
             "type": "object",
             "required": [
-              "id"
+              "id",
+              "links",
+              "copyright"
             ],
             "properties": {
               "id": {
@@ -1262,7 +2364,9 @@
               "copyright": {
                 "type": "object",
                 "required": [
-                  "id"
+                  "id",
+                  "creationYear",
+                  "fontawesomeInfo"
                 ],
                 "properties": {
                   "id": {
@@ -1281,7 +2385,10 @@
           "contact": {
             "type": "object",
             "required": [
-              "id"
+              "id",
+              "name",
+              "email",
+              "socialMedia"
             ],
             "properties": {
               "id": {
@@ -1296,7 +2403,12 @@
               "socialMedia": {
                 "type": "object",
                 "required": [
-                  "id"
+                  "id",
+                  "instagram",
+                  "youtube",
+                  "spotify",
+                  "github",
+                  "website"
                 ],
                 "properties": {
                   "id": {
@@ -1313,8 +2425,14 @@
                   },
                   "github": {
                     "type": "string"
+                  },
+                  "website": {
+                    "type": "string"
                   }
                 }
+              },
+              "emailDisclaimer": {
+                "type": "string"
               }
             }
           },
@@ -1341,7 +2459,8 @@
       },
       "Landing": {
         "required": [
-          "id"
+          "id",
+          "header"
         ],
         "properties": {
           "id": {
@@ -1350,7 +2469,9 @@
           "header": {
             "type": "object",
             "required": [
-              "id"
+              "id",
+              "title",
+              "backgroundImage"
             ],
             "properties": {
               "id": {
@@ -1439,7 +2560,8 @@
             "items": {
               "type": "object",
               "required": [
-                "id"
+                "id",
+                "content"
               ],
               "properties": {
                 "id": {
@@ -1453,7 +2575,10 @@
                   "items": {
                     "type": "object",
                     "required": [
-                      "id"
+                      "id",
+                      "title",
+                      "icon",
+                      "content"
                     ],
                     "properties": {
                       "id": {
@@ -1484,7 +2609,8 @@
             "type": "array",
             "items": {
               "required": [
-                "id"
+                "id",
+                "header"
               ],
               "properties": {
                 "id": {
@@ -1527,11 +2653,16 @@
         }
       },
       "NewLanding": {
+        "required": [
+          "header"
+        ],
         "properties": {
           "header": {
             "type": "object",
             "required": [
-              "id"
+              "id",
+              "title",
+              "backgroundImage"
             ],
             "properties": {
               "id": {
@@ -1620,7 +2751,8 @@
             "items": {
               "type": "object",
               "required": [
-                "id"
+                "id",
+                "content"
               ],
               "properties": {
                 "id": {
@@ -1634,7 +2766,10 @@
                   "items": {
                     "type": "object",
                     "required": [
-                      "id"
+                      "id",
+                      "title",
+                      "icon",
+                      "content"
                     ],
                     "properties": {
                       "id": {

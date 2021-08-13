@@ -2,12 +2,14 @@
   "collectionName": "components_navbar_navbars",
   "info": {
     "name": "Navbar",
-    "icon": "align-left"
+    "icon": "align-left",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "logo": {
       "model": "file",
@@ -24,7 +26,8 @@
     "items": {
       "type": "component",
       "repeatable": true,
-      "component": "navbar.navbar-item"
+      "component": "navbar.navbar-item",
+      "required": true
     }
   }
 }

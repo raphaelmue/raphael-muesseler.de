@@ -8,16 +8,24 @@
   "options": {},
   "attributes": {
     "instagram": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "youtube": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "spotify": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "github": {
-      "type": "string"
+      "type": "string",
+      "required": true
+    },
+    "website": {
+      "type": "string",
+      "required": true
     }
   }
 }

@@ -216,7 +216,8 @@
     "schemas": {
       "Landing": {
         "required": [
-          "id"
+          "id",
+          "header"
         ],
         "properties": {
           "id": {
@@ -225,7 +226,9 @@
           "header": {
             "type": "object",
             "required": [
-              "id"
+              "id",
+              "title",
+              "backgroundImage"
             ],
             "properties": {
               "id": {
@@ -314,7 +317,8 @@
             "items": {
               "type": "object",
               "required": [
-                "id"
+                "id",
+                "content"
               ],
               "properties": {
                 "id": {
@@ -328,7 +332,10 @@
                   "items": {
                     "type": "object",
                     "required": [
-                      "id"
+                      "id",
+                      "title",
+                      "icon",
+                      "content"
                     ],
                     "properties": {
                       "id": {
@@ -359,7 +366,8 @@
             "type": "array",
             "items": {
               "required": [
-                "id"
+                "id",
+                "header"
               ],
               "properties": {
                 "id": {
@@ -402,11 +410,16 @@
         }
       },
       "NewLanding": {
+        "required": [
+          "header"
+        ],
         "properties": {
           "header": {
             "type": "object",
             "required": [
-              "id"
+              "id",
+              "title",
+              "backgroundImage"
             ],
             "properties": {
               "id": {
@@ -495,7 +508,8 @@
             "items": {
               "type": "object",
               "required": [
-                "id"
+                "id",
+                "content"
               ],
               "properties": {
                 "id": {
@@ -509,7 +523,10 @@
                   "items": {
                     "type": "object",
                     "required": [
-                      "id"
+                      "id",
+                      "title",
+                      "icon",
+                      "content"
                     ],
                     "properties": {
                       "id": {

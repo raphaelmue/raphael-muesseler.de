@@ -17,7 +17,7 @@
 
 
     nav {
-        padding: 8px;
+        padding: 12px 24px;
     }
 }
 
@@ -26,7 +26,7 @@
     transform: initial;
 
     nav {
-        padding: 12px;
+        padding: 16px 24px !important;
     }
 }
 
@@ -36,6 +36,15 @@
 
 nav {
     @extend .animate;
+    padding: 12px 24px !important;
+
+    a.nav-link {
+        color: $gray-700 !important;
+    }
+}
+
+.navbar-dark a.nav-link {
+    color: $gray-100 !important;
 }
 
 .banner {

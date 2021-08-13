@@ -1,6 +1,16 @@
-import React                                                                                        from 'react';
-import {Container, Nav, Navbar as NavBarReact, NavbarBrand, NavItem, NavLink, UncontrolledCollapse} from 'reactstrap';
-import {Link}                                                                                       from 'react-router-dom';
+import React          from 'react';
+import {
+    Col,
+    Container,
+    Nav,
+    Navbar as NavBarReact,
+    NavbarBrand,
+    NavItem,
+    NavLink,
+    Row,
+    UncontrolledCollapse
+}                     from 'reactstrap';
+import {Link}         from 'react-router-dom';
 import Headroom       from 'headroom.js';
 import {HeaderNavbar} from '../../../../.openapi';
 
@@ -30,21 +40,46 @@ class Navbar extends React.Component<NavbarComponentProps, NavbarComponentState>
                             {this.props.navbarData.title}
                         </NavbarBrand>
                         <button
-                            aria-controls="navbar-primary"
+                            aria-controls="navbar-default"
                             aria-expanded={false}
                             aria-label="Toggle navigation"
                             className="navbar-toggler"
-                            data-target="#navbar-primary"
+                            data-target="#navbar-default"
                             data-toggle="collapse"
-                            id="navbar-primary"
+                            id="navbar-default"
                             type="button">
-                            <span className="navbar-toggler-icon"/>
+                            <i className={"fa fa-bars"}/>
                         </button>
-                        <UncontrolledCollapse toggler="#navbar-primary" navbar>
+                        <UncontrolledCollapse
+                            toggler="#navbar-default"
+                            navbar>
+                            <div className="navbar-collapse-header">
+                                <Row>
+                                    <Col className="collapse-brand" xs="6">
+                                        <Link to="/">
+
+                                        </Link>
+                                    </Col>
+                                    <Col className="collapse-close" xs="6">
+                                        <button
+                                            aria-controls="navbar-default"
+                                            aria-expanded={false}
+                                            aria-label="Toggle navigation"
+                                            className="navbar-toggler"
+                                            data-target="#navbar-default"
+                                            data-toggle="collapse"
+                                            id="navbar-default"
+                                            type="button">
+                                            <span/>
+                                            <span/>
+                                        </button>
+                                    </Col>
+                                </Row>
+                            </div>
                             <Nav className="ml-lg-auto" navbar>
-                                {this.props.navbarData.items?.map(navbar => (
+                                {this.props.navbarData.items.map(navItem => (
                                     <NavItem>
-                                        <Link to={''}><NavLink href={''}>{navbar.title}</NavLink></Link>
+                                        <Link to={navItem.url}><NavLink>{navItem.title}</NavLink></Link>
                                     </NavItem>
                                 ))}
                             </Nav>

@@ -13,7 +13,8 @@
     "content": {
       "type": "component",
       "repeatable": true,
-      "component": "components.textbox"
+      "component": "components.textbox",
+      "required": true
     }
   }
 }
