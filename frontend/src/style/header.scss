@@ -72,7 +72,8 @@ nav {
     }
 
     .banner-heading-iam {
-        @extend .secondary
+        @extend .secondary;
+        margin: 0;
     }
 
     .banner-heading-name {

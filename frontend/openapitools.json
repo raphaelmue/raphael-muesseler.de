@@ -13,8 +13,7 @@
                     "ngVersion": "6.1.7",
                     "typescriptThreePlus": true,
                     "supportsES6": true,
-                    "hateoas": true,
-                    "withInterfaces": true
+                    "hateoas": true
                 }
             }
         }

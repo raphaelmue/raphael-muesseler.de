@@ -422,7 +422,7 @@
 				"required": [
 					"id",
 					"name",
-					"short_text",
+					"shortText",
 					"content",
 					"creationDate",
 					"bannerImages",
@@ -435,7 +435,7 @@
 					"name": {
 						"type": "string"
 					},
-					"short_text": {
+					"shortText": {
 						"type": "string"
 					},
 					"content": {
@@ -515,12 +515,59 @@
 							}
 						}
 					},
+					"tags": {
+						"type": "array",
+						"items": {
+							"required": [
+								"id",
+								"name",
+								"description"
+							],
+							"properties": {
+								"id": {
+									"type": "string"
+								},
+								"name": {
+									"type": "string"
+								},
+								"description": {
+									"type": "string"
+								},
+								"icon": {
+									"type": "string"
+								},
+								"color": {
+									"type": "string"
+								},
+								"localizations": {
+									"type": "array",
+									"items": {
+										"type": "string"
+									}
+								},
+								"locale": {
+									"type": "string"
+								},
+								"published_at": {
+									"type": "string"
+								},
+								"created_by": {
+									"type": "string"
+								},
+								"updated_by": {
+									"type": "string"
+								}
+							}
+						}
+					},
 					"links": {
 						"type": "array",
 						"items": {
 							"type": "object",
 							"required": [
-								"id"
+								"id",
+								"title",
+								"url"
 							],
 							"properties": {
 								"id": {
@@ -541,7 +588,7 @@
 							"required": [
 								"id",
 								"name",
-								"short_text",
+								"shortText",
 								"content",
 								"creationDate",
 								"bannerImages",
@@ -554,7 +601,7 @@
 								"name": {
 									"type": "string"
 								},
-								"short_text": {
+								"shortText": {
 									"type": "string"
 								},
 								"content": {
@@ -571,6 +618,12 @@
 								},
 								"showOnLandingPage": {
 									"type": "boolean"
+								},
+								"tags": {
+									"type": "array",
+									"items": {
+										"type": "string"
+									}
 								},
 								"links": {
 									"type": "component"
@@ -608,7 +661,7 @@
 			"NewProjects": {
 				"required": [
 					"name",
-					"short_text",
+					"shortText",
 					"content",
 					"creationDate",
 					"showOnLandingPage"
@@ -617,7 +670,7 @@
 					"name": {
 						"type": "string"
 					},
-					"short_text": {
+					"shortText": {
 						"type": "string"
 					},
 					"content": {
@@ -631,12 +684,20 @@
 						"type": "boolean",
 						"default": false
 					},
+					"tags": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						}
+					},
 					"links": {
 						"type": "array",
 						"items": {
 							"type": "object",
 							"required": [
-								"id"
+								"id",
+								"title",
+								"url"
 							],
 							"properties": {
 								"id": {

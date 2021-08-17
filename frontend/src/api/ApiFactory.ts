@@ -1,6 +1,6 @@
-import Cookies from 'universal-cookie';
-import {Configuration, ContactRequestsApi, HeaderApi, LandingApi} from '../.openapi';
-import {BASE_PATH}                                                from '../.openapi/base';
+import Cookies                                                                 from 'universal-cookie';
+import {Configuration, ContactRequestsApi, HeaderApi, LandingApi, ProjectsApi} from '../.openapi';
+import {BASE_PATH}                                                             from '../.openapi/base';
 
 
 let instance: ApiFactory | null = null;
@@ -37,6 +37,10 @@ class ApiFactory {
 
     getContactRequestsApi(): ContactRequestsApi {
         return new ContactRequestsApi(this.configuration);
+    }
+
+    getProjectApi(): ProjectsApi {
+        return new ProjectsApi(this.configuration);
     }
 }
 

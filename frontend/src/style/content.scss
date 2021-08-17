@@ -1,0 +1,140 @@
+.content-section {
+    padding: 15% 0;
+
+    .col {
+        padding: 0 25px;
+
+        flex-basis: initial;
+        margin: 15px auto !important;
+
+        @media (min-width: $breakpoint-m) {
+            margin: 0;
+            flex-basis: 0;
+            flex-grow: 1;
+        }
+    }
+
+    .content-title {
+        @extend .secondary;
+        font-size: 14px;
+        text-align: center;
+        margin-bottom: 15%;
+        font-weight: 400 !important;
+        color: $light !important;
+
+        &:before, &:after {
+            content: ' ';
+            display: inline-block;
+            margin: 4px 24px;
+            height: 2px;
+            width: 48px;
+            background: $light;
+        }
+    }
+
+    &:nth-child(even) {
+        background: $secondary;
+    }
+}
+
+.card {
+    @extend .col-sm, .shadow, .animate;
+    padding: 0;
+    border: 0;
+    background: $white;
+
+    img {
+        width: 100%;
+        margin-bottom: 16px;
+    }
+
+    h5 {
+        padding: 0 24px;
+        margin-bottom: 16px;
+    }
+
+    p {
+        padding: 0 24px;
+        margin-bottom: 16px;
+        text-align: justify;
+
+        .badge {
+            display: inline;
+        }
+    }
+
+}
+
+.icon-card {
+    @extend .col-sm, .shadow, .animate;
+    //padding: 24px 0;
+    border: 0;
+    background: $white;
+    margin-top: 64px;
+
+    h5 {
+        margin: 24px 0;
+        text-align: center;
+    }
+
+    h5.red {
+        color: darken($red, 20%);
+    }
+
+    h5.green {
+        color: darken($green, 20%);
+    }
+
+    i.heading-icon {
+        margin: -16px auto 20px;
+        position: relative;
+        font-size: 32px;
+        z-index: 999;
+        color: $white;
+
+        &:after {
+            @extend .shadow;
+            content: ' ';
+            z-index: -1;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            border-radius: 100%;
+            width: 80px;
+            height: 80px;
+            background: $primary;
+        }
+    }
+
+    i.heading-icon.red:after {
+        background: $red;
+    }
+
+    i.heading-icon.green:after {
+        background: $teal;
+    }
+
+    &:hover {
+        @extend .shadow-lg--hover
+    }
+}
+
+.card-link {
+    @extend .btn, .btn-sm, .btn-outline-primary;
+    width: auto;
+    margin-right: 8px;
+
+    i {
+        margin: 0 10px;
+    }
+}
+
+.card-link-learn-more {
+    width: auto;
+    text-align: right;
+
+    i {
+        margin: 0 10px;
+    }
+}

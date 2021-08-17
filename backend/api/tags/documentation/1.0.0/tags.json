@@ -1,19 +1,18 @@
 {
   "paths": {
-    "/email-templates": {
+    "/tags": {
       "get": {
         "deprecated": false,
-        "description": "Find all the email-templates's records",
+        "description": "Find all the tags's records",
         "responses": {
           "200": {
-            "description": "Retrieve email-templates document(s)",
+            "description": "Retrieve tags document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Tags"
                   }
                 }
               }
@@ -52,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Email-templates"
+          "Tags"
         ],
         "parameters": [
           {
@@ -99,18 +98,14 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new email-templates record",
+        "description": "Create a new tags record",
         "responses": {
           "200": {
-            "description": "Retrieve email-templates document(s)",
+            "description": "Retrieve tags document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Tags"
                 }
               }
             }
@@ -148,7 +143,7 @@
         },
         "summary": "",
         "tags": [
-          "Email-templates"
+          "Tags"
         ],
         "requestBody": {
           "description": "",
@@ -156,26 +151,26 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewEmail-templates"
+                "$ref": "#/components/schemas/NewTags"
               }
             }
           }
         }
       }
     },
-    "/email-templates/count": {
+    "/tags/count": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the number of email-templates documents",
+        "description": "Retrieve the number of tags documents",
         "responses": {
           "200": {
-            "description": "Retrieve email-templates document(s)",
+            "description": "Retrieve tags document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "properties": {
-                    "foo": {
-                      "type": "string"
+                    "count": {
+                      "type": "integer"
                     }
                   }
                 }
@@ -215,26 +210,22 @@
         },
         "summary": "",
         "tags": [
-          "Email-templates"
+          "Tags"
         ],
         "parameters": []
       }
     },
-    "/email-templates/{id}": {
+    "/tags/{id}": {
       "get": {
         "deprecated": false,
-        "description": "Find one email-templates record",
+        "description": "Find one tags record",
         "responses": {
           "200": {
-            "description": "Retrieve email-templates document(s)",
+            "description": "Retrieve tags document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Tags"
                 }
               }
             }
@@ -272,7 +263,7 @@
         },
         "summary": "",
         "tags": [
-          "Email-templates"
+          "Tags"
         ],
         "parameters": [
           {
@@ -289,18 +280,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a single email-templates record",
+        "description": "Update a single tags record",
         "responses": {
           "200": {
-            "description": "Retrieve email-templates document(s)",
+            "description": "Retrieve tags document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Tags"
                 }
               }
             }
@@ -338,7 +325,7 @@
         },
         "summary": "",
         "tags": [
-          "Email-templates"
+          "Tags"
         ],
         "requestBody": {
           "description": "",
@@ -346,7 +333,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewEmail-templates"
+                "$ref": "#/components/schemas/NewTags"
               }
             }
           }
@@ -366,10 +353,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a single email-templates record",
+        "description": "Delete a single tags record",
         "responses": {
           "200": {
-            "description": "deletes a single email-templates based on the ID supplied",
+            "description": "deletes a single tags based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -412,7 +399,7 @@
         },
         "summary": "",
         "tags": [
-          "Email-templates"
+          "Tags"
         ],
         "parameters": [
           {
@@ -431,71 +418,51 @@
   },
   "components": {
     "schemas": {
-      "Email-templates": {
+      "Tags": {
         "required": [
           "id",
-          "templateName",
-          "subject",
-          "title",
-          "subtitle",
-          "message",
-          "icon"
+          "name",
+          "description"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "templateName": {
+          "name": {
             "type": "string"
           },
-          "subject": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          },
-          "subtitle": {
-            "type": "string"
-          },
-          "message": {
+          "description": {
             "type": "string"
           },
           "icon": {
+            "type": "string"
+          },
+          "color": {
             "type": "string",
-            "default": "check-circle-regular"
+            "default": "primary"
           },
           "localizations": {
             "type": "array",
             "items": {
               "required": [
                 "id",
-                "templateName",
-                "subject",
-                "title",
-                "subtitle",
-                "message",
-                "icon"
+                "name",
+                "description"
               ],
               "properties": {
                 "id": {
                   "type": "string"
                 },
-                "templateName": {
+                "name": {
                   "type": "string"
                 },
-                "subject": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "subtitle": {
-                  "type": "string"
-                },
-                "message": {
+                "description": {
                   "type": "string"
                 },
                 "icon": {
+                  "type": "string"
+                },
+                "color": {
                   "type": "string"
                 },
                 "localizations": {
@@ -528,34 +495,24 @@
           }
         }
       },
-      "NewEmail-templates": {
+      "NewTags": {
         "required": [
-          "templateName",
-          "subject",
-          "title",
-          "subtitle",
-          "message",
-          "icon"
+          "name",
+          "description"
         ],
         "properties": {
-          "templateName": {
+          "name": {
             "type": "string"
           },
-          "subject": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          },
-          "subtitle": {
-            "type": "string"
-          },
-          "message": {
+          "description": {
             "type": "string"
           },
           "icon": {
+            "type": "string"
+          },
+          "color": {
             "type": "string",
-            "default": "check-circle-regular"
+            "default": "primary"
           },
           "localizations": {
             "type": "array",
@@ -580,5 +537,9 @@
       }
     }
   },
-  "tags": []
+  "tags": [
+    {
+      "name": "Tags"
+    }
+  ]
 }

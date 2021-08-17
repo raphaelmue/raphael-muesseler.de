@@ -13,7 +13,7 @@
 	"x-strapi-config": {
 		"path": "/documentation",
 		"showGeneratedFiles": true,
-		"pluginsForWhichToGenerateDoc": ["i18n"]
+		"pluginsForWhichToGenerateDoc": []
 	},
 	"servers": [
 		{
@@ -24,5 +24,8 @@
 			"url": "https://api.raphael-muesseler.de",
 			"description": "Production server"
 		}
-	]
+	],
+	"paths": {
+
+	}
 }

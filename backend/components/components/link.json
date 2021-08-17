@@ -1,16 +1,19 @@
 {
-	"collectionName": "components_components_links",
-	"info": {
-		"name": "Link",
-		"icon": "angle-double-right"
-	},
-	"options": {},
-	"attributes": {
-		"title": {
-			"type": "string"
-		},
-		"url": {
-			"type": "string"
-		}
-	}
+  "collectionName": "components_components_links",
+  "info": {
+    "name": "Link",
+    "icon": "angle-double-right",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    }
+  }
 }
