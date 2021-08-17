@@ -1,11 +1,11 @@
 import React                         from 'react';
-import {HeaderNavbar, LandingHeader} from '../../../.openapi';
+import {HeaderNavbar, LandingPageHeader} from '../../../.openapi';
 import Navbar                        from './navbar/Navbar';
 import Banner                        from './banner/Banner';
 
 interface HeaderComponentProps {
     navbarData: HeaderNavbar;
-    headerData: LandingHeader;
+    headerData: LandingPageHeader;
 }
 
 interface HeaderComponentState {

@@ -9,7 +9,8 @@
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "generate:api": "openapi-generator-cli generate"
+        "generate:api": "openapi-generator-cli generate",
+        "lint": "eslint ."
     },
     "dependencies": {
         "@openapitools/openapi-generator-cli": "^2.3.10",
@@ -36,6 +37,10 @@
         "universal-cookie": "^4.0.4"
     },
     "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^4.29.2",
+        "@typescript-eslint/parser": "^4.29.2",
+        "eslint": "^7.32.0",
+        "eslint-plugin-import": "^2.24.0",
         "rimraf": "^3.0.2"
     },
     "browserslist": {
@@ -48,6 +53,11 @@
             "last 1 chrome version",
             "last 1 firefox version",
             "last 1 safari version"
+        ]
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app"
         ]
     }
 }

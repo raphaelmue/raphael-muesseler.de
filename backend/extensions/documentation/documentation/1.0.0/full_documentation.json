@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "08/17/2021 6:46:13 PM"
+    "x-generation-date": "08/17/2021 8:51:25 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -1166,17 +1166,17 @@
         "parameters": []
       }
     },
-    "/landing": {
+    "/landing-page": {
       "get": {
         "deprecated": false,
-        "description": "Find all the landing's records",
+        "description": "Find all the landing-page's records",
         "responses": {
           "200": {
-            "description": "Retrieve landing document(s)",
+            "description": "Retrieve landing-page document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Landing"
+                  "$ref": "#/components/schemas/Landing-page"
                 }
               }
             }
@@ -1214,7 +1214,7 @@
         },
         "summary": "",
         "tags": [
-          "Landing"
+          "Landing-page"
         ],
         "parameters": [
           {
@@ -1261,14 +1261,18 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a single landing record",
+        "description": "Update a single landing-page record",
         "responses": {
           "200": {
-            "description": "Retrieve landing document(s)",
+            "description": "Retrieve landing-page document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Landing"
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
@@ -1306,7 +1310,7 @@
         },
         "summary": "",
         "tags": [
-          "Landing"
+          "Landing-page"
         ],
         "requestBody": {
           "description": "",
@@ -1314,7 +1318,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewLanding"
+                "$ref": "#/components/schemas/NewLanding-page"
               }
             }
           }
@@ -1323,10 +1327,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a single landing record",
+        "description": "Delete a single landing-page record",
         "responses": {
           "200": {
-            "description": "deletes a single landing based on the ID supplied",
+            "description": "deletes a single landing-page based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -1369,7 +1373,219 @@
         },
         "summary": "",
         "tags": [
-          "Landing"
+          "Landing-page"
+        ],
+        "parameters": []
+      }
+    },
+    "/project-page": {
+      "get": {
+        "deprecated": false,
+        "description": "Find all the project-page's records",
+        "responses": {
+          "200": {
+            "description": "Retrieve project-page document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Project-page"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Project-page"
+        ],
+        "parameters": [
+          {
+            "name": "_locale",
+            "in": "query",
+            "required": true,
+            "description": "Locale",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results possible",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_sort",
+            "in": "query",
+            "required": false,
+            "description": "Sort according to a specific field.",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_start",
+            "in": "query",
+            "required": false,
+            "description": "Skip a specific number of entries (especially useful for pagination)",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          }
+        ]
+      },
+      "put": {
+        "deprecated": false,
+        "description": "Update a single project-page record",
+        "responses": {
+          "200": {
+            "description": "Retrieve project-page document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Project-page"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewProject-page"
+              }
+            }
+          }
+        },
+        "parameters": []
+      },
+      "delete": {
+        "deprecated": false,
+        "description": "Delete a single project-page record",
+        "responses": {
+          "200": {
+            "description": "deletes a single project-page based on the ID supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Project-page"
         ],
         "parameters": []
       }
@@ -3039,7 +3255,7 @@
           }
         }
       },
-      "Landing": {
+      "Landing-page": {
         "required": [
           "id",
           "header",
@@ -3233,7 +3449,7 @@
           }
         }
       },
-      "NewLanding": {
+      "NewLanding-page": {
         "required": [
           "header",
           "aboutMeContainer"
@@ -3370,6 +3586,263 @@
                     "color": {
                       "type": "string"
                     }
+                  }
+                }
+              }
+            }
+          },
+          "localizations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "locale": {
+            "type": "string"
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
+      "Project-page": {
+        "required": [
+          "id",
+          "header"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "header": {
+            "type": "object",
+            "required": [
+              "id",
+              "title",
+              "backgroundImage"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "pretitle": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "backgroundImage": {
+                "required": [
+                  "id",
+                  "name",
+                  "hash",
+                  "mime",
+                  "size",
+                  "url",
+                  "provider"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "alternativeText": {
+                    "type": "string"
+                  },
+                  "caption": {
+                    "type": "string"
+                  },
+                  "width": {
+                    "type": "integer"
+                  },
+                  "height": {
+                    "type": "integer"
+                  },
+                  "formats": {
+                    "type": "object"
+                  },
+                  "hash": {
+                    "type": "string"
+                  },
+                  "ext": {
+                    "type": "string"
+                  },
+                  "mime": {
+                    "type": "string"
+                  },
+                  "size": {
+                    "type": "number"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "previewUrl": {
+                    "type": "string"
+                  },
+                  "provider": {
+                    "type": "string"
+                  },
+                  "provider_metadata": {
+                    "type": "object"
+                  },
+                  "related": {
+                    "type": "string"
+                  },
+                  "created_by": {
+                    "type": "string"
+                  },
+                  "updated_by": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "localizations": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "header"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "header": {
+                  "type": "component"
+                },
+                "localizations": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "locale": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "locale": {
+            "type": "string"
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "NewProject-page": {
+        "required": [
+          "header"
+        ],
+        "properties": {
+          "header": {
+            "type": "object",
+            "required": [
+              "id",
+              "title",
+              "backgroundImage"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "pretitle": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "backgroundImage": {
+                "required": [
+                  "id",
+                  "name",
+                  "hash",
+                  "mime",
+                  "size",
+                  "url",
+                  "provider"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "alternativeText": {
+                    "type": "string"
+                  },
+                  "caption": {
+                    "type": "string"
+                  },
+                  "width": {
+                    "type": "integer"
+                  },
+                  "height": {
+                    "type": "integer"
+                  },
+                  "formats": {
+                    "type": "object"
+                  },
+                  "hash": {
+                    "type": "string"
+                  },
+                  "ext": {
+                    "type": "string"
+                  },
+                  "mime": {
+                    "type": "string"
+                  },
+                  "size": {
+                    "type": "number"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "previewUrl": {
+                    "type": "string"
+                  },
+                  "provider": {
+                    "type": "string"
+                  },
+                  "provider_metadata": {
+                    "type": "object"
+                  },
+                  "related": {
+                    "type": "string"
+                  },
+                  "created_by": {
+                    "type": "string"
+                  },
+                  "updated_by": {
+                    "type": "string"
                   }
                 }
               }
@@ -3678,9 +4151,6 @@
   "tags": [
     {
       "name": "Header"
-    },
-    {
-      "name": "Landing"
     },
     {
       "name": "Projects"

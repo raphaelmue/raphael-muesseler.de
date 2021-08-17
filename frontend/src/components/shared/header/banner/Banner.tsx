@@ -1,20 +1,24 @@
-import React           from 'react';
-import {LandingHeader} from '../../../../.openapi';
-import ApiFactory      from '../../../../api/ApiFactory';
+import React                      from 'react';
+import {Image, LandingPageHeader} from '../../../../.openapi';
+import ApiFactory                 from '../../../../api/ApiFactory';
 
 interface BannerComponentProps {
-    headerData: LandingHeader;
+    headerData: LandingPageHeader;
 }
 
 interface BannerComponentState {
 }
 
 class Banner extends React.Component<BannerComponentProps, BannerComponentState> {
+    getImage(): Image {
+        return this.props.headerData.backgroundImage as Image
+    }
+
     render() {
         return (
             <section className={'banner'}
                      style={{
-                         backgroundImage: `url(${ApiFactory.getInstance().getImageURL(this.props.headerData.backgroundImage)})`
+                         backgroundImage: `url(${ApiFactory.getInstance().getImageURL(this.getImage())})`
                      }}>
                 <article className={'banner-heading'}>
                     <p className={'banner-heading-iam'}>{this.props.headerData?.pretitle}</p>

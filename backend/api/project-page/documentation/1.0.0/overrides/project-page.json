@@ -1,16 +1,16 @@
 {
 	"paths": {
-		"/landing": {
+		"/project-page": {
 			"get": {
 				"deprecated": false,
-				"description": "Find all the landing's records",
+				"description": "Find all the project-page's records",
 				"responses": {
 					"200": {
-						"description": "Retrieve landing document(s)",
+						"description": "Retrieve project-page document(s)",
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/Landing"
+									"$ref": "#/components/schemas/Project-page"
 								}
 							}
 						}

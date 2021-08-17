@@ -40,9 +40,10 @@ class Navbar extends React.Component<NavbarComponentProps, NavbarComponentState>
         });
 
         const header = document.getElementById('header');
-        // @ts-ignore
-        const headroom = new Headroom(header);
-        headroom.init();
+        if (header) {
+            const headroom = new Headroom(header);
+            headroom.init();
+        }
     }
 
     onChangeLanguage(code: string) {
@@ -60,7 +61,7 @@ class Navbar extends React.Component<NavbarComponentProps, NavbarComponentState>
                     expand="lg">
                     <Container>
                         <NavbarBrand onClick={e => e.preventDefault()}>
-                            {this.props.navbarData.title}
+                            <Link to={'/'}><NavLink>{this.props.navbarData.title}</NavLink></Link>
                         </NavbarBrand>
                         <button
                             aria-controls="navbar-default"
@@ -101,7 +102,7 @@ class Navbar extends React.Component<NavbarComponentProps, NavbarComponentState>
                             </div>
                             <Nav className="navbar-nav-hover ml-lg-auto" navbar>
                                 {this.props.navbarData.items.map(navItem => (
-                                    <NavItem>
+                                    <NavItem key={'navItem_' + navItem.id}>
                                         <Link to={navItem.url}><NavLink>{navItem.title}</NavLink></Link>
                                     </NavItem>
                                 ))}
@@ -123,6 +124,7 @@ class Navbar extends React.Component<NavbarComponentProps, NavbarComponentState>
                                         right>
                                         {this.state.locales.map(locale => (
                                             <DropdownItem
+                                                key={'languageDropdown_' + locale.id}
                                                 onClick={() => this.onChangeLanguage(locale.code)}>
                                                 <i className={'flag-icon flag-icon-' + locale.code.replace('en', 'us')}/>
                                                 {locale.name.replace(/(\(.*\))/g, '')}

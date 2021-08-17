@@ -1,8 +1,8 @@
 {
   "kind": "singleType",
-  "collectionName": "landings",
+  "collectionName": "landing_pages",
   "info": {
-    "name": "Landing",
+    "name": "LandingPage",
     "description": ""
   },
   "options": {
@@ -35,8 +35,8 @@
           "localized": true
         }
       },
-      "component": "sections.content",
-      "required": true
+      "required": true,
+      "component": "sections.content"
     }
   }
 }

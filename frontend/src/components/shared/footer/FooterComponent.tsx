@@ -47,7 +47,11 @@ class FooterComponent extends React.Component<FooterComponentProps, FooterCompon
                             <h4>Links</h4>
                             <p>
                                 {this.props.headerData.footer.links.map(link => (
-                                    <Link to={link.url || ''}>{link.title}</Link>
+                                    <Link
+                                        to={link.url || ''}
+                                        key={'footerLink_' + link.id}>
+                                        {link.title}
+                                    </Link>
                                 ))}
                             </p>
                         </Col>

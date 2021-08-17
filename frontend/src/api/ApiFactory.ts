@@ -1,6 +1,10 @@
-import Cookies                                                                 from 'universal-cookie';
-import {Configuration, ContactRequestsApi, HeaderApi, LandingApi, ProjectsApi} from '../.openapi';
-import {BASE_PATH}                                                             from '../.openapi/base';
+import Cookies     from 'universal-cookie';
+import {
+    Configuration, ContactRequestsApi,
+    HeaderApi, Image, LandingPageApi,
+    ProjectPageApi, ProjectsApi
+} from '../.openapi';
+import {BASE_PATH} from '../.openapi/base';
 
 
 let instance: ApiFactory | null = null;
@@ -22,8 +26,7 @@ class ApiFactory {
         return cookies.get('locale') || navigator.language.split('-')[0] || 'en';
     }
 
-    getImageURL(image: object): string {
-        // @ts-ignore
+    getImageURL(image: Image): string {
         return this.configuration.basePath + image.url;
     }
 
@@ -31,8 +34,12 @@ class ApiFactory {
         return new HeaderApi(this.configuration);
     }
 
-    getLandingApi(): LandingApi {
-        return new LandingApi(this.configuration);
+    getLandingPageApi(): LandingPageApi {
+        return new LandingPageApi(this.configuration);
+    }
+
+    getProjectPageApi(): ProjectPageApi {
+        return new ProjectPageApi(this.configuration);
     }
 
     getContactRequestsApi(): ContactRequestsApi {
