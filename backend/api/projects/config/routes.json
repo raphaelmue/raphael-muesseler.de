@@ -3,7 +3,7 @@
 		{
 			"method": "GET",
 			"path": "/projects",
-			"handler": "project.find",
+			"handler": "projects.find",
 			"config": {
 				"policies": []
 			}
@@ -11,7 +11,7 @@
 		{
 			"method": "GET",
 			"path": "/projects/count",
-			"handler": "project.count",
+			"handler": "projects.count",
 			"config": {
 				"policies": []
 			}
@@ -19,7 +19,7 @@
 		{
 			"method": "GET",
 			"path": "/projects/:id",
-			"handler": "project.findOne",
+			"handler": "projects.findOne",
 			"config": {
 				"policies": []
 			}
@@ -27,25 +27,31 @@
 		{
 			"method": "POST",
 			"path": "/projects",
-			"handler": "project.create",
+			"handler": "projects.create",
 			"config": {
-				"policies": []
+				"policies": [
+					"plugins::users-permissions.isAuthenticated"
+				]
 			}
 		},
 		{
 			"method": "PUT",
 			"path": "/projects/:id",
-			"handler": "project.update",
+			"handler": "projects.update",
 			"config": {
-				"policies": []
+				"policies": [
+					"plugins::users-permissions.isAuthenticated"
+				]
 			}
 		},
 		{
 			"method": "DELETE",
 			"path": "/projects/:id",
-			"handler": "project.delete",
+			"handler": "projects.delete",
 			"config": {
-				"policies": []
+				"policies": [
+					"plugins::users-permissions.isAuthenticated"
+				]
 			}
 		}
 	]

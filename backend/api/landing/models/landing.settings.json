@@ -27,15 +27,16 @@
       "component": "sections.header",
       "required": true
     },
-    "containers": {
+    "aboutMeContainer": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "sections.content"
+      "component": "sections.content",
+      "required": true
     }
   }
 }

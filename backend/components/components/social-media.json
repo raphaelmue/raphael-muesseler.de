@@ -1,31 +1,31 @@
 {
-  "collectionName": "components_components_social_medias",
-  "info": {
-    "name": "SocialMedia",
-    "icon": "bullhorn",
-    "description": ""
-  },
-  "options": {},
-  "attributes": {
-    "instagram": {
-      "type": "string",
-      "required": true
-    },
-    "youtube": {
-      "type": "string",
-      "required": true
-    },
-    "spotify": {
-      "type": "string",
-      "required": true
-    },
-    "github": {
-      "type": "string",
-      "required": true
-    },
-    "website": {
-      "type": "string",
-      "required": true
-    }
-  }
+	"collectionName": "components_components_social_medias",
+	"info": {
+		"name": "SocialMedia",
+		"icon": "bullhorn",
+		"description": ""
+	},
+	"options": {},
+	"attributes": {
+		"instagram": {
+			"type": "string",
+			"required": true
+		},
+		"youtube": {
+			"type": "string",
+			"required": true
+		},
+		"spotify": {
+			"type": "string",
+			"required": true
+		},
+		"github": {
+			"type": "string",
+			"required": true
+		},
+		"website": {
+			"type": "string",
+			"required": true
+		}
+	}
 }

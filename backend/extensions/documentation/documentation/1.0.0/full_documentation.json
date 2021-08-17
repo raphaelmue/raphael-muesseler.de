@@ -14,14 +14,15 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "08/13/2021 11:30:27 PM"
+    "x-generation-date": "08/17/2021 4:45:28 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
     "showGeneratedFiles": true,
     "generateDefaultResponse": true,
-    "pluginsForWhichToGenerateDoc": [],
-    "components": {}
+    "pluginsForWhichToGenerateDoc": [
+      "i18n"
+    ]
   },
   "servers": [
     {
@@ -903,6 +904,62 @@
         ]
       }
     },
+    "/header/locales": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Retrieve all locales",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Locale"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Header"
+        ],
+        "parameters": []
+      }
+    },
     "/header": {
       "get": {
         "deprecated": false,
@@ -955,6 +1012,16 @@
         ],
         "parameters": [
           {
+            "name": "_locale",
+            "in": "query",
+            "required": true,
+            "description": "Locale",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
             "name": "_limit",
             "in": "query",
             "required": false,
@@ -981,16 +1048,6 @@
             "description": "Skip a specific number of entries (especially useful for pagination)",
             "schema": {
               "type": "integer"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_locale",
-            "in": "query",
-            "required": false,
-            "description": "Locale",
-            "schema": {
-              "type": "string"
             },
             "deprecated": false
           }
@@ -1163,6 +1220,16 @@
         ],
         "parameters": [
           {
+            "name": "_locale",
+            "in": "query",
+            "required": true,
+            "description": "Locale",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
             "name": "_limit",
             "in": "query",
             "required": false,
@@ -1189,16 +1256,6 @@
             "description": "Skip a specific number of entries (especially useful for pagination)",
             "schema": {
               "type": "integer"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_locale",
-            "in": "query",
-            "required": false,
-            "description": "Locale",
-            "schema": {
-              "type": "string"
             },
             "deprecated": false
           }
@@ -1322,16 +1379,16 @@
     "/projects": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find all the projects's records",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve projects document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Project"
+                    "$ref": "#/components/schemas/Projects"
                   }
                 }
               }
@@ -1370,7 +1427,7 @@
         },
         "summary": "",
         "tags": [
-          "Project"
+          "Projects"
         ],
         "parameters": [
           {
@@ -1412,19 +1469,29 @@
               "type": "string"
             },
             "deprecated": false
+          },
+          {
+            "name": "showOnLandingPage",
+            "in": "query",
+            "required": false,
+            "description": "Indicates whether to show an landing page",
+            "schema": {
+              "type": "boolean"
+            },
+            "deprecated": false
           }
         ]
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new record",
+        "description": "Create a new projects record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve projects document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Project"
+                  "$ref": "#/components/schemas/Projects"
                 }
               }
             }
@@ -1462,7 +1529,7 @@
         },
         "summary": "",
         "tags": [
-          "Project"
+          "Projects"
         ],
         "requestBody": {
           "description": "",
@@ -1470,7 +1537,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewProject"
+                "$ref": "#/components/schemas/NewProjects"
               }
             }
           }
@@ -1480,10 +1547,10 @@
     "/projects/count": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Retrieve the number of projects documents",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve projects document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -1529,7 +1596,7 @@
         },
         "summary": "",
         "tags": [
-          "Project"
+          "Projects"
         ],
         "parameters": []
       }
@@ -1537,14 +1604,14 @@
     "/projects/{id}": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find one projects record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve projects document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Project"
+                  "$ref": "#/components/schemas/Projects"
                 }
               }
             }
@@ -1582,7 +1649,7 @@
         },
         "summary": "",
         "tags": [
-          "Project"
+          "Projects"
         ],
         "parameters": [
           {
@@ -1599,14 +1666,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a record",
+        "description": "Update a single projects record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve projects document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Project"
+                  "$ref": "#/components/schemas/Projects"
                 }
               }
             }
@@ -1644,7 +1711,7 @@
         },
         "summary": "",
         "tags": [
-          "Project"
+          "Projects"
         ],
         "requestBody": {
           "description": "",
@@ -1652,7 +1719,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewProject"
+                "$ref": "#/components/schemas/NewProjects"
               }
             }
           }
@@ -1672,10 +1739,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a record",
+        "description": "Delete a single projects record",
         "responses": {
           "200": {
-            "description": "deletes a single record based on the ID supplied",
+            "description": "deletes a single projects based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -1718,7 +1785,7 @@
         },
         "summary": "",
         "tags": [
-          "Project"
+          "Projects"
         ],
         "parameters": [
           {
@@ -2127,6 +2194,9 @@
               "email": {
                 "type": "string"
               },
+              "emailDisclaimer": {
+                "type": "string"
+              },
               "socialMedia": {
                 "type": "object",
                 "required": [
@@ -2157,9 +2227,6 @@
                     "type": "string"
                   }
                 }
-              },
-              "emailDisclaimer": {
-                "type": "string"
               }
             }
           },
@@ -2400,6 +2467,9 @@
               "email": {
                 "type": "string"
               },
+              "emailDisclaimer": {
+                "type": "string"
+              },
               "socialMedia": {
                 "type": "object",
                 "required": [
@@ -2430,9 +2500,6 @@
                     "type": "string"
                   }
                 }
-              },
-              "emailDisclaimer": {
-                "type": "string"
               }
             }
           },
@@ -2457,10 +2524,41 @@
           }
         }
       },
+      "Locale": {
+        "required": [
+          "id",
+          "name",
+          "code",
+          "isDefault"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "isDefault": {
+            "type": "boolean"
+          }
+        }
+      },
       "Landing": {
         "required": [
           "id",
-          "header"
+          "header",
+          "aboutMeContainer"
         ],
         "properties": {
           "id": {
@@ -2555,50 +2653,47 @@
               }
             }
           },
-          "containers": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "content"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "content": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "required": [
-                      "id",
-                      "title",
-                      "icon",
-                      "content"
-                    ],
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      },
-                      "title": {
-                        "type": "string"
-                      },
-                      "icon": {
-                        "type": "string"
-                      },
-                      "content": {
-                        "type": "string"
-                      },
-                      "learn_more_url": {
-                        "type": "string"
-                      },
-                      "color": {
-                        "type": "string"
-                      }
+          "aboutMeContainer": {
+            "type": "object",
+            "required": [
+              "id",
+              "content"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "content": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "title",
+                    "icon",
+                    "content"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "icon": {
+                      "type": "string"
+                    },
+                    "content": {
+                      "type": "string"
+                    },
+                    "learn_more_url": {
+                      "type": "string"
+                    },
+                    "color": {
+                      "type": "string"
                     }
                   }
                 }
@@ -2610,7 +2705,8 @@
             "items": {
               "required": [
                 "id",
-                "header"
+                "header",
+                "aboutMeContainer"
               ],
               "properties": {
                 "id": {
@@ -2619,7 +2715,7 @@
                 "header": {
                   "type": "component"
                 },
-                "containers": {
+                "aboutMeContainer": {
                   "type": "component"
                 },
                 "localizations": {
@@ -2654,7 +2750,8 @@
       },
       "NewLanding": {
         "required": [
-          "header"
+          "header",
+          "aboutMeContainer"
         ],
         "properties": {
           "header": {
@@ -2746,50 +2843,47 @@
               }
             }
           },
-          "containers": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "content"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "content": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "required": [
-                      "id",
-                      "title",
-                      "icon",
-                      "content"
-                    ],
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      },
-                      "title": {
-                        "type": "string"
-                      },
-                      "icon": {
-                        "type": "string"
-                      },
-                      "content": {
-                        "type": "string"
-                      },
-                      "learn_more_url": {
-                        "type": "string"
-                      },
-                      "color": {
-                        "type": "string"
-                      }
+          "aboutMeContainer": {
+            "type": "object",
+            "required": [
+              "id",
+              "content"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "content": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "title",
+                    "icon",
+                    "content"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "icon": {
+                      "type": "string"
+                    },
+                    "content": {
+                      "type": "string"
+                    },
+                    "learn_more_url": {
+                      "type": "string"
+                    },
+                    "color": {
+                      "type": "string"
                     }
                   }
                 }
@@ -2817,9 +2911,15 @@
           }
         }
       },
-      "Project": {
+      "Projects": {
         "required": [
-          "id"
+          "id",
+          "name",
+          "short_text",
+          "content",
+          "creationDate",
+          "bannerImages",
+          "showOnLandingPage"
         ],
         "properties": {
           "id": {
@@ -2834,77 +2934,97 @@
           "content": {
             "type": "string"
           },
-          "creation_date": {
+          "creationDate": {
             "type": "string",
             "format": "date"
           },
-          "website": {
-            "type": "string"
+          "bannerImages": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "name",
+                "hash",
+                "mime",
+                "size",
+                "url",
+                "provider"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "alternativeText": {
+                  "type": "string"
+                },
+                "caption": {
+                  "type": "string"
+                },
+                "width": {
+                  "type": "integer"
+                },
+                "height": {
+                  "type": "integer"
+                },
+                "formats": {
+                  "type": "object"
+                },
+                "hash": {
+                  "type": "string"
+                },
+                "ext": {
+                  "type": "string"
+                },
+                "mime": {
+                  "type": "string"
+                },
+                "size": {
+                  "type": "number"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "previewUrl": {
+                  "type": "string"
+                },
+                "provider": {
+                  "type": "string"
+                },
+                "provider_metadata": {
+                  "type": "object"
+                },
+                "related": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
           },
-          "banner_image": {
-            "required": [
-              "id",
-              "name",
-              "hash",
-              "mime",
-              "size",
-              "url",
-              "provider"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "alternativeText": {
-                "type": "string"
-              },
-              "caption": {
-                "type": "string"
-              },
-              "width": {
-                "type": "integer"
-              },
-              "height": {
-                "type": "integer"
-              },
-              "formats": {
-                "type": "object"
-              },
-              "hash": {
-                "type": "string"
-              },
-              "ext": {
-                "type": "string"
-              },
-              "mime": {
-                "type": "string"
-              },
-              "size": {
-                "type": "number"
-              },
-              "url": {
-                "type": "string"
-              },
-              "previewUrl": {
-                "type": "string"
-              },
-              "provider": {
-                "type": "string"
-              },
-              "provider_metadata": {
-                "type": "object"
-              },
-              "related": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
+          "links": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                }
               }
             }
           },
@@ -2912,7 +3032,13 @@
             "type": "array",
             "items": {
               "required": [
-                "id"
+                "id",
+                "name",
+                "short_text",
+                "content",
+                "creationDate",
+                "bannerImages",
+                "showOnLandingPage"
               ],
               "properties": {
                 "id": {
@@ -2927,14 +3053,20 @@
                 "content": {
                   "type": "string"
                 },
-                "creation_date": {
+                "creationDate": {
                   "type": "string"
                 },
-                "website": {
-                  "type": "string"
+                "bannerImages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
-                "banner_image": {
-                  "type": "string"
+                "showOnLandingPage": {
+                  "type": "boolean"
+                },
+                "links": {
+                  "type": "component"
                 },
                 "localizations": {
                   "type": "array",
@@ -2966,7 +3098,14 @@
           }
         }
       },
-      "NewProject": {
+      "NewProjects": {
+        "required": [
+          "name",
+          "short_text",
+          "content",
+          "creationDate",
+          "showOnLandingPage"
+        ],
         "properties": {
           "name": {
             "type": "string"
@@ -2977,12 +3116,33 @@
           "content": {
             "type": "string"
           },
-          "creation_date": {
+          "creationDate": {
             "type": "string",
             "format": "date"
           },
-          "website": {
-            "type": "string"
+          "showOnLandingPage": {
+            "type": "boolean",
+            "default": false
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "localizations": {
             "type": "array",
@@ -3037,7 +3197,7 @@
       "name": "Landing"
     },
     {
-      "name": "Project"
+      "name": "Projects"
     }
   ]
 }

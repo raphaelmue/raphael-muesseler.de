@@ -1,28 +1,36 @@
 {
-  "routes": [
-    {
-      "method": "GET",
-      "path": "/header",
-      "handler": "header.find",
-      "config": {
-        "policies": []
-      }
-    },
-    {
-      "method": "PUT",
-      "path": "/header",
-      "handler": "header.update",
-      "config": {
-        "policies": []
-      }
-    },
-    {
-      "method": "DELETE",
-      "path": "/header",
-      "handler": "header.delete",
-      "config": {
-        "policies": []
-      }
-    }
-  ]
+	"routes": [
+		{
+			"method": "GET",
+			"path": "/header/locales",
+			"handler": "header.listLocales",
+			"config": {
+				"policies": []
+			}
+		},
+		{
+			"method": "GET",
+			"path": "/header",
+			"handler": "header.find",
+			"config": {
+				"policies": []
+			}
+		},
+		{
+			"method": "PUT",
+			"path": "/header",
+			"handler": "header.update",
+			"config": {
+				"policies": ["plugins::users-permissions.isAuthenticated"]
+			}
+		},
+		{
+			"method": "DELETE",
+			"path": "/header",
+			"handler": "header.delete",
+			"config": {
+				"policies": ["plugins::users-permissions.isAuthenticated"]
+			}
+		}
+	]
 }

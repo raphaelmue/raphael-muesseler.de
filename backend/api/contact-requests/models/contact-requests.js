@@ -12,7 +12,7 @@ function replaceVariablesInContent(content, data) {
 	const matches = content.matchAll(/(<%=.*?%>)/g);
 	for (const match of matches) {
 		const key = match[0].replace('<%= data.', '').replace(' %>', '');
-		const value = key.split('.').reduce(function(a, b) {
+		const value = key.split('.').reduce(function (a, b) {
 			return a[b];
 		}, data);
 		replacedContent = content.replace(match[0], value);
@@ -52,7 +52,7 @@ module.exports = {
 					attachments: [{
 						filename: `${templateData.icon}.png`,
 						path: __dirname + `/../../../extensions/email/templates/images/${templateData.icon}.png`
-					},{
+					}, {
 						filename: 'signature.jpg',
 						path: __dirname + '/../../../extensions/email/templates/images/signature.jpg'
 					}, {

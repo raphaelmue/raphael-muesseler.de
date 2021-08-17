@@ -1,19 +1,18 @@
 {
 	"paths": {
-		"/contact-requests": {
+		"/projects": {
 			"get": {
 				"deprecated": false,
-				"description": "Find all the contact-requests's records",
+				"description": "Find all the projects's records",
 				"responses": {
 					"200": {
-						"description": "Retrieve contact-requests document(s)",
+						"description": "Retrieve projects document(s)",
 						"content": {
 							"application/json": {
 								"schema": {
-									"properties": {
-										"foo": {
-											"type": "string"
-										}
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/Projects"
 									}
 								}
 							}
@@ -52,9 +51,19 @@
 				},
 				"summary": "",
 				"tags": [
-					"Contact-requests"
+					"Projects"
 				],
 				"parameters": [
+					{
+						"name": "_locale",
+						"in": "query",
+						"required": true,
+						"description": "Locale",
+						"schema": {
+							"type": "string"
+						},
+						"deprecated": false
+					},
 					{
 						"name": "_limit",
 						"in": "query",
@@ -84,33 +93,19 @@
 							"type": "integer"
 						},
 						"deprecated": false
-					},
-					{
-						"name": "_locale",
-						"in": "query",
-						"required": false,
-						"description": "Locale",
-						"schema": {
-							"type": "string"
-						},
-						"deprecated": false
 					}
 				]
 			},
 			"post": {
 				"deprecated": false,
-				"description": "Create a new contact-requests record",
+				"description": "Create a new projects record",
 				"responses": {
 					"200": {
-						"description": "Retrieve contact-requests document(s)",
+						"description": "Retrieve projects document(s)",
 						"content": {
 							"application/json": {
 								"schema": {
-									"properties": {
-										"foo": {
-											"type": "string"
-										}
-									}
+									"$ref": "#/components/schemas/Projects"
 								}
 							}
 						}
@@ -148,7 +143,7 @@
 				},
 				"summary": "",
 				"tags": [
-					"Contact-requests"
+					"Projects"
 				],
 				"requestBody": {
 					"description": "",
@@ -156,26 +151,26 @@
 					"content": {
 						"application/json": {
 							"schema": {
-								"$ref": "#/components/schemas/NewContact-requests"
+								"$ref": "#/components/schemas/NewProjects"
 							}
 						}
 					}
 				}
 			}
 		},
-		"/contact-requests/count": {
+		"/projects/count": {
 			"get": {
 				"deprecated": false,
-				"description": "Retrieve the number of contact-requests documents",
+				"description": "Retrieve the number of projects documents",
 				"responses": {
 					"200": {
-						"description": "Retrieve contact-requests document(s)",
+						"description": "Retrieve projects document(s)",
 						"content": {
 							"application/json": {
 								"schema": {
 									"properties": {
-										"foo": {
-											"type": "string"
+										"count": {
+											"type": "integer"
 										}
 									}
 								}
@@ -215,26 +210,22 @@
 				},
 				"summary": "",
 				"tags": [
-					"Contact-requests"
+					"Projects"
 				],
 				"parameters": []
 			}
 		},
-		"/contact-requests/{id}": {
+		"/projects/{id}": {
 			"get": {
 				"deprecated": false,
-				"description": "Find one contact-requests record",
+				"description": "Find one projects record",
 				"responses": {
 					"200": {
-						"description": "Retrieve contact-requests document(s)",
+						"description": "Retrieve projects document(s)",
 						"content": {
 							"application/json": {
 								"schema": {
-									"properties": {
-										"foo": {
-											"type": "string"
-										}
-									}
+									"$ref": "#/components/schemas/Projects"
 								}
 							}
 						}
@@ -272,7 +263,7 @@
 				},
 				"summary": "",
 				"tags": [
-					"Contact-requests"
+					"Projects"
 				],
 				"parameters": [
 					{
@@ -289,18 +280,14 @@
 			},
 			"put": {
 				"deprecated": false,
-				"description": "Update a single contact-requests record",
+				"description": "Update a single projects record",
 				"responses": {
 					"200": {
-						"description": "Retrieve contact-requests document(s)",
+						"description": "Retrieve projects document(s)",
 						"content": {
 							"application/json": {
 								"schema": {
-									"properties": {
-										"foo": {
-											"type": "string"
-										}
-									}
+									"$ref": "#/components/schemas/Projects"
 								}
 							}
 						}
@@ -338,7 +325,7 @@
 				},
 				"summary": "",
 				"tags": [
-					"Contact-requests"
+					"Projects"
 				],
 				"requestBody": {
 					"description": "",
@@ -346,7 +333,7 @@
 					"content": {
 						"application/json": {
 							"schema": {
-								"$ref": "#/components/schemas/NewContact-requests"
+								"$ref": "#/components/schemas/NewProjects"
 							}
 						}
 					}
@@ -366,10 +353,10 @@
 			},
 			"delete": {
 				"deprecated": false,
-				"description": "Delete a single contact-requests record",
+				"description": "Delete a single projects record",
 				"responses": {
 					"200": {
-						"description": "deletes a single contact-requests based on the ID supplied",
+						"description": "deletes a single projects based on the ID supplied",
 						"content": {
 							"application/json": {
 								"schema": {
@@ -412,7 +399,7 @@
 				},
 				"summary": "",
 				"tags": [
-					"Contact-requests"
+					"Projects"
 				],
 				"parameters": [
 					{
@@ -431,51 +418,251 @@
 	},
 	"components": {
 		"schemas": {
-			"Contact-requests": {
+			"Projects": {
 				"required": [
 					"id",
-					"firstName",
-					"lastName",
-					"email",
-					"message"
+					"name",
+					"short_text",
+					"content",
+					"creationDate",
+					"bannerImages",
+					"showOnLandingPage"
 				],
 				"properties": {
 					"id": {
 						"type": "string"
 					},
-					"firstName": {
+					"name": {
 						"type": "string"
 					},
-					"lastName": {
+					"short_text": {
 						"type": "string"
 					},
-					"email": {
+					"content": {
 						"type": "string"
 					},
-					"message": {
+					"creationDate": {
+						"type": "string",
+						"format": "date"
+					},
+					"bannerImages": {
+						"type": "array",
+						"items": {
+							"required": [
+								"id",
+								"name",
+								"hash",
+								"mime",
+								"size",
+								"url",
+								"provider"
+							],
+							"properties": {
+								"id": {
+									"type": "string"
+								},
+								"name": {
+									"type": "string"
+								},
+								"alternativeText": {
+									"type": "string"
+								},
+								"caption": {
+									"type": "string"
+								},
+								"width": {
+									"type": "integer"
+								},
+								"height": {
+									"type": "integer"
+								},
+								"formats": {
+									"type": "object"
+								},
+								"hash": {
+									"type": "string"
+								},
+								"ext": {
+									"type": "string"
+								},
+								"mime": {
+									"type": "string"
+								},
+								"size": {
+									"type": "number"
+								},
+								"url": {
+									"type": "string"
+								},
+								"previewUrl": {
+									"type": "string"
+								},
+								"provider": {
+									"type": "string"
+								},
+								"provider_metadata": {
+									"type": "object"
+								},
+								"related": {
+									"type": "string"
+								},
+								"created_by": {
+									"type": "string"
+								},
+								"updated_by": {
+									"type": "string"
+								}
+							}
+						}
+					},
+					"links": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"required": [
+								"id"
+							],
+							"properties": {
+								"id": {
+									"type": "string"
+								},
+								"title": {
+									"type": "string"
+								},
+								"url": {
+									"type": "string"
+								}
+							}
+						}
+					},
+					"localizations": {
+						"type": "array",
+						"items": {
+							"required": [
+								"id",
+								"name",
+								"short_text",
+								"content",
+								"creationDate",
+								"bannerImages",
+								"showOnLandingPage"
+							],
+							"properties": {
+								"id": {
+									"type": "string"
+								},
+								"name": {
+									"type": "string"
+								},
+								"short_text": {
+									"type": "string"
+								},
+								"content": {
+									"type": "string"
+								},
+								"creationDate": {
+									"type": "string"
+								},
+								"bannerImages": {
+									"type": "array",
+									"items": {
+										"type": "string"
+									}
+								},
+								"showOnLandingPage": {
+									"type": "boolean"
+								},
+								"links": {
+									"type": "component"
+								},
+								"localizations": {
+									"type": "array",
+									"items": {
+										"type": "string"
+									}
+								},
+								"locale": {
+									"type": "string"
+								},
+								"published_at": {
+									"type": "string"
+								},
+								"created_by": {
+									"type": "string"
+								},
+								"updated_by": {
+									"type": "string"
+								}
+							}
+						}
+					},
+					"locale": {
 						"type": "string"
+					},
+					"published_at": {
+						"type": "string",
+						"format": "date-time"
 					}
 				}
 			},
-			"NewContact-requests": {
+			"NewProjects": {
 				"required": [
-					"firstName",
-					"lastName",
-					"email",
-					"message"
+					"name",
+					"short_text",
+					"content",
+					"creationDate",
+					"showOnLandingPage"
 				],
 				"properties": {
-					"firstName": {
+					"name": {
 						"type": "string"
 					},
-					"lastName": {
+					"short_text": {
 						"type": "string"
 					},
-					"email": {
+					"content": {
 						"type": "string"
 					},
-					"message": {
+					"creationDate": {
+						"type": "string",
+						"format": "date"
+					},
+					"showOnLandingPage": {
+						"type": "boolean",
+						"default": false
+					},
+					"links": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"required": [
+								"id"
+							],
+							"properties": {
+								"id": {
+									"type": "string"
+								},
+								"title": {
+									"type": "string"
+								},
+								"url": {
+									"type": "string"
+								}
+							}
+						}
+					},
+					"localizations": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						}
+					},
+					"locale": {
 						"type": "string"
+					},
+					"published_at": {
+						"type": "string",
+						"format": "date-time"
 					},
 					"created_by": {
 						"type": "string"
@@ -487,5 +674,9 @@
 			}
 		}
 	},
-	"tags": []
+	"tags": [
+		{
+			"name": "Projects"
+		}
+	]
 }

@@ -1,29 +1,29 @@
 {
-  "collectionName": "components_components_textboxes",
-  "info": {
-    "name": "textbox",
-    "icon": "address-card",
-    "description": ""
-  },
-  "options": {},
-  "attributes": {
-    "title": {
-      "type": "string",
-      "required": true
-    },
-    "icon": {
-      "type": "string",
-      "required": true
-    },
-    "content": {
-      "type": "richtext",
-      "required": true
-    },
-    "learn_more_url": {
-      "type": "string"
-    },
-    "color": {
-      "type": "string"
-    }
-  }
+	"collectionName": "components_components_textboxes",
+	"info": {
+		"name": "textbox",
+		"icon": "address-card",
+		"description": ""
+	},
+	"options": {},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"required": true
+		},
+		"icon": {
+			"type": "string",
+			"required": true
+		},
+		"content": {
+			"type": "richtext",
+			"required": true
+		},
+		"learn_more_url": {
+			"type": "string"
+		},
+		"color": {
+			"type": "string"
+		}
+	}
 }

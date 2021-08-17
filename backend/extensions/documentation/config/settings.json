@@ -13,8 +13,7 @@
 	"x-strapi-config": {
 		"path": "/documentation",
 		"showGeneratedFiles": true,
-		"pluginsForWhichToGenerateDoc": [],
-		"components": {}
+		"pluginsForWhichToGenerateDoc": ["i18n"]
 	},
 	"servers": [
 		{

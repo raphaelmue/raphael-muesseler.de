@@ -1,33 +1,33 @@
 {
-  "collectionName": "components_navbar_navbars",
-  "info": {
-    "name": "Navbar",
-    "icon": "align-left",
-    "description": ""
-  },
-  "options": {},
-  "attributes": {
-    "title": {
-      "type": "string",
-      "required": true
-    },
-    "logo": {
-      "model": "file",
-      "via": "related",
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ],
-      "plugin": "upload",
-      "required": false,
-      "pluginOptions": {}
-    },
-    "items": {
-      "type": "component",
-      "repeatable": true,
-      "component": "navbar.navbar-item",
-      "required": true
-    }
-  }
+	"collectionName": "components_navbar_navbars",
+	"info": {
+		"name": "Navbar",
+		"icon": "align-left",
+		"description": ""
+	},
+	"options": {},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"required": true
+		},
+		"logo": {
+			"model": "file",
+			"via": "related",
+			"allowedTypes": [
+				"images",
+				"files",
+				"videos"
+			],
+			"plugin": "upload",
+			"required": false,
+			"pluginOptions": {}
+		},
+		"items": {
+			"type": "component",
+			"repeatable": true,
+			"component": "navbar.navbar-item",
+			"required": true
+		}
+	}
 }

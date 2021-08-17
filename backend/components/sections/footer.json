@@ -1,23 +1,23 @@
 {
-  "collectionName": "components_sections_footers",
-  "info": {
-    "name": "Footer",
-    "icon": "map-signs",
-    "description": ""
-  },
-  "options": {},
-  "attributes": {
-    "links": {
-      "type": "component",
-      "repeatable": true,
-      "component": "components.link",
-      "required": true
-    },
-    "copyright": {
-      "type": "component",
-      "repeatable": false,
-      "component": "components.copyright",
-      "required": true
-    }
-  }
+	"collectionName": "components_sections_footers",
+	"info": {
+		"name": "Footer",
+		"icon": "map-signs",
+		"description": ""
+	},
+	"options": {},
+	"attributes": {
+		"links": {
+			"type": "component",
+			"repeatable": true,
+			"component": "components.link",
+			"required": true
+		},
+		"copyright": {
+			"type": "component",
+			"repeatable": false,
+			"component": "components.copyright",
+			"required": true
+		}
+	}
 }

@@ -1,3 +1,4 @@
+import Cookies from 'universal-cookie';
 import {Configuration, ContactRequestsApi, HeaderApi, LandingApi} from '../.openapi';
 import {BASE_PATH}                                                from '../.openapi/base';
 
@@ -14,6 +15,11 @@ class ApiFactory {
             instance = new ApiFactory();
         }
         return instance;
+    }
+
+    static getLocale(): string {
+        const cookies = new Cookies();
+        return cookies.get('locale') || navigator.language.split('-')[0] || 'en';
     }
 
     getImageURL(image: object): string {

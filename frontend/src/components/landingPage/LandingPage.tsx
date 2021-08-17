@@ -31,7 +31,7 @@ class LandingPage extends React.Component<HomeComponentProps, HomeComponentState
         const headerApi = ApiFactory.getInstance().getHeaderApi();
         const landingApi = ApiFactory.getInstance().getLandingApi();
 
-        headerApi.headerGet().then(response => {
+        headerApi.headerGet(ApiFactory.getLocale()).then(response => {
             if (response.data) {
                 this.setState({
                     headerData: response.data
@@ -39,7 +39,7 @@ class LandingPage extends React.Component<HomeComponentProps, HomeComponentState
             }
         });
 
-        landingApi.landingGet().then(response => {
+        landingApi.landingGet(ApiFactory.getLocale()).then(response => {
             if (response.data) {
                 this.setState({
                     landingPageData: response.data
@@ -58,10 +58,9 @@ class LandingPage extends React.Component<HomeComponentProps, HomeComponentState
                     <HeaderComponent
                         navbarData={this.state.headerData.navbar}
                         headerData={this.state.landingPageData.header}/>
-                    {this.state.landingPageData.containers?.map(container => (
-                        <Content title={container.title}>
+                        <Content title={this.state.landingPageData.aboutMeContainer.title}>
                             <Row>
-                                {container.content.map(content => (
+                                {this.state.landingPageData.aboutMeContainer.content.map(content => (
                                     <Col md={4}>
                                         <Card className={'icon-card'}>
                                             <i className={'heading-icon fa fa-' + content.icon + ' ' + content.color}/>
@@ -74,7 +73,6 @@ class LandingPage extends React.Component<HomeComponentProps, HomeComponentState
                                 ))}
                             </Row>
                         </Content>
-                    ))}
                     <ContactForm />
                     <FooterComponent headerData={this.state.headerData}/>
                 </main>

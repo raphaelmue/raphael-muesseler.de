@@ -41,16 +41,16 @@ module.exports = {
 		if (verb === 'get' && controllerMethod === 'find') {
 			// parametersOptions corresponds to this section
 			// of the documentation https://strapi.io/documentation/guides/filters.html
-			return [...params, ...parametersOptions.slice(0, 3), {
+			return [{
 				name: "_locale",
 				in: "query",
-				required: false,
+				required: true,
 				description: "Locale",
 				schema: {
 					type: "string"
 				},
 				deprecated: false
-			}];
+			}, ...params, ...parametersOptions.slice(0, 3)];
 		}
 
 		return params;

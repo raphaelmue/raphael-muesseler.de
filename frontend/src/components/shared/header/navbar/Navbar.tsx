@@ -1,32 +1,55 @@
-import React          from 'react';
+import React                  from 'react';
 import {
     Col,
-    Container,
+    Container, DropdownItem, DropdownMenu,
     Nav,
     Navbar as NavBarReact,
     NavbarBrand,
     NavItem,
     NavLink,
     Row,
-    UncontrolledCollapse
-}                     from 'reactstrap';
-import {Link}         from 'react-router-dom';
-import Headroom       from 'headroom.js';
-import {HeaderNavbar} from '../../../../.openapi';
+    UncontrolledCollapse,
+    UncontrolledDropdown
+}                             from 'reactstrap';
+import {Link}                 from 'react-router-dom';
+import Headroom               from 'headroom.js';
+import {HeaderNavbar, Locale} from '../../../../.openapi';
+import ApiFactory             from '../../../../api/ApiFactory';
+import Cookies                from 'universal-cookie';
 
 interface NavbarComponentProps {
     navbarData: HeaderNavbar;
 }
 
 interface NavbarComponentState {
+    locales: Locale[];
 }
 
 class Navbar extends React.Component<NavbarComponentProps, NavbarComponentState> {
+    constructor(props: NavbarComponentProps) {
+        super(props);
+
+        this.state = {
+            locales: []
+        };
+    }
+
     componentDidMount() {
+        ApiFactory.getInstance().getHeaderApi().headerLocalesGet().then(locales => {
+            this.setState({locales: locales.data});
+        });
+
         const header = document.getElementById('header');
         // @ts-ignore
         const headroom = new Headroom(header);
         headroom.init();
+    }
+
+    onChangeLanguage(code: string) {
+        const cookies = new Cookies();
+        cookies.set('locale', code, {path: '/'});
+
+        window.location.reload();
     }
 
     render() {
@@ -48,7 +71,7 @@ class Navbar extends React.Component<NavbarComponentProps, NavbarComponentState>
                             data-toggle="collapse"
                             id="navbar-default"
                             type="button">
-                            <i className={"fa fa-bars"}/>
+                            <i className={'fa fa-bars'}/>
                         </button>
                         <UncontrolledCollapse
                             toggler="#navbar-default"
@@ -76,12 +99,37 @@ class Navbar extends React.Component<NavbarComponentProps, NavbarComponentState>
                                     </Col>
                                 </Row>
                             </div>
-                            <Nav className="ml-lg-auto" navbar>
+                            <Nav className="navbar-nav-hover ml-lg-auto" navbar>
                                 {this.props.navbarData.items.map(navItem => (
                                     <NavItem>
                                         <Link to={navItem.url}><NavLink>{navItem.title}</NavLink></Link>
                                     </NavItem>
                                 ))}
+                                <UncontrolledDropdown nav>
+                                    <NavLink
+                                        aria-expanded={false}
+                                        aria-haspopup={true}
+                                        className="nav-link-icon"
+                                        data-toggle="dropdown"
+                                        href="#pablo"
+                                        id="navbar-language-dropdown"
+                                        onClick={e => e.preventDefault()}
+                                        role="button">
+                                        <i className="fa fa-globe"/>
+                                        <span className="nav-link-inner--text d-lg-none">Language</span>
+                                    </NavLink>
+                                    <DropdownMenu
+                                        aria-labelledby="navbar-language-dropdown"
+                                        right>
+                                        {this.state.locales.map(locale => (
+                                            <DropdownItem
+                                                onClick={() => this.onChangeLanguage(locale.code)}>
+                                                <i className={'flag-icon flag-icon-' + locale.code.replace('en', 'us')}/>
+                                                {locale.name.replace(/(\(.*\))/g, '')}
+                                            </DropdownItem>
+                                        ))}
+                                    </DropdownMenu>
+                                </UncontrolledDropdown>
                             </Nav>
                         </UncontrolledCollapse>
                     </Container>

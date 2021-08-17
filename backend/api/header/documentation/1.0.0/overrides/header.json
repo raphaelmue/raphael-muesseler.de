@@ -17,6 +17,61 @@
 					}
 				}
 			}
+		},
+		"/header/locales": {
+			"get": {
+				"deprecated": false,
+				"description": "",
+				"responses": {
+					"200": {
+						"description": "Retrieve all locales",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/Locale"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"components": {
+		"schemas": {
+			"Locale": {
+				"required": [
+					"id",
+					"name",
+					"code",
+					"isDefault"
+				],
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"name": {
+						"type": "string"
+					},
+					"code": {
+						"type": "string"
+					},
+					"created_at": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updated_at": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"isDefault": {
+						"type": "boolean"
+					}
+				}
+			}
 		}
 	}
 }

@@ -1,52 +1,52 @@
 {
-  "routes": [
-    {
-      "method": "GET",
-      "path": "/contact-requests",
-      "handler": "contact-requests.find",
-      "config": {
-        "policies": []
-      }
-    },
-    {
-      "method": "GET",
-      "path": "/contact-requests/count",
-      "handler": "contact-requests.count",
-      "config": {
-        "policies": []
-      }
-    },
-    {
-      "method": "GET",
-      "path": "/contact-requests/:id",
-      "handler": "contact-requests.findOne",
-      "config": {
-        "policies": []
-      }
-    },
-    {
-      "method": "POST",
-      "path": "/contact-requests",
-      "handler": "contact-requests.create",
-      "config": {
-        "policies": []
-      }
-    },
-    {
-      "method": "PUT",
-      "path": "/contact-requests/:id",
-      "handler": "contact-requests.update",
-      "config": {
-        "policies": []
-      }
-    },
-    {
-      "method": "DELETE",
-      "path": "/contact-requests/:id",
-      "handler": "contact-requests.delete",
-      "config": {
-        "policies": []
-      }
-    }
-  ]
+	"routes": [
+		{
+			"method": "GET",
+			"path": "/contact-requests",
+			"handler": "contact-requests.find",
+			"config": {
+				"policies": ["plugins::users-permissions.isAuthenticated"]
+			}
+		},
+		{
+			"method": "GET",
+			"path": "/contact-requests/count",
+			"handler": "contact-requests.count",
+			"config": {
+				"policies": ["plugins::users-permissions.isAuthenticated"]
+			}
+		},
+		{
+			"method": "GET",
+			"path": "/contact-requests/:id",
+			"handler": "contact-requests.findOne",
+			"config": {
+				"policies": ["plugins::users-permissions.isAuthenticated"]
+			}
+		},
+		{
+			"method": "POST",
+			"path": "/contact-requests",
+			"handler": "contact-requests.create",
+			"config": {
+				"policies": []
+			}
+		},
+		{
+			"method": "PUT",
+			"path": "/contact-requests/:id",
+			"handler": "contact-requests.update",
+			"config": {
+				"policies": ["plugins::users-permissions.isAuthenticated"]
+			}
+		},
+		{
+			"method": "DELETE",
+			"path": "/contact-requests/:id",
+			"handler": "contact-requests.delete",
+			"config": {
+				"policies": ["plugins::users-permissions.isAuthenticated"]
+			}
+		}
+	]
 }

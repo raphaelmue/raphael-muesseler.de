@@ -2,6 +2,7 @@
 @import '~bootstrap/scss/functions';
 @import '~argon-design-system-react/src/assets/scss/argon-design-system/variables';
 @import '~bootstrap/scss/bootstrap';
+@import '~flag-icon-css/sass/flag-icon';
 
 $default: darken($teal, 20%);
 $light: $teal;
@@ -23,6 +24,10 @@ $breakpoint-xl: 1200px;
 h1, h2, h3, h4, h5, h6, .display-1, .display-2, .display-3, .display-4 {
     font-family: "Montserrat", sans-serif;
     color: $default;
+}
+
+.flag-icon {
+    border-radius: 3px;
 }
 
 .heading-line {

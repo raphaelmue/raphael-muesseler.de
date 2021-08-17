@@ -1,33 +1,33 @@
 {
-  "collectionName": "components_page_headers",
-  "info": {
-    "name": "Header",
-    "icon": "file-upload",
-    "description": ""
-  },
-  "options": {},
-  "attributes": {
-    "title": {
-      "type": "string",
-      "required": true
-    },
-    "pretitle": {
-      "type": "string"
-    },
-    "description": {
-      "type": "string"
-    },
-    "backgroundImage": {
-      "model": "file",
-      "via": "related",
-      "allowedTypes": [
-        "files",
-        "images",
-        "videos"
-      ],
-      "plugin": "upload",
-      "required": true,
-      "pluginOptions": {}
-    }
-  }
+	"collectionName": "components_page_headers",
+	"info": {
+		"name": "Header",
+		"icon": "file-upload",
+		"description": ""
+	},
+	"options": {},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"required": true
+		},
+		"pretitle": {
+			"type": "string"
+		},
+		"description": {
+			"type": "string"
+		},
+		"backgroundImage": {
+			"model": "file",
+			"via": "related",
+			"allowedTypes": [
+				"files",
+				"images",
+				"videos"
+			],
+			"plugin": "upload",
+			"required": true,
+			"pluginOptions": {}
+		}
+	}
 }
