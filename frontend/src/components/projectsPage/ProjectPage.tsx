@@ -7,6 +7,7 @@ import ApiFactory                                         from '../../api/ApiFac
 import ContactForm                                        from '../shared/contactForm/ContactForm';
 import FooterComponent                                    from '../shared/footer/FooterComponent';
 import {Header, ProjectPage as ProjectPageData, Projects} from '../../.openapi';
+import ProjectsContent                                    from '../shared/content/projectsContent/ProjectsContent';
 
 interface ProjectPageComponentProps {
 }
@@ -63,38 +64,7 @@ class ProjectPage extends React.Component<ProjectPageComponentProps, ProjectPage
                     <HeaderComponent
                         navbarData={this.state.headerData.navbar}
                         headerData={this.state.projectPageData.header}/>
-                    <Content title={'Projects'}>
-                        <Row>
-                            {this.state.projects.map(project => (
-                                <Col md={4} key={'projects_' + project.id}>
-                                    <Card>
-                                        <img src={ApiFactory.getInstance().getImageURL(project.bannerImages[0])}/>
-                                        <h5>{project.name}</h5>
-                                        <p>
-                                            {project.tags?.map(tag => (
-                                                <Badge
-                                                    color={tag.color}
-                                                    key={'project_badge_' + tag.id}>
-                                                    {tag.name}
-                                                </Badge>
-                                            ))}
-                                        </p>
-                                        <p>
-                                            {project.shortText} <CardLink isLearnMoreLink href={''} text={'Mehr'}/>
-                                        </p>
-                                        <p>
-                                            {project.links?.map(link => (
-                                                <CardLink
-                                                    href={link.url}
-                                                    text={link.title}
-                                                    key={'projects_link_' + link.id}/>
-                                            ))}
-                                        </p>
-                                    </Card>
-                                </Col>
-                            ))}
-                        </Row>
-                    </Content>
+                    <ProjectsContent projects={this.state.projects} />
                     <FooterComponent headerData={this.state.headerData}/>
                 </main>
             );

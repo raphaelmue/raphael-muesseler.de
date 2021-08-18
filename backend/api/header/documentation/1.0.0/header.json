@@ -419,6 +419,9 @@
                     },
                     "url": {
                       "type": "string"
+                    },
+                    "icon": {
+                      "type": "string"
                     }
                   }
                 }
@@ -693,6 +696,9 @@
                       "type": "string"
                     },
                     "url": {
+                      "type": "string"
+                    },
+                    "icon": {
                       "type": "string"
                     }
                   }

@@ -56,7 +56,6 @@
     p {
         padding: 0 24px;
         margin-bottom: 16px;
-        text-align: justify;
 
         .badge {
             display: inline;
@@ -136,5 +135,17 @@
 
     i {
         margin: 0 10px;
+    }
+}
+
+.modal-dialog {
+    max-width: 100% !important;
+    @media (min-width: $breakpoint-m) {
+        max-width: 75% !important;
+    }
+
+    .modal-body {
+        max-height: 50vh;
+        overflow-y: auto;
     }
 }
