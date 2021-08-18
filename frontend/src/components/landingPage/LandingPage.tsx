@@ -1,19 +1,16 @@
-import React                            from 'react';
-import {Badge, Card, Col, Row, Spinner} from 'reactstrap';
-import Content         from '../shared/content/Content';
-import CardLink        from '../shared/card/cardLink/CardLink';
-import {
-    Header,
-    LandingPage as LandingPageData,
-    Projects
-}                      from '../../.openapi';
-import ApiFactory      from '../../api/ApiFactory';
-import FooterComponent from '../shared/footer/FooterComponent';
-import ContactForm     from '../shared/contactForm/ContactForm';
-import HeaderComponent from '../shared/header/HeaderComponent';
-import ProjectsContent from '../shared/content/projectsContent/ProjectsContent';
+import React                                              from 'react';
+import {Card, Col, Row, Spinner}                          from 'reactstrap';
+import Content                                            from '../shared/content/Content';
+import CardLink                                           from '../shared/card/cardLink/CardLink';
+import {Header, LandingPage as LandingPageData, Projects} from '../../.openapi';
+import ApiFactory                                         from '../../api/ApiFactory';
+import FooterComponent                                    from '../shared/footer/FooterComponent';
+import ContactForm                                        from '../shared/contactForm/ContactForm';
+import HeaderComponent                                    from '../shared/header/HeaderComponent';
+import ProjectsContent                                    from '../shared/content/projectsContent/ProjectsContent';
+import {withTranslation, WithTranslationProps}            from 'react-i18next';
 
-interface HomeComponentProps {
+interface HomeComponentProps extends WithTranslationProps {
 }
 
 interface HomeComponentState {
@@ -69,8 +66,11 @@ class LandingPage extends React.Component<HomeComponentProps, HomeComponentState
                         headerData={this.state.landingPageData.header}/>
                     <Content title={this.state.landingPageData.aboutMeContainer.title}>
                         <Row>
-                            {this.state.landingPageData.aboutMeContainer.content.map(content => (
-                                <Col md={4} key={'aboutMeContainer_' + content.id}>
+                            {this.state.landingPageData.aboutMeContainer.content.map((content, index) => (
+                                <Col md={4}
+                                     key={'aboutMeContainer_' + content.id}
+                                     data-aos={'fade-up'}
+                                     data-aos-delay={index * 100}>
                                     <Card className={'icon-card'}>
                                         <i className={'heading-icon fa fa-' + content.icon + ' ' + content.color}/>
                                         <h5 className={content.color}>{content.title}</h5>
@@ -91,4 +91,4 @@ class LandingPage extends React.Component<HomeComponentProps, HomeComponentState
     }
 }
 
-export default LandingPage;
+export default withTranslation()(LandingPage);

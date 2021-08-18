@@ -1,0 +1,21 @@
+{
+  "Contact": {
+    "Title": "Contact",
+    "Form": {
+      "FirstName": "First Name",
+      "LastName": "Last Name",
+      "Email": "E-mail Adress",
+      "YourMessage": "Your Message"
+    }
+  },
+  "Projects": {
+    "Title": "Projects"
+  },
+  "General": {
+    "Form": {
+      "Button": {
+        "Send": "Send"
+      }
+    }
+  }
+}

@@ -1,10 +1,11 @@
-import React      from 'react';
-import {Header}   from '../../../.openapi';
-import Content    from '../content/Content';
-import {Col, Row} from 'reactstrap';
-import {Link}     from 'react-router-dom';
+import React             from 'react';
+import {Header}          from '../../../.openapi';
+import Content           from '../content/Content';
+import {Col, Row}        from 'reactstrap';
+import {Link}                             from 'react-router-dom';
+import {withTranslation, WithTranslation} from 'react-i18next';
 
-interface FooterComponentProps {
+interface FooterComponentProps extends WithTranslation {
     headerData: Header;
 }
 
@@ -18,7 +19,7 @@ class FooterComponent extends React.Component<FooterComponentProps, FooterCompon
                 <Content>
                     <Row>
                         <Col>
-                            <h4>Contact</h4>
+                            <h4>{this.props.t('Contact.Title')}</h4>
                             <p>
                                 {this.props.headerData.contact.name}
                                 <br/>
@@ -70,4 +71,4 @@ class FooterComponent extends React.Component<FooterComponentProps, FooterCompon
     }
 }
 
-export default FooterComponent;
+export default withTranslation()(FooterComponent);

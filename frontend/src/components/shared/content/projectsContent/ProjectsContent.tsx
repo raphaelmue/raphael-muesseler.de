@@ -4,9 +4,10 @@ import {Badge, Button, Card, Col, Modal, Row} from 'reactstrap';
 import ApiFactory                             from '../../../../api/ApiFactory';
 import CardLink                               from '../../card/cardLink/CardLink';
 import Content                                from '../Content';
-import ReactMarkdown from 'react-markdown';
+import ReactMarkdown                      from 'react-markdown';
+import {withTranslation, WithTranslation} from 'react-i18next';
 
-interface ProjectsContentComponentProps {
+interface ProjectsContentComponentProps extends WithTranslation{
     projects: Projects[];
 }
 
@@ -36,10 +37,13 @@ class ProjectsContent extends React.Component<ProjectsContentComponentProps, Pro
 
     render() {
         return (
-            <Content title={'Projects'}>
+            <Content title={this.props.t('Projects.Title')}>
                 <Row>
-                    {this.props.projects.map(project => (
-                        <Col md={4} key={'projects_' + project.id}>
+                    {this.props.projects.map((project, index) => (
+                        <Col md={4}
+                             key={'projects_' + project.id}
+                             data-aos={'fade-up'}
+                             data-aos-delay={index * 100}>
                             <Card>
                                 <img alt={project.bannerImages[0].alternativeText}
                                      src={ApiFactory.getInstance().getImageURL(project.bannerImages[0])}/>
@@ -119,4 +123,4 @@ class ProjectsContent extends React.Component<ProjectsContentComponentProps, Pro
     }
 }
 
-export default ProjectsContent;
+export default withTranslation()(ProjectsContent);

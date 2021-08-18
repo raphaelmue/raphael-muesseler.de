@@ -2,9 +2,10 @@ import React                                               from 'react';
 import Content                                             from '../content/Content';
 import {Button, Col, Form, FormGroup, Input, Row, Spinner} from 'reactstrap';
 import ApiFactory                                          from '../../../api/ApiFactory';
-import {NewContactRequests}                                from '../../../.openapi';
+import {NewContactRequests}                                     from '../../../.openapi';
+import {WithTranslation, withTranslation, WithTranslationProps} from 'react-i18next';
 
-interface ContactFormComponentProps {
+interface ContactFormComponentProps extends WithTranslation {
 }
 
 interface ContactFormComponentState {
@@ -38,7 +39,7 @@ class ContactForm extends React.Component<ContactFormComponentProps, ContactForm
 
             this.setState({isLoading: true});
             ApiFactory.getInstance().getContactRequestsApi().contactRequestsPost(this.state.contactRequestData).then(() => {
-                // this.setState(initialState);
+                this.setState(initialState);
             });
         }
     }
@@ -52,7 +53,7 @@ class ContactForm extends React.Component<ContactFormComponentProps, ContactForm
 
     render() {
         return (
-            <Content title={'Contact'}>
+            <Content title={this.props.t('Contact.Title')}>
                 <Form>
                     <Row className="justify-content-md-center">
                         <Col lg={8}>
@@ -61,7 +62,7 @@ class ContactForm extends React.Component<ContactFormComponentProps, ContactForm
                                     <FormGroup>
                                         <Input
                                             className={'form-control-alternative'}
-                                            placeholder={'First Name'}
+                                            placeholder={this.props.t('Contact.Form.FirstName')}
                                             id={'firstName'}
                                             value={this.state.contactRequestData.firstName}
                                             onChange={this.onChangeInput}/>
@@ -71,7 +72,7 @@ class ContactForm extends React.Component<ContactFormComponentProps, ContactForm
                                     <FormGroup>
                                         <Input
                                             className="form-control-alternative"
-                                            placeholder={'Last Name'}
+                                            placeholder={this.props.t('Contact.Form.LastName')}
                                             id={'lastName'}
                                             value={this.state.contactRequestData.lastName}
                                             onChange={this.onChangeInput}/>
@@ -83,7 +84,7 @@ class ContactForm extends React.Component<ContactFormComponentProps, ContactForm
                                     <FormGroup>
                                         <Input
                                             className="form-control-alternative"
-                                            placeholder={'Email'}
+                                            placeholder={this.props.t('Contact.Form.Email')}
                                             id={'email'}
                                             value={this.state.contactRequestData.email}
                                             onChange={this.onChangeInput}/>
@@ -95,7 +96,7 @@ class ContactForm extends React.Component<ContactFormComponentProps, ContactForm
                                     <FormGroup>
                                         <Input
                                             className="form-control-alternative"
-                                            placeholder={'Your Text'}
+                                            placeholder={this.props.t('Contact.Form.YourMessage')}
                                             rows="3"
                                             type="textarea"
                                             id={'message'}
@@ -108,7 +109,7 @@ class ContactForm extends React.Component<ContactFormComponentProps, ContactForm
                                 <Col md={2}>
                                     <Button color="info" type="button"
                                             onClick={this.createContactRequest.bind(this)}>
-                                        Send
+                                        {this.props.t('General.Form.Button.Send')}
                                         <Spinner style={{display: this.state.isLoading ? 'inherit' : 'none'}}/>
                                     </Button>
                                 </Col>
@@ -122,4 +123,4 @@ class ContactForm extends React.Component<ContactFormComponentProps, ContactForm
 
 }
 
-export default ContactForm;
+export default withTranslation()(ContactForm);
