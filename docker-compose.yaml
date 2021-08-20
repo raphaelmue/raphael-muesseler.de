@@ -10,10 +10,10 @@ services:
         volumes:
             - ./data.db:/usr/src/app/.data/data.db
         environment:
-            SMTP_HOST=host
-            SMTP_PORT=465
-            SMTP_USERNAME=username
-            SMTP_PASSWORD=password
+            SMTP_HOST: =host
+            SMTP_PORT: 465
+            SMTP_USERNAME: username
+            SMTP_PASSWORD: password
 
     frontend:
         image: raphaelmue/raphael-muesseler-frontend:latest
