@@ -1,0 +1,18 @@
+# Cache
+.cache/
+
+# Build
+build/
+
+# Dependencies
+node_modules/
+
+# Data
+.data/
+
+# Environment file
+.env
+
+# Log files
+*.lock
+*.log

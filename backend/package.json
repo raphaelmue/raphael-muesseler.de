@@ -8,14 +8,18 @@
 		"clean:modules": "rimraf node_modules/",
 		"develop": "strapi develop",
 		"start": "strapi start",
+		"start:production": "cross-env NODE_ENV=production yarn start",
 		"build": "strapi build",
+		"build:production": "cross-env NODE_ENV=production yarn run build --clean",
 		"strapi": "strapi"
 	},
 	"devDependencies": {
 		"rimraf": "^3.0.2"
 	},
 	"dependencies": {
+		"cross-env": "^7.0.3",
 		"knex": "0.21.18",
+		"serve": "^12.0.0",
 		"sqlite3": "5.0.0",
 		"strapi": "3.6.6",
 		"strapi-admin": "3.6.6",

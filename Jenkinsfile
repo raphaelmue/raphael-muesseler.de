@@ -1,4 +1,14 @@
 pipeline {
+    environment {
+        registryCredential = 'dockerhub'
+    }
+
+    agent any
+
+    tools {
+       nodejs 'NodeJS 13.6.0'
+    }
+
     stages {
         stage('Build') {
             parallel {
@@ -6,6 +16,7 @@ pipeline {
                     steps {
                         dir('backend') {
                             sh 'yarn install'
+                            sh 'yarn build'
                         }
                     }
                 }
@@ -13,7 +24,31 @@ pipeline {
                     steps {
                         dir('frontend') {
                             sh 'yarn install'
+                            sh 'yarn build'
                         }
+                    }
+                }
+            }
+        }
+
+        stage('Deployment') {
+            parallel {
+                stage('Backend') {
+                    environment {
+                        registry = "raphaelmue/raphael-muesseler-backend"
+                    }
+                    steps {
+                        dir('backend') {
+                            docker.build registry + ":latest"
+                        }
+                    }
+                }
+                stage('Frontend') {
+                    environment {
+                        registry = "raphaelmue/raphael-muesseler-frontend"
+                    }
+                    steps {
+                        docker.build registry + ":latest"
                     }
                 }
             }

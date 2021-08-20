@@ -1,3 +1,3 @@
 const globalConfig = {
-    serverUrl: 'http://localhost:3001'
+    serverUrl: 'http://localhost:1337'
 }

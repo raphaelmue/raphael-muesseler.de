@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+
+# Build directory
+build/
+
+# Test
+test/
+
+# OpenAPI
+**/.openapi/
+
+# Log files
+*.log
+*.lock
