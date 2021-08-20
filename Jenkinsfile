@@ -15,6 +15,7 @@ pipeline {
                 stage('Backend') {
                     steps {
                         dir('backend') {
+                            sh 'npm install -g yarn'
                             sh 'yarn install'
                             sh 'yarn build'
                         }
@@ -23,6 +24,7 @@ pipeline {
                 stage('Frontend') {
                     steps {
                         dir('frontend') {
+                            sh 'npm install -g yarn'
                             sh 'yarn install'
                             sh 'yarn build'
                         }
