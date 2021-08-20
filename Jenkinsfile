@@ -39,7 +39,9 @@ pipeline {
                     }
                     steps {
                         dir('backend') {
-                            docker.build registry + ":latest"
+                            script {
+                                docker.build registry + ":latest"
+                            }
                         }
                     }
                 }
@@ -48,7 +50,9 @@ pipeline {
                         registry = "raphaelmue/raphael-muesseler-frontend"
                     }
                     steps {
-                        docker.build registry + ":latest"
+                        script {
+                            docker.build registry + ":latest"
+                        }
                     }
                 }
             }
