@@ -116,3 +116,5 @@ build
 ############################
 # OpenAPI Documentation
 ############################
+
+full_documentation_clean.json
