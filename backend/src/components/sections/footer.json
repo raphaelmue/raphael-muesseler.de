@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_sections_footers",
+  "info": {
+    "displayName": "footer",
+    "icon": "arrow-down"
+  },
+  "options": {},
+  "attributes": {
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.link",
+      "required": true
+    },
+    "copyright": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.copyright",
+      "required": true
+    }
+  }
+}

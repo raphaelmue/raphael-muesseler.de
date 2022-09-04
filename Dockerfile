@@ -7,7 +7,7 @@ MAINTAINER Raphael Müßeler <raphael@muesseler.de>
 WORKDIR /usr/src/app/
 
 # Copy source files
-COPY ./backend/extensions/documentation/documentation/1.0.0/full_documentation.json backend/extensions/documentation/documentation/1.0.0/full_documentation.json
+COPY backend/src/extensions/documentation/documentation/1.0.0/full_documentation.json backend/extensions/documentation/documentation/1.0.0/full_documentation.json
 COPY ./frontend/ frontend/
 
 # Set working directory to frontend

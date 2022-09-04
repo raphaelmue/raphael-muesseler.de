@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_components_copyrights",
+  "info": {
+    "displayName": "copyright",
+    "icon": "copyright",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "creationYear": {
+      "type": "integer",
+      "required": true
+    },
+    "fontawesomeInfo": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

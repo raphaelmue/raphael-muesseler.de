@@ -1,8 +1,8 @@
-import Cookies     from 'universal-cookie';
+import Cookies from 'universal-cookie';
 import {
-    Configuration, ContactRequestsApi,
-    HeaderApi, Image, LandingPageApi,
-    ProjectPageApi, ProjectsApi
+    Configuration, ContactRequestApi,
+    MasterDataApi, LandingPageApi,
+    ProjectPageApi, ProjectApi
 } from '../.openapi';
 import {BASE_PATH} from '../.openapi/base';
 
@@ -30,8 +30,8 @@ class ApiFactory {
         return this.configuration.basePath + image.url;
     }
 
-    getHeaderApi(): HeaderApi {
-        return new HeaderApi(this.configuration);
+    getMasterDataApi(): MasterDataApi {
+        return new MasterDataApi(this.configuration);
     }
 
     getLandingPageApi(): LandingPageApi {
@@ -42,12 +42,12 @@ class ApiFactory {
         return new ProjectPageApi(this.configuration);
     }
 
-    getContactRequestsApi(): ContactRequestsApi {
-        return new ContactRequestsApi(this.configuration);
+    getContactRequestsApi(): ContactRequestApi {
+        return new ContactRequestApi(this.configuration);
     }
 
-    getProjectApi(): ProjectsApi {
-        return new ProjectsApi(this.configuration);
+    getProjectApi(): ProjectApi {
+        return new ProjectApi(this.configuration);
     }
 }
 

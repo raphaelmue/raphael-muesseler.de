@@ -1,0 +1,46 @@
+{
+  "collectionName": "components_components_social_medias",
+  "info": {
+    "displayName": "SocialMedia",
+    "icon": "users",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "instagram": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "youtube": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "spotify": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "github": {
+      "type": "string",
+      "required": true
+    },
+    "website": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

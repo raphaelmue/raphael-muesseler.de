@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_sections_box_containers",
+  "info": {
+    "displayName": "Box Container",
+    "icon": "box"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "displayName": "Textbox",
+      "type": "component",
+      "repeatable": false,
+      "component": "components.textbox",
+      "required": true
+    }
+  }
+}

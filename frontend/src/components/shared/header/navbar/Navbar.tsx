@@ -35,7 +35,7 @@ class Navbar extends React.Component<NavbarComponentProps, NavbarComponentState>
     }
 
     componentDidMount() {
-        ApiFactory.getInstance().getHeaderApi().headerLocalesGet().then(locales => {
+        ApiFactory.getInstance().getMasterDataApi().headerLocalesGet().then(locales => {
             this.setState({locales: locales.data});
         });
 

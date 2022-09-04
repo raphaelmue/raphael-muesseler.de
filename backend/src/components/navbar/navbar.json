@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_navbar_navbars",
+  "info": {
+    "displayName": "Navbar",
+    "icon": "desktop",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "navbar.navbar-item",
+      "required": true
+    }
+  }
+}

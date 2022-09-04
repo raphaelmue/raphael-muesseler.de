@@ -1,0 +1,53 @@
+{
+  "kind": "singleType",
+  "collectionName": "master_datas",
+  "info": {
+    "singularName": "master-data",
+    "pluralName": "master-datas",
+    "displayName": "Master Data",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "navbar": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "navbar.navbar",
+      "required": true
+    },
+    "contact": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "component": "components.contact",
+      "required": true
+    },
+    "footer": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "sections.footer",
+      "required": true
+    }
+  }
+}

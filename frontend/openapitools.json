@@ -2,12 +2,12 @@
     "$schema": "node_modules/@openapitools/openapi-generator-cli/config.schema.json",
     "spaces": 4,
     "generator-cli": {
-        "version": "5.2.0",
+        "version": "6.0.1",
         "generators": {
             "default": {
                 "generatorName": "typescript-axios",
                 "output": "#{cwd}/src/.openapi/",
-                "glob": "../backend/extensions/documentation/documentation/1.0.0/full_documentation.json",
+                "glob": "../backend/src/extensions/documentation/documentation/1.0.0/full_documentation.json",
                 "skipValidateSpec": true,
                 "additionalProperties": {
                     "ngVersion": "6.1.7",

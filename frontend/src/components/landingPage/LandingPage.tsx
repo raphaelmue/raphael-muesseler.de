@@ -32,7 +32,7 @@ class LandingPage extends React.Component<HomeComponentProps, HomeComponentState
     }
 
     componentDidMount() {
-        const headerApi = ApiFactory.getInstance().getHeaderApi();
+        const headerApi = ApiFactory.getInstance().getMasterDataApi();
         const landingApi = ApiFactory.getInstance().getLandingPageApi();
         const projectApi = ApiFactory.getInstance().getProjectApi();
 

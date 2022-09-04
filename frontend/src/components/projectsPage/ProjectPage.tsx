@@ -31,7 +31,7 @@ class ProjectPage extends React.Component<ProjectPageComponentProps, ProjectPage
 
 
     componentDidMount() {
-        const headerApi = ApiFactory.getInstance().getHeaderApi();
+        const headerApi = ApiFactory.getInstance().getMasterDataApi();
         const landingApi = ApiFactory.getInstance().getProjectPageApi();
         const projectApi = ApiFactory.getInstance().getProjectApi();
 
