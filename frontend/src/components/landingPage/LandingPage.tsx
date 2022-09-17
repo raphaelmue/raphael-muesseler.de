@@ -1,22 +1,25 @@
-import React                                              from 'react';
-import {Card, Col, Row, Spinner}                          from 'reactstrap';
-import Content                                            from '../shared/content/Content';
-import CardLink                                           from '../shared/card/cardLink/CardLink';
-import {Header, LandingPage as LandingPageData, Projects} from '../../.openapi';
-import ApiFactory                                         from '../../api/ApiFactory';
-import FooterComponent                                    from '../shared/footer/FooterComponent';
-import ContactForm                                        from '../shared/contactForm/ContactForm';
-import HeaderComponent                                    from '../shared/header/HeaderComponent';
-import ProjectsContent                                    from '../shared/content/projectsContent/ProjectsContent';
-import {withTranslation, WithTranslationProps}            from 'react-i18next';
+import React                                   from 'react';
+import {Row, Spinner}                          from 'reactstrap';
+import Content                                 from '../shared/content/Content';
+import {
+    LandingPageResponseDataObject,
+    MasterDataResponseDataObject,
+    ProjectResponseDataObject
+}                                              from '../../.openapi';
+import ApiFactory                              from '../../api/ApiFactory';
+import FooterComponent                         from '../shared/footer/FooterComponent';
+import ContactForm                             from '../shared/contactForm/ContactForm';
+import HeaderComponent                         from '../shared/header/HeaderComponent';
+import ProjectsContent                         from '../shared/content/projectsContent/ProjectsContent';
+import {withTranslation, WithTranslationProps} from 'react-i18next';
 
 interface HomeComponentProps extends WithTranslationProps {
 }
 
 interface HomeComponentState {
-    landingPageData: LandingPageData | null;
-    headerData: Header | null;
-    projects: Projects[];
+    landingPageData?: LandingPageResponseDataObject;
+    masterData?: MasterDataResponseDataObject;
+    projects: ProjectResponseDataObject[];
 }
 
 class LandingPage extends React.Component<HomeComponentProps, HomeComponentState> {
@@ -25,66 +28,66 @@ class LandingPage extends React.Component<HomeComponentProps, HomeComponentState
         super(props);
 
         this.state = {
-            landingPageData: null,
-            headerData: null,
+            landingPageData: undefined,
+            masterData: undefined,
             projects: []
         };
     }
 
     componentDidMount() {
-        const headerApi = ApiFactory.getInstance().getMasterDataApi();
+        const masterDataApi = ApiFactory.getInstance().getMasterDataApi();
         const landingApi = ApiFactory.getInstance().getLandingPageApi();
         const projectApi = ApiFactory.getInstance().getProjectApi();
 
-        headerApi.headerGet(ApiFactory.getLocale()).then(response => {
-            if (response.data) {
-                this.setState({headerData: response.data});
+        masterDataApi.getMasterData(ApiFactory.getLocale()).then(response => {
+            if (response.data.data) {
+                this.setState({masterData: response.data.data[0]});
             }
         });
 
-        landingApi.landingPageGet(ApiFactory.getLocale()).then(response => {
-            if (response.data) {
-                this.setState({landingPageData: response.data});
+        landingApi.getLandingPage(ApiFactory.getLocale()).then(response => {
+            if (response.data.data) {
+                this.setState({landingPageData: response.data.data[0]});
             }
         });
 
-        projectApi.projectsGet(ApiFactory.getLocale(), true).then(response => {
-            if (response.data) {
-                this.setState({projects: response.data});
+        projectApi.getProjects(ApiFactory.getLocale(), true).then(response => {
+            if (response.data.data) {
+                this.setState({projects: response.data.data});
             }
         });
     }
 
     render() {
-        if (!this.state.landingPageData || !this.state.headerData) {
+        if (!this.state.landingPageData || !this.state.masterData || !this.state.landingPageData.attributes?.header) {
             return (<Spinner className={'page-spinner'}/>);
         } else {
             return (
                 <main>
                     <HeaderComponent
-                        navbarData={this.state.headerData.navbar}
-                        headerData={this.state.landingPageData.header}/>
-                    <Content title={this.state.landingPageData.aboutMeContainer.title}>
+                        masterData={this.state.masterData}
+                        headerData={this.state.landingPageData.attributes?.header}/>
+                    <Content title={this.state.landingPageData.attributes?.aboutMeContainer?.title}>
                         <Row>
-                            {this.state.landingPageData.aboutMeContainer.content.map((content, index) => (
-                                <Col md={4}
-                                     key={'aboutMeContainer_' + content.id}
-                                     data-aos={'fade-up'}
-                                     data-aos-delay={index * 100}>
-                                    <Card className={'icon-card'}>
-                                        <i className={'heading-icon fa fa-' + content.icon + ' ' + content.color}/>
-                                        <h5 className={content.color}>{content.title}</h5>
-                                        <p>{content.content}</p>
-                                        <p><CardLink text={'Test'}
-                                                     href={content.learn_more_url || ''}/></p>
-                                    </Card>
-                                </Col>
-                            ))}
+                            {/*{this.state.landingPageData.attributes?.aboutMeContainer?.content?.map((content, index) => (*/}
+                            {/*    <Col md={4}*/}
+                            {/*         key={'aboutMeContainer_' + content.id}*/}
+                            {/*         data-aos={'fade-up'}*/}
+                            {/*         data-aos-delay={index * 100}>*/}
+                            {/*        <Card className={'icon-card'}>*/}
+                            {/*            <i className={'heading-icon fa fa-' + content.icon + ' ' + content.color}/>*/}
+                            {/*            <h5 className={content.color}>{content.title}</h5>*/}
+                            {/*            <p>{content.content}</p>*/}
+                            {/*            <p><CardLink text={'Test'}*/}
+                            {/*                         href={content.learn_more_url || ''}/></p>*/}
+                            {/*        </Card>*/}
+                            {/*    </Col>*/}
+                            {/*))}*/}
                         </Row>
                     </Content>
                     <ProjectsContent projects={this.state.projects}/>
                     <ContactForm/>
-                    <FooterComponent headerData={this.state.headerData}/>
+                    <FooterComponent masterData={this.state.masterData}/>
                 </main>
             );
         }

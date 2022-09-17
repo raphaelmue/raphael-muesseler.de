@@ -11,7 +11,8 @@ let instance: ApiFactory | null = null;
 
 class ApiFactory {
     configuration: Configuration = new Configuration({
-        basePath: BASE_PATH.replace('http://localhost:3001', globalConfig.serverUrl)
+        basePath: BASE_PATH.replace('http://localhost:1337', globalConfig.serverUrl),
+        apiKey: process.env.REACT_APP_API_TOKEN
     });
 
     static getInstance(): ApiFactory {

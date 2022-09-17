@@ -1,9 +1,9 @@
-import React                      from 'react';
-import {Image, LandingPageHeader} from '../../../../.openapi';
-import ApiFactory                 from '../../../../api/ApiFactory';
+import React from 'react';
+import {SectionsHeaderComponent} from '../../../../.openapi';
+import ApiFactory from '../../../../api/ApiFactory';
 
 interface BannerComponentProps {
-    headerData: LandingPageHeader;
+    headerData: SectionsHeaderComponent;
 }
 
 interface BannerComponentState {
@@ -22,7 +22,7 @@ class Banner extends React.Component<BannerComponentProps, BannerComponentState>
                      }}>
                 <article className={'banner-heading'} data-aos={'fade-left'}>
                     <p className={'banner-heading-iam'}>
-                        {this.props.headerData?.pretitle}
+                        {this.props.headerData.pretitle}
                     </p>
                     <h1 className="banner-heading-name">
                         {this.props.headerData.title}

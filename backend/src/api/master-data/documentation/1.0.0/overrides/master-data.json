@@ -1,0 +1,127 @@
+{
+	"paths": {
+		"/locales": {
+			"get": {
+				"deprecated": false,
+				"description": "",
+				"responses": {
+					"200": {
+						"description": "Retrieve all locales",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/Locale"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"components": {
+		"schemas": {
+			"Locale": {
+				"required": [
+					"id",
+					"name",
+					"code",
+					"isDefault"
+				],
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"name": {
+						"type": "string"
+					},
+					"code": {
+						"type": "string"
+					},
+					"created_at": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updated_at": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"isDefault": {
+						"type": "boolean"
+					}
+				}
+			},
+			"Image": {
+				"type": "object",
+				"required": [
+					"id",
+					"name",
+					"hash",
+					"mime",
+					"size",
+					"url",
+					"provider"
+				],
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"alternativeText": {
+						"type": "string"
+					},
+					"caption": {
+						"type": "string"
+					},
+					"width": {
+						"type": "integer"
+					},
+					"height": {
+						"type": "integer"
+					},
+					"formats": {
+						"type": "object"
+					},
+					"hash": {
+						"type": "string"
+					},
+					"ext": {
+						"type": "string"
+					},
+					"mime": {
+						"type": "string"
+					},
+					"size": {
+						"type": "number"
+					},
+					"url": {
+						"type": "string"
+					},
+					"previewUrl": {
+						"type": "string"
+					},
+					"provider": {
+						"type": "string"
+					},
+					"provider_metadata": {
+						"type": "object"
+					},
+					"related": {
+						"type": "string"
+					},
+					"created_by": {
+						"type": "string"
+					},
+					"updated_by": {
+						"type": "string"
+					}
+				}
+			}
+		}
+	}
+}

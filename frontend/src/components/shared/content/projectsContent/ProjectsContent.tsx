@@ -1,19 +1,19 @@
 import React                                  from 'react';
-import {Projects}                             from '../../../../.openapi';
+import {ProjectResponseDataObject}            from '../../../../.openapi';
 import {Badge, Button, Card, Col, Modal, Row} from 'reactstrap';
 import ApiFactory                             from '../../../../api/ApiFactory';
 import CardLink                               from '../../card/cardLink/CardLink';
 import Content                                from '../Content';
-import ReactMarkdown                      from 'react-markdown';
-import {withTranslation, WithTranslation} from 'react-i18next';
+import ReactMarkdown                          from 'react-markdown';
+import {withTranslation, WithTranslation}     from 'react-i18next';
 
-interface ProjectsContentComponentProps extends WithTranslation{
-    projects: Projects[];
+interface ProjectsContentComponentProps extends WithTranslation {
+    projects: ProjectResponseDataObject[];
 }
 
 interface ProjectsContentComponentState {
     showModalDialog: boolean;
-    currentProject: Projects | undefined;
+    currentProject?: ProjectResponseDataObject;
 }
 
 class ProjectsContent extends React.Component<ProjectsContentComponentProps, ProjectsContentComponentState> {
@@ -28,7 +28,7 @@ class ProjectsContent extends React.Component<ProjectsContentComponentProps, Pro
     }
 
 
-    toggleProjectDialog(project?: Projects): void {
+    toggleProjectDialog(project?: ProjectResponseDataObject): void {
         this.setState({
             showModalDialog: (!!project),
             currentProject: project
@@ -45,20 +45,21 @@ class ProjectsContent extends React.Component<ProjectsContentComponentProps, Pro
                              data-aos={'fade-up'}
                              data-aos-delay={index * 100}>
                             <Card>
-                                <img alt={project.bannerImages[0].alternativeText}
-                                     src={ApiFactory.getInstance().getImageURL(project.bannerImages[0])}/>
-                                <h5>{project.name}</h5>
+                                {project.attributes?.bannerImages?.data ?
+                                    <img alt={project.attributes.bannerImages.data[0].attributes?.alternativeText}
+                                         src={project.attributes.bannerImages.data[0].attributes?.url}/> : ''}
+                                <h5>{project.attributes?.name}</h5>
                                 <p>
-                                    {project.tags?.map(tag => (
+                                    {project.attributes?.tags?.data?.map(tag => (
                                         <Badge
-                                            color={tag.color}
+                                            color={tag.attributes?.color}
                                             key={'project_badge_' + tag.id}>
-                                            {tag.name}
+                                            {tag.attributes?.name}
                                         </Badge>
                                     ))}
                                 </p>
                                 <p>
-                                    {project.shortText}
+                                    {project.attributes?.shortText}
                                     &nbsp;
                                     <CardLink
                                         isLearnMoreLink
@@ -66,10 +67,10 @@ class ProjectsContent extends React.Component<ProjectsContentComponentProps, Pro
                                         onClick={() => this.toggleProjectDialog(project)}/>
                                 </p>
                                 <p>
-                                    {project.links?.map(link => (
+                                    {project.attributes?.links?.map(link => (
                                         <CardLink
                                             href={link.url}
-                                            text={link.title}
+                                            text={link.title || ''}
                                             key={'projects_link_' + link.id}/>
                                     ))}
                                 </p>
@@ -85,7 +86,7 @@ class ProjectsContent extends React.Component<ProjectsContentComponentProps, Pro
                         toggle={() => this.toggleProjectDialog()}>
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLabel">
-                                {this.state.currentProject.name}
+                                {this.state.currentProject.attributes?.name}
                             </h5>
                             <button
                                 aria-label="Close"
@@ -98,16 +99,16 @@ class ProjectsContent extends React.Component<ProjectsContentComponentProps, Pro
                         </div>
                         <div className="modal-body">
                             <ReactMarkdown>
-                                {this.state.currentProject.content}
+                                {this.state.currentProject.attributes?.content || ''}
                             </ReactMarkdown>
                         </div>
                         <div className="modal-footer">
-                                {this.state.currentProject.links?.map(link => (
-                                    <CardLink
-                                        href={link.url}
-                                        text={link.title}
-                                        key={'projects_modal_link_' + link.id}/>
-                                ))}
+                            {this.state.currentProject.attributes?.links?.map(link => (
+                                <CardLink
+                                    href={link.url}
+                                    text={link.title || ''}
+                                    key={'projects_modal_link_' + link.id}/>
+                            ))}
                             <Button
                                 className={'btn-sm'}
                                 color="primary"

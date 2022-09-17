@@ -14,16 +14,11 @@
 		"path": "/documentation",
 		"showGeneratedFiles": true,
 		"generateDefaultResponse": false,
-		"plugins": [
-			"email",
-			"upload",
-			"users-permissions"
-		],
 		"pluginsForWhichToGenerateDoc": []
 	},
 	"servers": [
 		{
-			"url": "http://localhost:3001",
+			"url": "http://localhost:1337",
 			"description": "Development server"
 		},
 		{

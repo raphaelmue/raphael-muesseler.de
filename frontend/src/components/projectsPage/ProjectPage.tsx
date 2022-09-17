@@ -1,21 +1,21 @@
-import React                                              from 'react';
-import {Badge, Card, Col, Row, Spinner}                   from 'reactstrap';
-import HeaderComponent                                    from '../shared/header/HeaderComponent';
-import Content                                            from '../shared/content/Content';
-import CardLink                                           from '../shared/card/cardLink/CardLink';
-import ApiFactory                                         from '../../api/ApiFactory';
-import ContactForm                                        from '../shared/contactForm/ContactForm';
-import FooterComponent                                    from '../shared/footer/FooterComponent';
-import {Header, ProjectPage as ProjectPageData, Projects} from '../../.openapi';
-import ProjectsContent                                    from '../shared/content/projectsContent/ProjectsContent';
+import React           from 'react';
+import {Spinner}       from 'reactstrap';
+import HeaderComponent from '../shared/header/HeaderComponent';
+import ApiFactory      from '../../api/ApiFactory';
+import FooterComponent from '../shared/footer/FooterComponent';
+import ProjectsContent from '../shared/content/projectsContent/ProjectsContent';
+import {
+    MasterDataResponseDataObject,
+    ProjectPageResponseDataObject
+}                      from '../../.openapi';
 
 interface ProjectPageComponentProps {
 }
 
 interface ProjectPageComponentState {
-    projectPageData: ProjectPageData | null;
-    headerData: Header | null;
-    projects: Projects[];
+    projectPageData?: ProjectPageResponseDataObject;
+    masterData?: MasterDataResponseDataObject;
+    projects: ProjectPageResponseDataObject[];
 }
 
 class ProjectPage extends React.Component<ProjectPageComponentProps, ProjectPageComponentState> {
@@ -23,49 +23,49 @@ class ProjectPage extends React.Component<ProjectPageComponentProps, ProjectPage
         super(props);
 
         this.state = {
-            projectPageData: null,
-            headerData: null,
+            projectPageData: undefined,
+            masterData: undefined,
             projects: []
         }
     }
 
 
-    componentDidMount() {
+    componentDidMount(): void {
         const headerApi = ApiFactory.getInstance().getMasterDataApi();
-        const landingApi = ApiFactory.getInstance().getProjectPageApi();
+        const projectPageApi = ApiFactory.getInstance().getProjectPageApi();
         const projectApi = ApiFactory.getInstance().getProjectApi();
 
-        headerApi.headerGet(ApiFactory.getLocale()).then(response => {
-            if (response.data) {
-                this.setState({headerData: response.data});
+        headerApi.getMasterData(ApiFactory.getLocale()).then(response => {
+            if (response.data.data) {
+                this.setState({masterData: response.data.data[0]});
             }
         });
 
-        landingApi.projectPageGet(ApiFactory.getLocale()).then(response => {
-            if (response.data) {
-                this.setState({projectPageData: response.data});
+        projectPageApi.getProjectPage(ApiFactory.getLocale()).then(response => {
+            if (response.data.data) {
+                this.setState({projectPageData: response.data.data[0]});
             }
         });
 
-        projectApi.projectsGet(ApiFactory.getLocale(),).then(response => {
-            if (response.data) {
-                this.setState({projects: response.data});
+        projectApi.getProjects(ApiFactory.getLocale(),).then(response => {
+            if (response.data.data) {
+                this.setState({projects: response.data.data});
             }
         });
     }
 
     render() {
-        if (!this.state.headerData || !this.state.projectPageData) {
+        if (!this.state.masterData || !this.state.projectPageData || !this.state.projectPageData.attributes?.header) {
             return (<Spinner className={'page-spinner'}/>);
         } else {
 
             return (
                 <main>
                     <HeaderComponent
-                        navbarData={this.state.headerData.navbar}
-                        headerData={this.state.projectPageData.header}/>
-                    <ProjectsContent projects={this.state.projects} />
-                    <FooterComponent headerData={this.state.headerData}/>
+                        masterData={this.state.masterData}
+                        headerData={this.state.projectPageData.attributes?.header}/>
+                    <ProjectsContent projects={this.state.projects}/>
+                    <FooterComponent masterData={this.state.masterData}/>
                 </main>
             );
         }

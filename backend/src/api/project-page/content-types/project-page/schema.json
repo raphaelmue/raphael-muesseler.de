@@ -4,7 +4,8 @@
   "info": {
     "singularName": "project-page",
     "pluralName": "project-pages",
-    "displayName": "Project Page"
+    "displayName": "Project Page",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -17,7 +18,7 @@
   "attributes": {
     "header": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "pluginOptions": {
         "i18n": {
           "localized": true

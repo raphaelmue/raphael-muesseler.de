@@ -2,15 +2,15 @@ import React                                               from 'react';
 import Content                                             from '../content/Content';
 import {Button, Col, Form, FormGroup, Input, Row, Spinner} from 'reactstrap';
 import ApiFactory                                          from '../../../api/ApiFactory';
-import {NewContactRequests}                                     from '../../../.openapi';
-import {WithTranslation, withTranslation, WithTranslationProps} from 'react-i18next';
+import {ContactRequestRequestData}                         from '../../../.openapi';
+import {WithTranslation, withTranslation}                  from 'react-i18next';
 
 interface ContactFormComponentProps extends WithTranslation {
 }
 
 interface ContactFormComponentState {
     isLoading: boolean;
-    contactRequestData: NewContactRequests;
+    contactRequestData: ContactRequestRequestData;
 }
 
 const initialState: ContactFormComponentState = {
@@ -38,7 +38,7 @@ class ContactForm extends React.Component<ContactFormComponentProps, ContactForm
             this.state.contactRequestData.message !== '') {
 
             this.setState({isLoading: true});
-            ApiFactory.getInstance().getContactRequestsApi().contactRequestsPost(this.state.contactRequestData).then(() => {
+            ApiFactory.getInstance().getContactRequestsApi().postContactRequests({data: this.state.contactRequestData}).then(() => {
                 this.setState(initialState);
             });
         }

@@ -1,4 +1,4 @@
-import React                  from 'react';
+import React                                  from 'react';
 import {
     Col,
     Container, DropdownItem, DropdownMenu,
@@ -10,15 +10,15 @@ import {
     Row,
     UncontrolledCollapse,
     UncontrolledDropdown
-}                             from 'reactstrap';
-import {Link}                 from 'react-router-dom';
-import Headroom               from 'headroom.js';
-import {HeaderNavbar, Locale} from '../../../../.openapi';
-import ApiFactory             from '../../../../api/ApiFactory';
-import Cookies                from 'universal-cookie';
+}                                             from 'reactstrap';
+import {Link}                                 from 'react-router-dom';
+import Headroom                               from 'headroom.js';
+import {MasterDataResponseDataObject} from '../../../../.openapi';
+import ApiFactory                             from '../../../../api/ApiFactory';
+import Cookies                                from 'universal-cookie';
 
 interface NavbarComponentProps {
-    navbarData: HeaderNavbar;
+    masterData: MasterDataResponseDataObject
 }
 
 interface NavbarComponentState {
@@ -34,7 +34,7 @@ class Navbar extends React.Component<NavbarComponentProps, NavbarComponentState>
         };
     }
 
-    componentDidMount() {
+    componentDidMount(): void {
         ApiFactory.getInstance().getMasterDataApi().headerLocalesGet().then(locales => {
             this.setState({locales: locales.data});
         });
@@ -46,7 +46,7 @@ class Navbar extends React.Component<NavbarComponentProps, NavbarComponentState>
         }
     }
 
-    onChangeLanguage(code: string) {
+    onChangeLanguage(code: string): void {
         const cookies = new Cookies();
         cookies.set('locale', code, {path: '/'});
 
@@ -61,7 +61,7 @@ class Navbar extends React.Component<NavbarComponentProps, NavbarComponentState>
                     expand="lg">
                     <Container>
                         <NavbarBrand onClick={e => e.preventDefault()}>
-                            <Link to={'/'}><NavLink>{this.props.navbarData.title}</NavLink></Link>
+                            <Link to={'/'}><NavLink>{this.props.masterData?.attributes?.navbar?.title}</NavLink></Link>
                         </NavbarBrand>
                         <button
                             aria-controls="navbar-default"
@@ -101,9 +101,9 @@ class Navbar extends React.Component<NavbarComponentProps, NavbarComponentState>
                                 </Row>
                             </div>
                             <Nav className="navbar-nav-hover ml-lg-auto" navbar>
-                                {this.props.navbarData.items.map(navItem => (
+                                {this.props.masterData.attributes?.navbar?.items?.map(navItem => (
                                     <NavItem key={'navItem_' + navItem.id}>
-                                        <Link to={navItem.url}><NavLink>{navItem.title}</NavLink></Link>
+                                        <Link to={navItem.url || '/'}><NavLink>{navItem.title}</NavLink></Link>
                                     </NavItem>
                                 ))}
                                 <UncontrolledDropdown nav>

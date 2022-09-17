@@ -1,11 +1,11 @@
-import React                         from 'react';
-import {HeaderNavbar, LandingPageHeader} from '../../../.openapi';
-import Navbar                        from './navbar/Navbar';
-import Banner                        from './banner/Banner';
+import React                                                   from 'react';
+import Navbar                                                  from './navbar/Navbar';
+import Banner                                                  from './banner/Banner';
+import {MasterDataResponseDataObject, SectionsHeaderComponent} from '../../../.openapi';
 
 interface HeaderComponentProps {
-    navbarData: HeaderNavbar;
-    headerData: LandingPageHeader;
+    masterData: MasterDataResponseDataObject
+    headerData: SectionsHeaderComponent;
 }
 
 interface HeaderComponentState {
@@ -15,7 +15,7 @@ class HeaderComponent extends React.Component<HeaderComponentProps, HeaderCompon
     render() {
         return (
             <header>
-                <Navbar navbarData={this.props.navbarData}/>
+                <Navbar masterData={this.props.masterData}/>
                 <Banner headerData={this.props.headerData}/>
             </header>
         );

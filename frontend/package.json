@@ -23,6 +23,7 @@
         "argon-design-system-react": "^1.1.0",
         "babel-eslint": "^10.1.0",
         "babel-jest": "^29.0.1",
+        "cross-env": "^7.0.3",
         "flag-icon-css": "^4.1.7",
         "headroom.js": "^0.12.0",
         "i18next": "^21.9.1",

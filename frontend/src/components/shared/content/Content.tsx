@@ -2,7 +2,8 @@ import React       from 'react';
 import {Container} from 'reactstrap';
 
 interface ContentComponentProps {
-    title?: string
+    title?: string,
+    children?: React.ReactElement | React.ReactElement[];
 }
 
 interface ContentComponentState {
@@ -14,11 +15,12 @@ class Content extends React.Component<ContentComponentProps, ContentComponentSta
             <section className={'content-section'}>
                 <Container>
                     {this.props.title ?
-                        <h6 className={"content-title"}> {this.props.title} </h6> : <div/> }
+                        <h6 className={'content-title'}> {this.props.title} </h6> : <div/>}
                     {this.props.children}
                 </Container>
             </section>
         )
     }
 }
+
 export default Content;
