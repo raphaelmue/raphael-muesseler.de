@@ -1,6 +1,6 @@
 {
 	"paths": {
-		"/locales": {
+		"/master-data/locales": {
 			"get": {
 				"deprecated": false,
 				"description": "",

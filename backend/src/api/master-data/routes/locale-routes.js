@@ -3,8 +3,8 @@ module.exports = {
 	routes: [
 		{
 			method: "GET",
-			path: "/locales",
-			handler: "master-data.getLocales",
+			path: "/master-data/locales",
+			handler: "api::master-data.master-data.getLocales",
 			config: {
 				policies: []
 			}
