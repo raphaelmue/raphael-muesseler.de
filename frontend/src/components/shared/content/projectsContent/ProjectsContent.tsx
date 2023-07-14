@@ -1,19 +1,18 @@
-import React                                  from 'react';
-import {ProjectResponseDataObject}            from '../../../../.openapi';
+import React from 'react';
+import {Project, ProjectResponseDataObject} from '../../../../.openapi';
 import {Badge, Button, Card, Col, Modal, Row} from 'reactstrap';
-import ApiFactory                             from '../../../../api/ApiFactory';
-import CardLink                               from '../../card/cardLink/CardLink';
-import Content                                from '../Content';
-import ReactMarkdown                          from 'react-markdown';
-import {withTranslation, WithTranslation}     from 'react-i18next';
+import CardLink from '../../card/cardLink/CardLink';
+import Content from '../Content';
+import ReactMarkdown from 'react-markdown';
+import {withTranslation, WithTranslation} from 'react-i18next';
 
 interface ProjectsContentComponentProps extends WithTranslation {
-    projects: ProjectResponseDataObject[];
+    projects: Project[];
 }
 
 interface ProjectsContentComponentState {
     showModalDialog: boolean;
-    currentProject?: ProjectResponseDataObject;
+    currentProject?: Project;
 }
 
 class ProjectsContent extends React.Component<ProjectsContentComponentProps, ProjectsContentComponentState> {
@@ -28,7 +27,7 @@ class ProjectsContent extends React.Component<ProjectsContentComponentProps, Pro
     }
 
 
-    toggleProjectDialog(project?: ProjectResponseDataObject): void {
+    toggleProjectDialog(project?: Project): void {
         this.setState({
             showModalDialog: (!!project),
             currentProject: project
@@ -41,16 +40,16 @@ class ProjectsContent extends React.Component<ProjectsContentComponentProps, Pro
                 <Row>
                     {this.props.projects.map((project, index) => (
                         <Col md={4}
-                             key={'projects_' + project.id}
+                             key={'projects_' + project.name}
                              data-aos={'fade-up'}
                              data-aos-delay={index * 100}>
                             <Card>
-                                {project.attributes?.bannerImages?.data ?
-                                    <img alt={project.attributes.bannerImages.data[0].attributes?.alternativeText}
-                                         src={project.attributes.bannerImages.data[0].attributes?.url}/> : ''}
-                                <h5>{project.attributes?.name}</h5>
+                                {project.bannerImages?.data ?
+                                    <img alt={project.bannerImages.data[0].attributes?.alternativeText}
+                                         src={project.bannerImages.data[0].attributes?.url}/> : ''}
+                                <h5>{project.name}</h5>
                                 <p>
-                                    {project.attributes?.tags?.data?.map(tag => (
+                                    {project.tags?.data?.map(tag => (
                                         <Badge
                                             color={tag.attributes?.color}
                                             key={'project_badge_' + tag.id}>
@@ -59,7 +58,7 @@ class ProjectsContent extends React.Component<ProjectsContentComponentProps, Pro
                                     ))}
                                 </p>
                                 <p>
-                                    {project.attributes?.shortText}
+                                    {project.shortText}
                                     &nbsp;
                                     <CardLink
                                         isLearnMoreLink
@@ -67,7 +66,7 @@ class ProjectsContent extends React.Component<ProjectsContentComponentProps, Pro
                                         onClick={() => this.toggleProjectDialog(project)}/>
                                 </p>
                                 <p>
-                                    {project.attributes?.links?.map(link => (
+                                    {project.links?.map(link => (
                                         <CardLink
                                             href={link.url}
                                             text={link.title || ''}
@@ -86,7 +85,7 @@ class ProjectsContent extends React.Component<ProjectsContentComponentProps, Pro
                         toggle={() => this.toggleProjectDialog()}>
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLabel">
-                                {this.state.currentProject.attributes?.name}
+                                {this.state.currentProject.name}
                             </h5>
                             <button
                                 aria-label="Close"
@@ -99,11 +98,11 @@ class ProjectsContent extends React.Component<ProjectsContentComponentProps, Pro
                         </div>
                         <div className="modal-body">
                             <ReactMarkdown>
-                                {this.state.currentProject.attributes?.content || ''}
+                                {this.state.currentProject.content || ''}
                             </ReactMarkdown>
                         </div>
                         <div className="modal-footer">
-                            {this.state.currentProject.attributes?.links?.map(link => (
+                            {this.state.currentProject.links?.map(link => (
                                 <CardLink
                                     href={link.url}
                                     text={link.title || ''}

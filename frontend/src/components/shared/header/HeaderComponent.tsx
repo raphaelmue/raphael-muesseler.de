@@ -1,10 +1,10 @@
-import React                                                   from 'react';
-import Navbar                                                  from './navbar/Navbar';
-import Banner                                                  from './banner/Banner';
-import {MasterDataResponseDataObject, SectionsHeaderComponent} from '../../../.openapi';
+import React from 'react';
+import Navbar from './navbar/Navbar';
+import Banner from './banner/Banner';
+import {MasterData, SectionsHeaderComponent} from '../../../.openapi';
 
 interface HeaderComponentProps {
-    masterData: MasterDataResponseDataObject
+    masterData: MasterData
     headerData: SectionsHeaderComponent;
 }
 

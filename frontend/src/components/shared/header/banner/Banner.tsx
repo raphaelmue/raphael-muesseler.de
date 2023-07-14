@@ -1,6 +1,6 @@
 import React from 'react';
 import {SectionsHeaderComponent} from '../../../../.openapi';
-import ApiFactory from '../../../../api/ApiFactory';
+import ApiFactory, {Image} from '../../../../api/ApiFactory';
 
 interface BannerComponentProps {
     headerData: SectionsHeaderComponent;

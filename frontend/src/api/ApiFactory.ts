@@ -2,12 +2,41 @@ import Cookies from 'universal-cookie';
 import {
     Configuration, ContactRequestApi,
     MasterDataApi, LandingPageApi,
-    ProjectPageApi, ProjectApi
+    ProjectPageApi, ProjectApi, I18nLocaleApi
 } from '../.openapi';
 import {BASE_PATH} from '../.openapi/base';
 
 
 let instance: ApiFactory | null = null;
+
+interface ImageAttributes {
+    name: string;
+    alternativeText: string;
+    caption: string;
+    width: number;
+    height: number;
+    formats: any;
+    hash: string;
+    ext: string;
+    mime: string;
+    size: number;
+    url: string;
+    previewUrl: string;
+    provider: string;
+    provider_metadata: any;
+    folderPath: string;
+    createdAt: string;
+    updatedAt: string;
+}
+
+interface ImageData {
+    id: number,
+    attributes: ImageAttributes
+}
+
+export interface Image {
+    data: ImageData
+}
 
 class ApiFactory {
     configuration: Configuration = new Configuration({
@@ -28,7 +57,7 @@ class ApiFactory {
     }
 
     getImageURL(image: Image): string {
-        return this.configuration.basePath + image.url;
+        return this.configuration.basePath + image.data.attributes.url;
     }
 
     getMasterDataApi(): MasterDataApi {
@@ -49,6 +78,10 @@ class ApiFactory {
 
     getProjectApi(): ProjectApi {
         return new ProjectApi(this.configuration);
+    }
+
+    getLocaleApi(): I18nLocaleApi {
+        return new I18nLocaleApi(this.configuration);
     }
 }
 

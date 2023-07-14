@@ -1,21 +1,18 @@
-import React           from 'react';
-import {Spinner}       from 'reactstrap';
+import React from 'react';
+import {Spinner} from 'reactstrap';
 import HeaderComponent from '../shared/header/HeaderComponent';
-import ApiFactory      from '../../api/ApiFactory';
+import ApiFactory from '../../api/ApiFactory';
 import FooterComponent from '../shared/footer/FooterComponent';
 import ProjectsContent from '../shared/content/projectsContent/ProjectsContent';
-import {
-    MasterDataResponseDataObject,
-    ProjectPageResponseDataObject
-}                      from '../../.openapi';
+import {MasterData, Project, ProjectPage as ProjectPageData} from '../../.openapi';
 
 interface ProjectPageComponentProps {
 }
 
 interface ProjectPageComponentState {
-    projectPageData?: ProjectPageResponseDataObject;
-    masterData?: MasterDataResponseDataObject;
-    projects: ProjectPageResponseDataObject[];
+    projectPageData?: ProjectPageData;
+    masterData?: MasterData;
+    projects: Project[];
 }
 
 class ProjectPage extends React.Component<ProjectPageComponentProps, ProjectPageComponentState> {
@@ -37,25 +34,25 @@ class ProjectPage extends React.Component<ProjectPageComponentProps, ProjectPage
 
         headerApi.getMasterData(ApiFactory.getLocale()).then(response => {
             if (response.data.data) {
-                this.setState({masterData: response.data.data[0]});
+                this.setState({masterData: response.data.data.attributes});
             }
         });
 
         projectPageApi.getProjectPage(ApiFactory.getLocale()).then(response => {
             if (response.data.data) {
-                this.setState({projectPageData: response.data.data[0]});
+                this.setState({projectPageData: response.data.data.attributes});
             }
         });
 
         projectApi.getProjects(ApiFactory.getLocale(),).then(response => {
             if (response.data.data) {
-                this.setState({projects: response.data.data});
+                this.setState({projects: response.data.data.map(response => response.attributes!)});
             }
         });
     }
 
-    render() {
-        if (!this.state.masterData || !this.state.projectPageData || !this.state.projectPageData.attributes?.header) {
+    render(): React.ReactElement {
+        if (!this.state.masterData || !this.state.projectPageData || !this.state.projectPageData.header) {
             return (<Spinner className={'page-spinner'}/>);
         } else {
 
@@ -63,7 +60,7 @@ class ProjectPage extends React.Component<ProjectPageComponentProps, ProjectPage
                 <main>
                     <HeaderComponent
                         masterData={this.state.masterData}
-                        headerData={this.state.projectPageData.attributes?.header}/>
+                        headerData={this.state.projectPageData.header}/>
                     <ProjectsContent projects={this.state.projects}/>
                     <FooterComponent masterData={this.state.masterData}/>
                 </main>

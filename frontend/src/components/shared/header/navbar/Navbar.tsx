@@ -1,7 +1,9 @@
-import React                                  from 'react';
+import React from 'react';
 import {
     Col,
-    Container, DropdownItem, DropdownMenu,
+    Container,
+    DropdownItem,
+    DropdownMenu,
     Nav,
     Navbar as NavBarReact,
     NavbarBrand,
@@ -10,19 +12,19 @@ import {
     Row,
     UncontrolledCollapse,
     UncontrolledDropdown
-}                                             from 'reactstrap';
-import {Link}                                 from 'react-router-dom';
-import Headroom                               from 'headroom.js';
-import {MasterDataResponseDataObject} from '../../../../.openapi';
-import ApiFactory                             from '../../../../api/ApiFactory';
-import Cookies                                from 'universal-cookie';
+} from 'reactstrap';
+import {Link} from 'react-router-dom';
+import Headroom from 'headroom.js';
+import {I18NLocale, MasterData} from '../../../../.openapi';
+import ApiFactory from '../../../../api/ApiFactory';
+import Cookies from 'universal-cookie';
 
 interface NavbarComponentProps {
-    masterData: MasterDataResponseDataObject
+    masterData: MasterData
 }
 
 interface NavbarComponentState {
-    locales: Locale[];
+    locales: I18NLocale[];
 }
 
 class Navbar extends React.Component<NavbarComponentProps, NavbarComponentState> {
@@ -35,7 +37,7 @@ class Navbar extends React.Component<NavbarComponentProps, NavbarComponentState>
     }
 
     componentDidMount(): void {
-        ApiFactory.getInstance().getMasterDataApi().headerLocalesGet().then(locales => {
+        ApiFactory.getInstance().getLocaleApi().getI18nLocales().then(locales => {
             this.setState({locales: locales.data});
         });
 
@@ -61,7 +63,7 @@ class Navbar extends React.Component<NavbarComponentProps, NavbarComponentState>
                     expand="lg">
                     <Container>
                         <NavbarBrand onClick={e => e.preventDefault()}>
-                            <Link to={'/'}><NavLink>{this.props.masterData?.attributes?.navbar?.title}</NavLink></Link>
+                            <Link to={'/'}><NavLink>{this.props.masterData.navbar.title}</NavLink></Link>
                         </NavbarBrand>
                         <button
                             aria-controls="navbar-default"
@@ -101,7 +103,7 @@ class Navbar extends React.Component<NavbarComponentProps, NavbarComponentState>
                                 </Row>
                             </div>
                             <Nav className="navbar-nav-hover ml-lg-auto" navbar>
-                                {this.props.masterData.attributes?.navbar?.items?.map(navItem => (
+                                {this.props.masterData.navbar.items?.map(navItem => (
                                     <NavItem key={'navItem_' + navItem.id}>
                                         <Link to={navItem.url || '/'}><NavLink>{navItem.title}</NavLink></Link>
                                     </NavItem>
@@ -124,10 +126,10 @@ class Navbar extends React.Component<NavbarComponentProps, NavbarComponentState>
                                         right>
                                         {this.state.locales.map(locale => (
                                             <DropdownItem
-                                                key={'languageDropdown_' + locale.id}
-                                                onClick={() => this.onChangeLanguage(locale.code)}>
-                                                <i className={'flag-icon flag-icon-' + locale.code.replace('en', 'us')}/>
-                                                {locale.name.replace(/(\(.*\))/g, '')}
+                                                key={'languageDropdown_' + locale.name}
+                                                onClick={() => this.onChangeLanguage(locale.code!)}>
+                                                <i className={'flag-icon flag-icon-' + locale.code?.replace('en', 'us')}/>
+                                                {locale.name?.replace(/(\(.*\))/g, '')}
                                             </DropdownItem>
                                         ))}
                                     </DropdownMenu>
