@@ -1,7 +1,7 @@
 import React from 'react';
 import {Card, CardLink, Col, Row, Spinner} from 'reactstrap';
 import Content from '../shared/content/Content';
-import {LandingPage as LandingPageData, MasterData, Project, ProjectResponseDataObject} from '../../.openapi';
+import {LandingPage as LandingPageData, MasterData, Project} from '../../.openapi';
 import ApiFactory from '../../api/ApiFactory';
 import FooterComponent from '../shared/footer/FooterComponent';
 import ContactForm from '../shared/contactForm/ContactForm';

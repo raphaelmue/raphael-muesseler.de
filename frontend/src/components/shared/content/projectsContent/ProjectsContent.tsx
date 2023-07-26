@@ -1,5 +1,5 @@
 import React from 'react';
-import {Project, ProjectResponseDataObject} from '../../../../.openapi';
+import {Project} from '../../../../.openapi';
 import {Badge, Button, Card, Col, Modal, Row} from 'reactstrap';
 import CardLink from '../../card/cardLink/CardLink';
 import Content from '../Content';

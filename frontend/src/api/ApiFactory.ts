@@ -15,6 +15,7 @@ interface ImageAttributes {
     caption: string;
     width: number;
     height: number;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     formats: any;
     hash: string;
     ext: string;
@@ -23,6 +24,7 @@ interface ImageAttributes {
     url: string;
     previewUrl: string;
     provider: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     provider_metadata: any;
     folderPath: string;
     createdAt: string;

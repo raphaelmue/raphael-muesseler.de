@@ -15,16 +15,12 @@ AOS.init({
 
 configureI18N();
 
-function App(): JSX.Element {
+function App(): React.ReactElement {
     return (
         <Router>
             <Routes>
-                <Route path={'/projects'}>
-                    <ProjectPage/>
-                </Route>
-                <Route path={'/'}>
-                    <LandingPage/>
-                </Route>
+                <Route path={'/projects'} element={<ProjectPage/>}/>
+                <Route path={'/'} element={<LandingPage/>}/>
             </Routes>
         </Router>
     );

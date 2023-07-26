@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700&family=Open+Sans&display=swap');
-@import '~bootstrap/scss/functions';
-@import '~argon-design-system-react/src/assets/scss/argon-design-system/variables';
-@import '~bootstrap/scss/bootstrap';
-@import '~flag-icon-css/sass/flag-icon';
+@import "~bootstrap/scss/bootstrap";
+@import '~flag-icon-css/sass/flag-icons';
 
 $primary-dark: darken($primary, 30%);
 
@@ -11,7 +9,6 @@ $breakpoint-m: 768px;
 $breakpoint-l: 992px;
 $breakpoint-xl: 1200px;
 
-@import '~argon-design-system-react/src/assets/scss/argon-design-system/theme';
 @import 'header';
 @import 'content';
 @import 'footer';

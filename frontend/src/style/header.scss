@@ -98,8 +98,8 @@ nav {
 
 .banner-scroll-button {
     @extend .animate;
-    font-size: $font-size-xl;
-    color: $default;
+    font-size: $font-size-lg;
+    color: $primary;
     position: absolute;
     left: 50%;
     bottom: 10px;
@@ -107,6 +107,6 @@ nav {
 
     &:hover {
         bottom: 20px;
-        color: lighten($default, 30%);
+        color: lighten($primary, 30%);
     }
 }
