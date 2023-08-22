@@ -35,19 +35,19 @@ class LandingPage extends React.Component<HomeComponentProps, HomeComponentState
         const landingApi = ApiFactory.getInstance().getLandingPageApi();
         const projectApi = ApiFactory.getInstance().getProjectApi();
 
-        masterDataApi.getMasterData(ApiFactory.getLocale()).then(response => {
+        masterDataApi.getMasterData(ApiFactory.getAPIParameters()).then(response => {
             if (response.data.data) {
                 this.setState({masterData: response.data.data.attributes});
             }
         });
 
-        landingApi.getLandingPage(ApiFactory.getLocale()).then(response => {
+        landingApi.getLandingPage(ApiFactory.getAPIParameters()).then(response => {
             if (response.data.data) {
                 this.setState({landingPageData: response.data.data.attributes});
             }
         });
 
-        projectApi.getProjects(ApiFactory.getLocale(), true).then(response => {
+        projectApi.getProjects(ApiFactory.getAPIParameters()).then(response => {
             if (response.data.data) {
                 this.setState({projects: response.data.data.map(response => response.attributes!)});
             }

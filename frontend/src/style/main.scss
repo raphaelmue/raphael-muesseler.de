@@ -2,6 +2,7 @@
 @import "~bootstrap/scss/bootstrap";
 @import '~flag-icon-css/sass/flag-icons';
 
+$primary: #5e72e4;
 $primary-dark: darken($primary, 30%);
 
 $breakpoint-s: 576px;
@@ -15,6 +16,10 @@ $breakpoint-xl: 1200px;
 
 .animate {
     transition: 0.3s ease-in-out all;
+}
+
+p, a {
+    font-family: "Open Sans", sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6, .display-1, .display-2, .display-3, .display-4 {

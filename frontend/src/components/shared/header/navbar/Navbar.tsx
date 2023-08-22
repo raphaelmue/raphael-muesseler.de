@@ -1,19 +1,17 @@
 import React from 'react';
 import {
-    Col,
+    Collapse,
     Container,
     DropdownItem,
     DropdownMenu,
+    DropdownToggle,
     Nav,
     Navbar as NavBarReact,
     NavbarBrand,
     NavItem,
     NavLink,
-    Row,
-    UncontrolledCollapse,
     UncontrolledDropdown
 } from 'reactstrap';
-import {Link} from 'react-router-dom';
 import Headroom from 'headroom.js';
 import {I18NLocale, MasterData} from '../../../../.openapi';
 import ApiFactory from '../../../../api/ApiFactory';
@@ -58,72 +56,27 @@ class Navbar extends React.Component<NavbarComponentProps, NavbarComponentState>
     render() {
         return (
             <header id={'header'} className={'headroom'}>
-                <NavBarReact
-                    className="navbar-horizontal"
-                    expand="lg">
+                <NavBarReact expand="lg">
                     <Container>
-                        <NavbarBrand onClick={e => e.preventDefault()}>
-                            <Link to={'/'}><NavLink>{this.props.masterData.navbar.title}</NavLink></Link>
+                        <NavbarBrand
+                            href={'/'}
+                            onClick={e => e.preventDefault()}>
+                            {this.props.masterData.navbar.title}
                         </NavbarBrand>
-                        <button
-                            aria-controls="navbar-default"
-                            aria-expanded={false}
-                            aria-label="Toggle navigation"
-                            className="navbar-toggler"
-                            data-target="#navbar-default"
-                            data-toggle="collapse"
-                            id="navbar-default"
-                            type="button">
-                            <i className={'fa fa-bars'}/>
-                        </button>
-                        <UncontrolledCollapse
-                            toggler="#navbar-default"
+                        <Collapse
+                            isOpen={true}
                             navbar>
-                            <div className="navbar-collapse-header">
-                                <Row>
-                                    <Col className="collapse-brand" xs="6">
-                                        <Link to="/">
-
-                                        </Link>
-                                    </Col>
-                                    <Col className="collapse-close" xs="6">
-                                        <button
-                                            aria-controls="navbar-default"
-                                            aria-expanded={false}
-                                            aria-label="Toggle navigation"
-                                            className="navbar-toggler"
-                                            data-target="#navbar-default"
-                                            data-toggle="collapse"
-                                            id="navbar-default"
-                                            type="button">
-                                            <span/>
-                                            <span/>
-                                        </button>
-                                    </Col>
-                                </Row>
-                            </div>
-                            <Nav className="navbar-nav-hover ml-lg-auto" navbar>
+                            <Nav className="navbar-nav-hover ms-auto" navbar>
                                 {this.props.masterData.navbar.items?.map(navItem => (
                                     <NavItem key={'navItem_' + navItem.id}>
-                                        <Link to={navItem.url || '/'}><NavLink>{navItem.title}</NavLink></Link>
+                                        <NavLink href={navItem.url || '/'}>{navItem.title}</NavLink>
                                     </NavItem>
                                 ))}
-                                <UncontrolledDropdown nav>
-                                    <NavLink
-                                        aria-expanded={false}
-                                        aria-haspopup={true}
-                                        className="nav-link-icon"
-                                        data-toggle="dropdown"
-                                        href="#pablo"
-                                        id="navbar-language-dropdown"
-                                        onClick={e => e.preventDefault()}
-                                        role="button">
+                                <UncontrolledDropdown nav inNavbar>
+                                    <DropdownToggle nav caret>
                                         <i className="fa fa-globe"/>
-                                        <span className="nav-link-inner--text d-lg-none">Language</span>
-                                    </NavLink>
-                                    <DropdownMenu
-                                        aria-labelledby="navbar-language-dropdown"
-                                        right>
+                                    </DropdownToggle>
+                                    <DropdownMenu>
                                         {this.state.locales.map(locale => (
                                             <DropdownItem
                                                 key={'languageDropdown_' + locale.name}
@@ -135,7 +88,7 @@ class Navbar extends React.Component<NavbarComponentProps, NavbarComponentState>
                                     </DropdownMenu>
                                 </UncontrolledDropdown>
                             </Nav>
-                        </UncontrolledCollapse>
+                        </Collapse>
                     </Container>
                 </NavBarReact>
             </header>

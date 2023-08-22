@@ -15,15 +15,25 @@
 .headroom--pinned {
     transform: initial;
 
-
     nav {
         padding: 12px 24px;
     }
 }
 
+.navbar-brand {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: .05px;
+    vertical-align: center;
+    padding: 9px;
+    display: inline-block;
+}
+
 // scroll down
 .headroom--unpinned {
     transform: initial;
+    background: $primary-dark;
 
     nav {
         padding: 16px 24px !important;
@@ -34,16 +44,21 @@
     @extend .shadow, .navbar-dark;
 }
 
+.navbar-collapse {
+    float: right;
+}
+
 nav {
     @extend .animate;
     padding: 12px 24px !important;
 
     a.nav-link {
         color: $gray-700 !important;
+        padding: 8px 24px !important;
     }
 }
 
-.navbar-dark a.nav-link {
+.navbar-dark a.nav-link, .navbar-dark .navbar-brand {
     color: $gray-100 !important;
 }
 
@@ -55,7 +70,6 @@ nav {
 
     @media (min-width: $breakpoint-m) {
         background-position-x: 35%;
-        min-height: 800px;
     }
 }
 
@@ -78,7 +92,8 @@ nav {
     }
 
     .banner-heading-name {
-        @extend .display-2, .heading-line;
+        @extend .display-4, .heading-line;
+        font-weight: 600;
     }
 
     .banner-heading-subtitle {

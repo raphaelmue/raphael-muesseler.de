@@ -13,7 +13,9 @@
                     "ngVersion": "16.1.2",
                     "typescriptThreePlus": true,
                     "supportsES6": true,
-                    "hateoas": true
+                    "hateoas": true,
+                    "withInterfaces": true,
+                    "useSingleRequestParameter": true
                 }
             }
         }

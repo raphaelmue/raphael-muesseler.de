@@ -1,10 +1,15 @@
 import Cookies from 'universal-cookie';
 import {
-    Configuration, ContactRequestApi,
-    MasterDataApi, LandingPageApi,
-    ProjectPageApi, ProjectApi, I18nLocaleApi
+    Configuration,
+    ContactRequestApi,
+    I18nLocaleApi,
+    LandingPageApi,
+    MasterDataApi,
+    ProjectApi,
+    ProjectPageApi
 } from '../.openapi';
 import {BASE_PATH} from '../.openapi/base';
+import type {AxiosRequestConfig} from 'axios';
 
 
 let instance: ApiFactory | null = null;
@@ -29,6 +34,20 @@ interface ImageAttributes {
     folderPath: string;
     createdAt: string;
     updatedAt: string;
+}
+
+interface APIParameters {
+    sort?: string,
+    paginationWithCount?: boolean,
+    paginationPage?: number,
+    paginationPageSize?: number,
+    paginationStart?: number,
+    paginationLimit?: number,
+    fields?: string,
+    populate?: string,
+    filters?: object,
+    locale?: string,
+    options?: AxiosRequestConfig
 }
 
 interface ImageData {
@@ -58,8 +77,15 @@ class ApiFactory {
         return cookies.get('locale') || navigator.language.split('-')[0] || 'en';
     }
 
+    static getAPIParameters(): APIParameters {
+        return {
+            locale: ApiFactory.getLocale(),
+            populate: 'deep'
+        }
+    }
+
     getImageURL(image: Image): string {
-        return this.configuration.basePath + image.data.attributes.url;
+        return globalConfig.serverUrl + image.data.attributes.url;
     }
 
     getMasterDataApi(): MasterDataApi {

@@ -1,7 +1,6 @@
 import React                                               from 'react';
 import Content                                             from '../content/Content';
 import {Button, Col, Form, FormGroup, Input, Row, Spinner} from 'reactstrap';
-import ApiFactory                                          from '../../../api/ApiFactory';
 import {ContactRequestRequestData}                         from '../../../.openapi';
 import {WithTranslation, withTranslation}                  from 'react-i18next';
 
@@ -38,9 +37,9 @@ class ContactForm extends React.Component<ContactFormComponentProps, ContactForm
             this.state.contactRequestData.message !== '') {
 
             this.setState({isLoading: true});
-            ApiFactory.getInstance().getContactRequestsApi().postContactRequests({data: this.state.contactRequestData}).then(() => {
-                this.setState(initialState);
-            });
+            // ApiFactory.getInstance().getContactRequestsApi().postContactRequests({data: this.state.contactRequestData}).then(() => {
+            //     this.setState(initialState);
+            // });
         }
     }
 
