@@ -50,13 +50,9 @@ interface APIParameters {
     options?: AxiosRequestConfig
 }
 
-interface ImageData {
+export interface Image {
     id: number,
     attributes: ImageAttributes
-}
-
-export interface Image {
-    data: ImageData
 }
 
 class ApiFactory {
@@ -85,7 +81,7 @@ class ApiFactory {
     }
 
     getImageURL(image: Image): string {
-        return globalConfig.serverUrl + image.data.attributes.url;
+        return globalConfig.serverUrl + image.attributes.url;
     }
 
     getMasterDataApi(): MasterDataApi {

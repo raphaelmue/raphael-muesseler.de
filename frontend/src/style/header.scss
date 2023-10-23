@@ -9,11 +9,12 @@
 }
 
 .headroom--top, .headroom--top nav {
-    background: transparent;
+    background: transparent !important;
 }
 
 .headroom--pinned {
     transform: initial;
+    background: $primary;
 
     nav {
         padding: 12px 24px;
@@ -33,7 +34,7 @@
 // scroll down
 .headroom--unpinned {
     transform: initial;
-    background: $primary-dark;
+    background: $primary;
 
     nav {
         padding: 16px 24px !important;

@@ -7,9 +7,9 @@ import FooterComponent from '../shared/footer/FooterComponent';
 import ContactForm from '../shared/contactForm/ContactForm';
 import HeaderComponent from '../shared/header/HeaderComponent';
 import ProjectsContent from '../shared/content/projectsContent/ProjectsContent';
-import {withTranslation, WithTranslationProps} from 'react-i18next';
+import {WithTranslation, withTranslation} from 'react-i18next';
 
-interface HomeComponentProps extends WithTranslationProps {
+interface HomeComponentProps extends WithTranslation {
 }
 
 interface HomeComponentState {
@@ -63,7 +63,8 @@ class LandingPage extends React.Component<HomeComponentProps, HomeComponentState
                     <HeaderComponent
                         masterData={this.state.masterData}
                         headerData={this.state.landingPageData.header}/>
-                    <Content>
+                    <Content title={this.props.t('Landing.AboutMe')}>
+
                         <Row>
                             {this.state.landingPageData.aboutMeContainer.map((content, index) => (
                                 <Col md={4}

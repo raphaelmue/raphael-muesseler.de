@@ -11,7 +11,7 @@ interface BannerComponentState {
 
 class Banner extends React.Component<BannerComponentProps, BannerComponentState> {
     getImage(): Image {
-        return this.props.headerData.backgroundImage as Image;
+        return this.props.headerData.backgroundImage!.data as Image;
     }
 
     render() {

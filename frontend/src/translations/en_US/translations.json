@@ -1,21 +1,24 @@
 {
-  "Contact": {
-    "Title": "Contact",
-    "Form": {
-      "FirstName": "First Name",
-      "LastName": "Last Name",
-      "Email": "E-mail Adress",
-      "YourMessage": "Your Message"
+    "Contact": {
+        "Form": {
+            "Email": "E-mail Adress",
+            "FirstName": "First Name",
+            "LastName": "Last Name",
+            "YourMessage": "Your Message"
+        },
+        "Title": "Contact"
+    },
+    "General": {
+        "Form": {
+            "Button": {
+                "Send": "Send"
+            }
+        }
+    },
+    "Landing": {
+        "AboutMe": "About Me"
+    },
+    "Projects": {
+        "Title": "Projects"
     }
-  },
-  "Projects": {
-    "Title": "Projects"
-  },
-  "General": {
-    "Form": {
-      "Button": {
-        "Send": "Send"
-      }
-    }
-  }
 }

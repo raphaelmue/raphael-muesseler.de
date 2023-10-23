@@ -5,6 +5,7 @@ import CardLink from '../../card/cardLink/CardLink';
 import Content from '../Content';
 import ReactMarkdown from 'react-markdown';
 import {withTranslation, WithTranslation} from 'react-i18next';
+import ApiFactory, {Image} from "../../../../api/ApiFactory";
 
 interface ProjectsContentComponentProps extends WithTranslation {
     projects: Project[];
@@ -46,7 +47,7 @@ class ProjectsContent extends React.Component<ProjectsContentComponentProps, Pro
                             <Card>
                                 {project.bannerImages?.data ?
                                     <img alt={project.bannerImages.data[0].attributes?.alternativeText}
-                                         src={project.bannerImages.data[0].attributes?.url}/> : ''}
+                                         src={ApiFactory.getInstance().getImageURL(project.bannerImages.data[0] as Image)}/> : ''}
                                 <h5>{project.name}</h5>
                                 <p>
                                     {project.tags?.data?.map(tag => (
