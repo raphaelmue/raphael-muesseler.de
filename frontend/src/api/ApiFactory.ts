@@ -58,7 +58,7 @@ export interface Image {
 class ApiFactory {
     configuration: Configuration = new Configuration({
         basePath: BASE_PATH.replace('http://localhost:1337', globalConfig.serverUrl),
-        apiKey: process.env.REACT_APP_API_TOKEN
+        accessToken: new Promise<string>(resolve => resolve(process.env.REACT_APP_API_TOKEN!))
     });
 
     static getInstance(): ApiFactory {
