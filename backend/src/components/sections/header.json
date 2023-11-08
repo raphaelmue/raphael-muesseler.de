@@ -2,7 +2,8 @@
   "collectionName": "components_sections_headers",
   "info": {
     "displayName": "Header",
-    "icon": "arrow-up"
+    "icon": "arrow-up",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -19,12 +20,15 @@
       "required": true
     },
     "backgroundImage": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "subtitle": {
+      "type": "string"
     }
   }
 }

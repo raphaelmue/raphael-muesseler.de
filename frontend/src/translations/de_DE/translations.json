@@ -13,12 +13,17 @@
             "Button": {
                 "Send": "Senden"
             }
+        },
+        "Gallery": "Galerie",
+        "Link": {
+            "More": "Mehr"
         }
     },
     "Landing": {
         "AboutMe": "Über Mich"
     },
     "Projects": {
+        "Project": "Projekt",
         "Title": "Projekte"
     }
 }

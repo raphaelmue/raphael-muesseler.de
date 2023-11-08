@@ -59,8 +59,7 @@ class Navbar extends React.Component<NavbarComponentProps, NavbarComponentState>
                 <NavBarReact expand="lg">
                     <Container>
                         <NavbarBrand
-                            href={'/'}
-                            onClick={e => e.preventDefault()}>
+                            href={"/"}>
                             {this.props.masterData.navbar.title}
                         </NavbarBrand>
                         <Collapse

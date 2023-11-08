@@ -1,12 +1,12 @@
 import React from 'react';
 import {Card, CardLink, Col, Row, Spinner} from 'reactstrap';
 import Content from '../shared/content/Content';
-import {LandingPage as LandingPageData, MasterData, Project} from '../../.openapi';
+import {LandingPage as LandingPageData, MasterData, ProjectListResponseDataItem} from '../../.openapi';
 import ApiFactory from '../../api/ApiFactory';
 import FooterComponent from '../shared/footer/FooterComponent';
 import ContactForm from '../shared/contactForm/ContactForm';
 import HeaderComponent from '../shared/header/HeaderComponent';
-import ProjectsContent from '../shared/content/projectsContent/ProjectsContent';
+import ProjectsContent from '../shared/content/projectsContent/ProjectCards';
 import {WithTranslation, withTranslation} from 'react-i18next';
 
 interface HomeComponentProps extends WithTranslation {
@@ -15,7 +15,7 @@ interface HomeComponentProps extends WithTranslation {
 interface HomeComponentState {
     landingPageData?: LandingPageData;
     masterData?: MasterData;
-    projects: Project[];
+    projects: ProjectListResponseDataItem[];
 }
 
 class LandingPage extends React.Component<HomeComponentProps, HomeComponentState> {
@@ -49,7 +49,7 @@ class LandingPage extends React.Component<HomeComponentProps, HomeComponentState
 
         projectApi.getProjects(ApiFactory.getAPIParameters()).then(response => {
             if (response.data.data) {
-                this.setState({projects: response.data.data.map(response => response.attributes!)});
+                this.setState({projects: response.data.data});
             }
         });
     }

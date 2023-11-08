@@ -3,8 +3,8 @@ import {Spinner} from 'reactstrap';
 import HeaderComponent from '../shared/header/HeaderComponent';
 import ApiFactory from '../../api/ApiFactory';
 import FooterComponent from '../shared/footer/FooterComponent';
-import ProjectsContent from '../shared/content/projectsContent/ProjectsContent';
-import {MasterData, Project, ProjectPage as ProjectPageData} from '../../.openapi';
+import ProjectsContent from '../shared/content/projectsContent/ProjectCards';
+import {MasterData, ProjectListResponseDataItem, ProjectPage as ProjectPageData} from '../../.openapi';
 
 interface ProjectPageComponentProps {
 }
@@ -12,10 +12,10 @@ interface ProjectPageComponentProps {
 interface ProjectPageComponentState {
     projectPageData?: ProjectPageData;
     masterData?: MasterData;
-    projects: Project[];
+    projects: ProjectListResponseDataItem[];
 }
 
-class ProjectPage extends React.Component<ProjectPageComponentProps, ProjectPageComponentState> {
+class ProjectsPage extends React.Component<ProjectPageComponentProps, ProjectPageComponentState> {
     constructor(props: ProjectPageComponentProps) {
         super(props);
 
@@ -46,7 +46,7 @@ class ProjectPage extends React.Component<ProjectPageComponentProps, ProjectPage
 
         projectApi.getProjects(ApiFactory.getAPIParameters()).then(response => {
             if (response.data.data) {
-                this.setState({projects: response.data.data.map(response => response.attributes!)});
+                this.setState({projects: response.data.data});
             }
         });
     }
@@ -69,4 +69,4 @@ class ProjectPage extends React.Component<ProjectPageComponentProps, ProjectPage
     }
 }
 
-export default ProjectPage;
+export default ProjectsPage;

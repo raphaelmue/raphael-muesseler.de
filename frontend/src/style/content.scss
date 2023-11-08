@@ -1,5 +1,5 @@
 .content-section {
-    padding: 15% 0;
+    padding: 10% 0;
 
     .col {
         padding: 0 25px;
@@ -18,7 +18,7 @@
         @extend .secondary;
         font-size: 14px;
         text-align: center;
-        margin-bottom: 15%;
+        margin-bottom: 10%;
         font-weight: 400 !important;
         color: $gray-500 !important;
 
@@ -34,14 +34,19 @@
 
     &:nth-child(even) {
         background: $secondary;
+        color: $gray-300 !important;
 
         .content-title {
-            color: $gray-300 !important;
 
             &:before, &:after {
                 background: $gray-300;
             }
         }
+    }
+
+    p {
+        font-size: 18px;
+        padding: 0 10%;
     }
 }
 

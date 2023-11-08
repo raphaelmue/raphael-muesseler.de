@@ -1,12 +1,13 @@
 import React from 'react';
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import LandingPage from './landingPage/LandingPage';
-import ProjectPage from './projectsPage/ProjectPage';
+import ProjectsPage from './projectsPage/ProjectsPage';
 import {configureI18N} from '../translations';
 import AOS from 'aos';
 
 import '../style/main.scss';
 import 'aos/dist/aos.css';
+import Project from "./projectsPage/Project";
 
 AOS.init({
     duration: 800,
@@ -18,10 +19,11 @@ configureI18N();
 function App(): React.ReactElement {
     return (
         <BrowserRouter>
-            <Routes>
-                <Route path={'/'} element={<LandingPage/>}/>
-                <Route path={'/projects'} element={<ProjectPage/>}/>
-            </Routes>
+            <Switch>
+                <Route path={'/projects/:projectId'} render={props => <Project {...props}/>} />
+                <Route path={'/projects'} render={props => <ProjectsPage {...props}/>}/>
+                <Route path={'/'} render={props => <LandingPage {...props}/>}/>
+            </Switch>
         </BrowserRouter>
     );
 }

@@ -28,7 +28,7 @@ class Banner extends React.Component<BannerComponentProps, BannerComponentState>
                         {this.props.headerData.title}
                     </h1>
                     <p className={'banner-heading-subtitle'}>
-                        Software Engineer | Musician | Producer
+                        {this.props.headerData.subtitle}
                     </p>
                     <p className={'banner-description'}>
                         {this.props.headerData?.description}
