@@ -9,13 +9,13 @@ import {
     Navbar as NavBarReact,
     NavbarBrand,
     NavItem,
-    NavLink,
     UncontrolledDropdown
 } from 'reactstrap';
 import Headroom from 'headroom.js';
 import {I18NLocale, MasterData} from '../../../../.openapi';
 import ApiFactory from '../../../../api/ApiFactory';
 import Cookies from 'universal-cookie';
+import {Link} from "react-router-dom";
 
 interface NavbarComponentProps {
     masterData: MasterData
@@ -68,7 +68,7 @@ class Navbar extends React.Component<NavbarComponentProps, NavbarComponentState>
                             <Nav className="navbar-nav-hover ms-auto" navbar>
                                 {this.props.masterData.navbar.items?.map(navItem => (
                                     <NavItem key={'navItem_' + navItem.id}>
-                                        <NavLink href={navItem.url || '/'}>{navItem.title}</NavLink>
+                                        <Link to={navItem.url || '/'} className={"nav-link"}>{navItem.title}</Link>
                                     </NavItem>
                                 ))}
                                 <UncontrolledDropdown nav inNavbar>

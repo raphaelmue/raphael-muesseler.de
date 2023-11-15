@@ -1,5 +1,5 @@
 ### 1. Step: Build OpenAPI Specification ###
-FROM node:lts AS builder
+FROM node:18 AS builder
 
 MAINTAINER Raphael Müßeler <raphael@muesseler.de>
 
@@ -7,13 +7,15 @@ MAINTAINER Raphael Müßeler <raphael@muesseler.de>
 WORKDIR /usr/src/app/
 
 # Copy source files
-COPY backend/src/extensions/documentation/documentation/1.0.0/full_documentation.json backend/extensions/documentation/documentation/1.0.0/full_documentation.json
+COPY ./backend/src/extensions/documentation/documentation/1.0.0/ ./backend/src/extensions/documentation/documentation/1.0.0/
 COPY ./frontend/ frontend/
 
 # Set working directory to frontend
-WORKDIR /usr/src/app/frontend
+WORKDIR /usr/src/app/frontend/
 
-# Install python
+# Install Java
+RUN apt-get update
+RUN apt-get -y install default-jre
 
 # Build application
 RUN yarn install

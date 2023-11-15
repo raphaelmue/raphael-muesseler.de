@@ -16,10 +16,10 @@ interface ContactFormComponentState {
 const initialState: ContactFormComponentState = {
     isLoading: false,
     contactRequestData: {
-        firstName: 'Raphael ',
-        lastName: 'Müßeler',
-        email: 'raphael@muesseler.de',
-        message: 'Test Message'
+        firstName: '',
+        lastName: '',
+        email: '',
+        message: ''
     }
 };
 

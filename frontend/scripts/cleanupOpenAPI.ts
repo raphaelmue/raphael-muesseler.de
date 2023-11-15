@@ -23,7 +23,7 @@ const main = async () => {
 		delete parsed['paths']['/users/me'];
 		delete parsed['paths']['/users/{id}'];
 		fs.writeFileSync(
-			'../backend/src/extensions/documentation/documentation/1.0.0/full_documentation_clean.json',
+			'../openapi.json',
 			JSON.stringify(parsed)
 		);
 	} catch (err) {

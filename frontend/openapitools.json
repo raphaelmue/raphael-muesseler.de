@@ -7,7 +7,7 @@
             "default": {
                 "generatorName": "typescript-axios",
                 "output": "#{cwd}/src/.openapi/",
-                "glob": "../backend/src/extensions/documentation/documentation/1.0.0/full_documentation_clean.json",
+                "glob": "../openapi.json",
                 "skipValidateSpec": true,
                 "additionalProperties": {
                     "ngVersion": "16.1.2",
