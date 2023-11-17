@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {HashRouter, Route, Switch} from 'react-router-dom';
 import LandingPage from './landingPage/LandingPage';
 import ProjectsPage from './projectsPage/ProjectsPage';
 import {configureI18N} from '../translations';
@@ -18,13 +18,13 @@ configureI18N();
 
 function App(): React.ReactElement {
     return (
-        <BrowserRouter>
+        <HashRouter>
             <Switch>
                 <Route path={'/projects/:projectId'} render={props => <Project {...props}/>} />
                 <Route path={'/projects'} render={props => <ProjectsPage {...props}/>}/>
                 <Route path={'/'} render={props => <LandingPage {...props}/>}/>
             </Switch>
-        </BrowserRouter>
+        </HashRouter>
     );
 }
 

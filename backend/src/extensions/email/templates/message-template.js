@@ -1,11 +1,6 @@
-const fs = require('fs');
+const fs = require('fs')
+const path = require('path')
 
-let data = fs.readFileSync(__dirname + '/message-template.html', {encoding: 'utf8'});
+const data = fs.readFileSync(path.resolve(__dirname, 'message-template.html'), 'utf8');
 
-module.exports = {
-	text: `
-        ${data.title} \n\r
-		${data.subtitle} \n\r
-		${data.message}`,
-	html: `{data}`
-}
+module.exports = data;

@@ -56,7 +56,8 @@ class ProjectCards extends React.Component<ProjectCardsComponentProps, ProjectCa
                                         <CardLink
                                             href={link.url}
                                             text={link.title || ''}
-                                            key={'projects_link_' + link.id}/>
+                                            key={'projects_link_' + link.id}
+                                            isExternal/>
                                     ))}
                                 </p>
                             </Card>

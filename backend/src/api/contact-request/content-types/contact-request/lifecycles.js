@@ -1,4 +1,5 @@
 const messageTemplate = require('../../../../extensions/email/templates/message-template.js');
+const env = require("cross-env");
 
 
 module.exports = {
@@ -29,9 +30,13 @@ module.exports = {
 			request: params
 		};
 
+
 		try {
 
 			strapi.plugins['email'].services.email.sendTemplatedEmail({
+					from: process.env.SMTP_USERNAME,
+					replyTo: process.env.SMTP_USERNAME,
+					bcc:  process.env.SMTP_USERNAME,
 					to: result.email,
 					attachments: [{
 						filename: `${templateData.icon}.png`,
@@ -50,9 +55,10 @@ module.exports = {
 						path: __dirname + '/../../../../extensions/email/templates/images/github-brands.png'
 					}]
 				}, {
-					...messageTemplate,
+					html: messageTemplate,
+					text: templateInfo.subject,
 					subject: templateInfo.subject
-				}, templateData
+				}, {data: templateData}
 			);
 		} catch (e) {
 			console.error(e);

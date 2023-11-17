@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2023-11-15T19:10:22.452Z"
+    "x-generation-date": "2023-11-17T18:50:13.464Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -3934,16 +3934,13 @@
                           "type": "string",
                           "enum": [
                             "primary",
-                            "blue",
-                            "indigo",
-                            "purple",
-                            "pink",
-                            "red",
-                            "orange",
-                            "yellow",
-                            "green",
-                            "teal",
-                            "cyan"
+                            "secondary",
+                            "success",
+                            "danger",
+                            "warning",
+                            "info",
+                            "light",
+                            "dark"
                           ]
                         },
                         "createdAt": {
@@ -4385,16 +4382,13 @@
             "type": "string",
             "enum": [
               "primary",
-              "blue",
-              "indigo",
-              "purple",
-              "pink",
-              "red",
-              "orange",
-              "yellow",
-              "green",
-              "teal",
-              "cyan"
+              "secondary",
+              "success",
+              "danger",
+              "warning",
+              "info",
+              "light",
+              "dark"
             ]
           },
           "locale": {
@@ -4430,16 +4424,13 @@
                 "type": "string",
                 "enum": [
                   "primary",
-                  "blue",
-                  "indigo",
-                  "purple",
-                  "pink",
-                  "red",
-                  "orange",
-                  "yellow",
-                  "green",
-                  "teal",
-                  "cyan"
+                  "secondary",
+                  "success",
+                  "danger",
+                  "warning",
+                  "info",
+                  "light",
+                  "dark"
                 ]
               },
               "locale": {
@@ -4585,16 +4576,13 @@
             "type": "string",
             "enum": [
               "primary",
-              "blue",
-              "indigo",
-              "purple",
-              "pink",
-              "red",
-              "orange",
-              "yellow",
-              "green",
-              "teal",
-              "cyan"
+              "secondary",
+              "success",
+              "danger",
+              "warning",
+              "info",
+              "light",
+              "dark"
             ]
           },
           "createdAt": {

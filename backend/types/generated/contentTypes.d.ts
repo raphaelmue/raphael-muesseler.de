@@ -1095,16 +1095,13 @@ export interface ApiTagTag extends Schema.CollectionType {
     color: Attribute.Enumeration<
       [
         'primary',
-        'blue',
-        'indigo',
-        'purple',
-        'pink',
-        'red',
-        'orange',
-        'yellow',
-        'green',
-        'teal',
-        'cyan'
+        'secondary',
+        'success',
+        'danger',
+        'warning',
+        'info',
+        'light',
+        'dark'
       ]
     > &
       Attribute.Required &

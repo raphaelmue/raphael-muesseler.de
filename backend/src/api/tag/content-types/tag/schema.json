@@ -52,16 +52,13 @@
       "type": "enumeration",
       "enum": [
         "primary",
-        "blue",
-        "indigo",
-        "purple",
-        "pink",
-        "red",
-        "orange",
-        "yellow",
-        "green",
-        "teal",
-        "cyan"
+        "secondary",
+        "success",
+        "danger",
+        "warning",
+        "info",
+        "light",
+        "dark"
       ],
       "required": true
     }
